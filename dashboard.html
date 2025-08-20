@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutomatUp - Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
@@ -29,37 +30,43 @@
                     <li>
                         <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
                             <i class="fas fa-chart-bar"></i>
-                            <span>Graphic Analysis</span>
+                            <span>Analytics</span>
                         </a>
                     </li>
                     <li>
-                        <a href="logs.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-list-alt"></i>
-                            <span>Logs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Calendar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="alerts.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <span>Alerts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
                             <i class="fas fa-file-alt"></i>
                             <span>Reports</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Event Log</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-video"></i>
+                            <span>Feed</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
                             <i class="fas fa-cog"></i>
                             <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Config</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="far fa-user"></i>
+                            <span>Profile</span>
                         </a>
                     </li>
                 </ul>
@@ -87,7 +94,7 @@
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-2 text-gray-600">
                             <i class="far fa-clock"></i>
-                            <span class="text-sm">05:43pm</span>
+                            <span class="text-sm" data-time>05:43pm</span>
                         </div>
                         <button class="text-gray-600 hover:text-gray-800">
                             <i class="far fa-bell"></i>
@@ -103,29 +110,33 @@
             <div class="flex-1 overflow-auto p-6">
                 <!-- Page Header -->
                 <div class="mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900">Operation</h1>
-                    <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+                    <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                    <p class="text-gray-600 mt-2">Monitor your operations in real-time</p>
                 </div>
 
-                <!-- Operation Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Operation 1 -->
+                <!-- Featured KPI Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Vehicle Docking Card -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 1</h3>
-                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Vehicle Docking</h3>
+                                <p class="text-gray-600 text-sm">Total vehicles today</p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-truck text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
                         
                         <!-- Mini Chart -->
-                        <div class="flex items-end space-x-1 mb-4 h-16">
-                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-12 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-6 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
+                        <div class="mb-4">
+                            <canvas id="vehicleSparkline" width="200" height="40"></canvas>
                         </div>
                         
                         <div class="flex items-center justify-between">
                             <div>
-                                <div class="text-2xl font-bold text-gray-900">937.40</div>
-                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                                <div class="text-2xl font-bold text-gray-900">23</div>
+                                <div class="text-xs text-green-500">(+12% from yesterday)</div>
                             </div>
                             <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
                                 <i class="fas fa-arrow-right"></i>
@@ -133,23 +144,27 @@
                         </div>
                     </div>
 
-                    <!-- Operation 2 (Highlighted) -->
+                    <!-- Sack Counting Card -->
                     <div class="bg-white rounded-xl shadow-sm border-2 border-blue-500 p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 2</h3>
-                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Sack Counting</h3>
+                                <p class="text-gray-600 text-sm">Total counted today</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-boxes text-green-600 text-xl"></i>
+                            </div>
+                        </div>
                         
                         <!-- Mini Chart -->
-                        <div class="flex items-end space-x-1 mb-4 h-16">
-                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-14 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-12 w-3 rounded-sm"></div>
+                        <div class="mb-4">
+                            <canvas id="sackSparkline" width="200" height="40"></canvas>
                         </div>
                         
                         <div class="flex items-center justify-between">
                             <div>
-                                <div class="text-2xl font-bold text-gray-900">937.40</div>
-                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                                <div class="text-2xl font-bold text-gray-900">1,247</div>
+                                <div class="text-xs text-green-500">(+8.3% from yesterday)</div>
                             </div>
                             <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
                                 <i class="fas fa-arrow-right"></i>
@@ -157,56 +172,391 @@
                         </div>
                     </div>
 
-                    <!-- Operation 3 -->
+                    <!-- Violations Card -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 3</h3>
-                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Violations</h3>
+                                <p class="text-gray-600 text-sm">Safety violations today</p>
+                            </div>
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                            </div>
+                        </div>
                         
                         <!-- Mini Chart -->
-                        <div class="flex items-end space-x-1 mb-4 h-16">
-                            <div class="bg-blue-500 h-6 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-4 w-3 rounded-sm"></div>
+                        <div class="mb-4">
+                            <canvas id="violationSparkline" width="200" height="40"></canvas>
                         </div>
                         
                         <div class="flex items-center justify-between">
                             <div>
-                                <div class="text-2xl font-bold text-gray-900">937.40</div>
-                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                                <div class="text-2xl font-bold text-gray-900">3</div>
+                                <div class="text-xs text-red-500">(-50% from yesterday)</div>
                             </div>
                             <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
                                 <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Operation 4 -->
+                <!-- Main Content Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Action Items -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-6">Action Items</h2>
+                            
+                            <div class="space-y-4" id="actionItems">
+                                <!-- Action items will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Section -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 4</h3>
-                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Analytics Chat</h2>
+                        <p class="text-sm text-gray-600 mb-4">Ask questions about your data in natural language</p>
                         
-                        <!-- Mini Chart -->
-                        <div class="flex items-end space-x-1 mb-4 h-16">
-                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-12 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-6 w-3 rounded-sm"></div>
-                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
+                        <!-- Chat Messages -->
+                        <div class="space-y-3 mb-4 max-h-64 overflow-y-auto" id="chatMessages">
+                            <div class="bg-gray-50 rounded-lg p-3">
+                                <p class="text-sm text-gray-600">
+                                    <i class="fas fa-robot mr-2"></i>
+                                    Ask me about your data! Try: "Show daily sack counts this month"
+                                </p>
+                            </div>
                         </div>
                         
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div class="text-2xl font-bold text-gray-900">937.40</div>
-                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
-                            </div>
-                            <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
-                                <i class="fas fa-arrow-right"></i>
+                        <!-- Chat Input -->
+                        <form id="chatForm" class="flex space-x-2">
+                            <input 
+                                type="text" 
+                                id="chatInput"
+                                placeholder="Ask about your data..." 
+                                class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <button 
+                                type="submit" 
+                                class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200"
+                            >
+                                <i class="fas fa-paper-plane"></i>
                             </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Generated Chart Section -->
+                <div id="generatedChartSection" class="hidden mt-6">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-xl font-semibold text-gray-900">Generated Analysis</h2>
+                            <button onclick="closeGeneratedChart()" class="text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Generated SQL -->
+                        <div class="mb-4">
+                            <h3 class="text-sm font-medium text-gray-700 mb-2">Generated Query:</h3>
+                            <div class="bg-gray-900 text-green-400 p-3 rounded-lg font-mono text-sm overflow-x-auto">
+                                <code id="generatedSQL">SELECT * FROM events...</code>
+                            </div>
+                        </div>
+                        
+                        <!-- Generated Chart -->
+                        <div class="h-64">
+                            <canvas id="generatedChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <script src="js/shared.js"></script>
+    <script>
+        // Dashboard Page Logic
+        class DashboardPage {
+            constructor() {
+                this.actionItems = [
+                    {
+                        id: 1,
+                        title: 'Review violation alerts',
+                        description: 'Check safety violations from Dock A',
+                        priority: 'high',
+                        status: 'pending',
+                        dueDate: new Date(Date.now() + 2 * 60 * 60 * 1000) // 2 hours from now
+                    },
+                    {
+                        id: 2,
+                        title: 'Update camera configuration',
+                        description: 'Recalibrate Warehouse Cam 2 counting parameters',
+                        priority: 'medium',
+                        status: 'in-progress',
+                        dueDate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000) // 1 day from now
+                    },
+                    {
+                        id: 3,
+                        title: 'Weekly backup verification',
+                        description: 'Verify data backup integrity for last week',
+                        priority: 'low',
+                        status: 'pending',
+                        dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000) // 3 days from now
+                    },
+                    {
+                        id: 4,
+                        title: 'ERP sync maintenance',
+                        description: 'Schedule maintenance window for Oracle ERP sync',
+                        priority: 'medium',
+                        status: 'completed',
+                        dueDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000) // 1 day ago
+                    }
+                ];
+                
+                this.generatedChart = null;
+                this.init();
+            }
+
+            init() {
+                this.renderActionItems();
+                this.createSparklines();
+                this.bindEvents();
+            }
+
+            renderActionItems() {
+                const container = document.getElementById('actionItems');
+                
+                // Sort by priority and status
+                const sortedItems = this.actionItems.sort((a, b) => {
+                    const priorityOrder = { high: 3, medium: 2, low: 1 };
+                    const statusOrder = { pending: 3, 'in-progress': 2, completed: 1 };
+                    
+                    if (a.priority !== b.priority) {
+                        return priorityOrder[b.priority] - priorityOrder[a.priority];
+                    }
+                    return statusOrder[b.status] - statusOrder[a.status];
+                });
+
+                container.innerHTML = sortedItems.map(item => {
+                    const priorityClass = this.getPriorityClass(item.priority);
+                    const statusClass = this.getStatusClass(item.status);
+                    const isOverdue = item.status !== 'completed' && new Date() > item.dueDate;
+                    
+                    return `
+                        <div class="border border-gray-200 rounded-lg p-4 ${isOverdue ? 'border-red-300 bg-red-50' : ''}">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <h3 class="font-medium text-gray-900">${item.title}</h3>
+                                        <span class="px-2 py-1 text-xs font-medium rounded-full ${priorityClass}">
+                                            ${item.priority}
+                                        </span>
+                                        <span class="px-2 py-1 text-xs font-medium rounded-full ${statusClass}">
+                                            ${item.status}
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">${item.description}</p>
+                                    <p class="text-xs text-gray-500">
+                                        Due: ${this.formatDate(item.dueDate)}
+                                        ${isOverdue ? '<span class="text-red-600 font-medium">• Overdue</span>' : ''}
+                                    </p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    ${item.status !== 'completed' ? `
+                                        <button onclick="markComplete(${item.id})" class="text-green-600 hover:text-green-700" title="Mark Complete">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                    ` : ''}
+                                    <button class="text-gray-400 hover:text-gray-600" title="More Options">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            getPriorityClass(priority) {
+                switch (priority) {
+                    case 'high': return 'bg-red-100 text-red-800';
+                    case 'medium': return 'bg-yellow-100 text-yellow-800';
+                    case 'low': return 'bg-green-100 text-green-800';
+                    default: return 'bg-gray-100 text-gray-800';
+                }
+            }
+
+            getStatusClass(status) {
+                switch (status) {
+                    case 'pending': return 'bg-gray-100 text-gray-800';
+                    case 'in-progress': return 'bg-blue-100 text-blue-800';
+                    case 'completed': return 'bg-green-100 text-green-800';
+                    default: return 'bg-gray-100 text-gray-800';
+                }
+            }
+
+            createSparklines() {
+                // Vehicle data
+                const vehicleData = [15, 23, 18, 27, 31, 23, 19];
+                window.chartHelper.createSparkline('vehicleSparkline', vehicleData, '#3b82f6');
+                
+                // Sack data
+                const sackData = [1100, 1200, 950, 1300, 1180, 1247, 1190];
+                window.chartHelper.createSparkline('sackSparkline', sackData, '#10b981');
+                
+                // Violation data
+                const violationData = [8, 6, 3, 4, 7, 6, 3];
+                window.chartHelper.createSparkline('violationSparkline', violationData, '#ef4444');
+            }
+
+            bindEvents() {
+                // Chat form
+                document.getElementById('chatForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleChatSubmit();
+                });
+            }
+
+            async handleChatSubmit() {
+                const input = document.getElementById('chatInput');
+                const query = input.value.trim();
+                
+                if (!query) return;
+
+                // Add user message
+                this.addChatMessage(query, 'user');
+                input.value = '';
+
+                // Add loading message
+                this.addChatMessage('Analyzing your request...', 'bot', true);
+
+                try {
+                    // Generate SQL
+                    const sql = await window.mockAPI.generateSQL(query);
+                    
+                    // Generate chart data
+                    const chartData = await window.mockAPI.generateChartData(sql);
+                    
+                    // Remove loading message
+                    this.removeChatMessage();
+                    
+                    // Add bot response
+                    this.addChatMessage('I\'ve generated an analysis based on your query. Check the chart below!', 'bot');
+                    
+                    // Show generated chart
+                    this.showGeneratedChart(sql, chartData);
+                    
+                } catch (error) {
+                    this.removeChatMessage();
+                    this.addChatMessage('Sorry, I couldn\'t process your request. Please try rephrasing.', 'bot');
+                }
+            }
+
+            addChatMessage(message, sender, isLoading = false) {
+                const container = document.getElementById('chatMessages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `${sender === 'user' ? 'ml-8' : 'mr-8'} ${isLoading ? 'loading-message' : ''}`;
+                
+                messageDiv.innerHTML = `
+                    <div class="rounded-lg p-3 ${
+                        sender === 'user' 
+                            ? 'bg-blue-600 text-white' 
+                            : 'bg-gray-50 text-gray-900'
+                    }">
+                        <p class="text-sm">
+                            ${sender === 'bot' ? '<i class="fas fa-robot mr-2"></i>' : ''}
+                            ${message}
+                            ${isLoading ? '<i class="fas fa-spinner fa-spin ml-2"></i>' : ''}
+                        </p>
+                    </div>
+                `;
+                
+                container.appendChild(messageDiv);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            removeChatMessage() {
+                const container = document.getElementById('chatMessages');
+                const loadingMessage = container.querySelector('.loading-message');
+                if (loadingMessage) {
+                    loadingMessage.remove();
+                }
+            }
+
+            showGeneratedChart(sql, chartData) {
+                document.getElementById('generatedSQL').textContent = sql;
+                document.getElementById('generatedChartSection').classList.remove('hidden');
+                
+                // Destroy existing chart
+                if (this.generatedChart) {
+                    this.generatedChart.destroy();
+                }
+                
+                // Create new chart
+                this.generatedChart = window.chartHelper.createChart('generatedChart', {
+                    type: 'bar',
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: chartData.datasets.length > 1
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                
+                // Scroll to chart
+                document.getElementById('generatedChartSection').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }
+
+            markComplete(itemId) {
+                const item = this.actionItems.find(item => item.id === itemId);
+                if (item) {
+                    item.status = 'completed';
+                    this.renderActionItems();
+                    window.utils.showToast('Action item marked as complete!', 'success');
+                }
+            }
+
+            formatDate(date) {
+                const now = new Date();
+                const diffTime = date - now;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 0) return 'Today';
+                if (diffDays === 1) return 'Tomorrow';
+                if (diffDays === -1) return 'Yesterday';
+                if (diffDays > 1) return `In ${diffDays} days`;
+                if (diffDays < -1) return `${Math.abs(diffDays)} days ago`;
+                
+                return window.utils.formatDate(date);
+            }
+        }
+
+        // Global functions
+        function markComplete(itemId) {
+            window.dashboardPage.markComplete(itemId);
+        }
+
+        function closeGeneratedChart() {
+            document.getElementById('generatedChartSection').classList.add('hidden');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dashboardPage = new DashboardPage();
+        });
+    </script>
 </body>
 </html>
