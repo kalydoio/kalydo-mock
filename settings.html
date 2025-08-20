@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomatUp - Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700">
+                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="mt-6">
+                <ul class="space-y-2 px-4">
+                    <li>
+                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Event Log</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-video"></i>
+                            <span>Feed</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Config</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="far fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Plans</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Bar -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Search Bar -->
+                    <div class="flex-1 max-w-md">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                placeholder="Search settings..."
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side Icons -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="far fa-clock"></i>
+                            <span class="text-sm" data-time>05:43pm</span>
+                        </div>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="flex-1 overflow-auto p-6">
+                <!-- Breadcrumb -->
+                <nav class="mb-6">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>
+                        <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                        <span class="text-gray-700">Settings</span>
+                    </div>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Settings</h1>
+                    <p class="text-gray-600 mt-2">Configure system settings and integrations</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Activity Tracking -->
+                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Activity Tracking</h2>
+                        
+                        <div class="space-y-4">
+                            <!-- Activity Log Header -->
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-medium text-gray-900">Recent Activity</h3>
+                                <button onclick="clearActivityLog()" class="text-sm text-red-600 hover:text-red-700">
+                                    Clear Log
+                                </button>
+                            </div>
+                            
+                            <!-- Activity Log Container -->
+                            <div class="bg-gray-50 rounded-lg p-4 max-h-64 overflow-y-auto" id="activityLog">
+                                <!-- Activity items will be populated here -->
+                            </div>
+                            
+                            <!-- Activity Settings -->
+                            <div class="flex items-center justify-between pt-4 border-t">
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="enableActivityTracking" class="mr-2" checked>
+                                    <span class="text-sm font-medium text-gray-700">Enable Activity Tracking</span>
+                                </label>
+                                <select id="activityRetention" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                                    <option value="7">Keep 7 days</option>
+                                    <option value="30" selected>Keep 30 days</option>
+                                    <option value="90">Keep 90 days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ERP Integration -->
+                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">ERP Integration</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="erpModules">
+                            <!-- ERP module cards will be populated here -->
+                        </div>
+                    </section>
+
+                    <!-- Camera Configuration -->
+                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Camera Configuration</h2>
+                        
+                        <form id="cameraConfigForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Camera Name</label>
+                                    <input type="text" name="name" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter camera name">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">IP Address / RTSP URL</label>
+                                    <input type="text" name="ip" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="192.168.1.100">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Assign Area</label>
+                                    <select name="area" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Select Area</option>
+                                        <option value="Dock A">Dock A</option>
+                                        <option value="Dock B">Dock B</option>
+                                        <option value="Warehouse">Warehouse</option>
+                                        <option value="Loading Bay">Loading Bay</option>
+                                        <option value="Main Gate">Main Gate</option>
+                                        <option value="Perimeter">Perimeter</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Feature Assignment</label>
+                                    <select name="feature" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Select Feature</option>
+                                        <option value="Counting">Counting</option>
+                                        <option value="Vehicle Tracking">Vehicle Tracking</option>
+                                        <option value="Violation Detection">Violation Detection</option>
+                                        <option value="Security">Security Monitoring</option>
+                                        <option value="Access Control">Access Control</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
+                                Add Camera
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- Master Data -->
+                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Master Data Management</h2>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <!-- AOI (Areas of Interest) -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Areas of Interest (AOI)</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="text" id="newAOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new area">
+                                        <button onclick="addMasterDataItem('aoi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div id="aoiList" class="space-y-1 max-h-40 overflow-y-auto">
+                                        <!-- AOI items will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- OOI (Objects of Interest) -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Objects of Interest (OOI)</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="text" id="newOOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new object">
+                                        <button onclick="addMasterDataItem('ooi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div id="ooiList" class="space-y-1 max-h-40 overflow-y-auto">
+                                        <!-- OOI items will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- HOI (Happenings of Interest) -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Happenings of Interest (HOI)</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="text" id="newHOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new happening">
+                                        <button onclick="addMasterDataItem('hoi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div id="hoiList" class="space-y-1 max-h-40 overflow-y-auto">
+                                        <!-- HOI items will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Event Types -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Event Types</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="text" id="newEvent" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new event type">
+                                        <button onclick="addMasterDataItem('events')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div id="eventsList" class="space-y-1 max-h-40 overflow-y-auto">
+                                        <!-- Event items will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VOI (Variables of Interest) -->
+                            <div class="lg:col-span-2">
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Variables of Interest (VOI)</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="text" id="newVOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new variable">
+                                        <button onclick="addMasterDataItem('voi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div id="voiList" class="space-y-1 max-h-40 overflow-y-auto">
+                                        <!-- VOI items will be populated here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/shared.js"></script>
+    <script>
+        // Settings Page Logic
+        class SettingsPage {
+            constructor() {
+                this.activityLog = [];
+                this.erpModules = [
+                    { id: 'sap', name: 'SAP ERP', icon: 'fas fa-database', connected: false, description: 'Enterprise Resource Planning' },
+                    { id: 'oracle', name: 'Oracle ERP', icon: 'fas fa-cloud', connected: true, description: 'Cloud-based ERP solution' },
+                    { id: 'dynamics', name: 'MS Dynamics', icon: 'fas fa-windows', connected: false, description: 'Microsoft business applications' },
+                    { id: 'netsuite', name: 'NetSuite', icon: 'fas fa-chart-line', connected: false, description: 'Cloud business software' },
+                    { id: 'quickbooks', name: 'QuickBooks', icon: 'fas fa-calculator', connected: true, description: 'Accounting software' },
+                    { id: 'salesforce', name: 'Salesforce', icon: 'fas fa-users', connected: false, description: 'Customer relationship management' }
+                ];
+                this.init();
+            }
+
+            init() {
+                this.generateMockActivityLog();
+                this.renderActivityLog();
+                this.renderERPModules();
+                this.renderMasterData();
+                this.bindEvents();
+            }
+
+            generateMockActivityLog() {
+                const activities = [
+                    'User logged in from 192.168.1.100',
+                    'Camera "Dock A Camera 1" connected',
+                    'New event detected: Vehicle Arrival at Dock B',
+                    'Configuration updated for counting feature',
+                    'ERP sync completed with Oracle',
+                    'Camera "Warehouse Cam 2" disconnected',
+                    'Alert triggered: Count mismatch detected',
+                    'Backup completed successfully',
+                    'User "john@automatup.com" updated profile',
+                    'System maintenance completed'
+                ];
+
+                this.activityLog = activities.map((activity, index) => ({
+                    id: index + 1,
+                    message: activity,
+                    timestamp: new Date(Date.now() - (index * 1000 * 60 * 15)), // 15 min intervals
+                    type: Math.random() > 0.7 ? 'warning' : 'info'
+                }));
+            }
+
+            renderActivityLog() {
+                const container = document.getElementById('activityLog');
+                container.innerHTML = this.activityLog.map(activity => `
+                    <div class="flex items-start space-x-3 py-2 border-b border-gray-200 last:border-b-0">
+                        <div class="w-2 h-2 rounded-full mt-2 ${
+                            activity.type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
+                        }"></div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-900">${activity.message}</p>
+                            <p class="text-xs text-gray-500">${this.formatTimestamp(activity.timestamp)}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderERPModules() {
+                const container = document.getElementById('erpModules');
+                container.innerHTML = this.erpModules.map(module => `
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class="${module.icon} text-gray-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-900">${module.name}</h4>
+                                    <p class="text-xs text-gray-500">${module.description}</p>
+                                </div>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" class="sr-only peer" ${module.connected ? 'checked' : ''} 
+                                       onchange="toggleERPConnection('${module.id}')">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-600">Status:</span>
+                            <span class="px-2 py-1 text-xs font-medium rounded-full ${
+                                module.connected ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                            }">
+                                ${module.connected ? 'Connected' : 'Disconnected'}
+                            </span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderMasterData() {
+                const masterData = window.appState.getMasterData();
+                
+                Object.keys(masterData).forEach(category => {
+                    const container = document.getElementById(category + 'List');
+                    if (container) {
+                        container.innerHTML = masterData[category].map((item, index) => `
+                            <div class="flex items-center justify-between py-2 px-3 bg-gray-50 rounded-lg">
+                                <span class="text-sm text-gray-900">${item}</span>
+                                <button onclick="removeMasterDataItem('${category}', ${index})" 
+                                        class="text-red-600 hover:text-red-700 text-sm">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        `).join('');
+                    }
+                });
+            }
+
+            bindEvents() {
+                // Camera config form
+                document.getElementById('cameraConfigForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.addCameraFromSettings(e.target);
+                });
+
+                // Activity tracking settings
+                document.getElementById('enableActivityTracking').addEventListener('change', (e) => {
+                    window.utils.showToast(
+                        `Activity tracking ${e.target.checked ? 'enabled' : 'disabled'}`, 
+                        'info'
+                    );
+                });
+
+                document.getElementById('activityRetention').addEventListener('change', (e) => {
+                    window.utils.showToast(
+                        `Activity retention set to ${e.target.value} days`, 
+                        'info'
+                    );
+                });
+            }
+
+            addCameraFromSettings(form) {
+                const formData = new FormData(form);
+                
+                if (!formData.get('name') || !formData.get('ip')) {
+                    window.utils.showToast('Please fill in required fields', 'error');
+                    return;
+                }
+
+                const newCamera = {
+                    name: formData.get('name'),
+                    ip: formData.get('ip'),
+                    area: formData.get('area') || 'Unassigned',
+                    features: formData.get('feature') ? [formData.get('feature')] : [],
+                    status: 'active'
+                };
+
+                window.appState.addCamera(newCamera);
+                form.reset();
+                window.utils.showToast('Camera added successfully!', 'success');
+                
+                // Add to activity log
+                this.addActivity(`New camera "${newCamera.name}" added to ${newCamera.area}`);
+            }
+
+            addActivity(message, type = 'info') {
+                this.activityLog.unshift({
+                    id: this.activityLog.length + 1,
+                    message: message,
+                    timestamp: new Date(),
+                    type: type
+                });
+                
+                // Keep only last 50 activities
+                if (this.activityLog.length > 50) {
+                    this.activityLog = this.activityLog.slice(0, 50);
+                }
+                
+                this.renderActivityLog();
+            }
+
+            formatTimestamp(timestamp) {
+                const now = new Date();
+                const diff = now - timestamp;
+                const minutes = Math.floor(diff / 60000);
+                const hours = Math.floor(minutes / 60);
+                const days = Math.floor(hours / 24);
+
+                if (days > 0) return `${days}d ago`;
+                if (hours > 0) return `${hours}h ago`;
+                if (minutes > 0) return `${minutes}m ago`;
+                return 'Just now';
+            }
+        }
+
+        // Global functions
+        function clearActivityLog() {
+            if (confirm('Are you sure you want to clear the activity log?')) {
+                window.settingsPage.activityLog = [];
+                window.settingsPage.renderActivityLog();
+                window.utils.showToast('Activity log cleared', 'info');
+            }
+        }
+
+        function toggleERPConnection(moduleId) {
+            const module = window.settingsPage.erpModules.find(m => m.id === moduleId);
+            if (module) {
+                module.connected = !module.connected;
+                window.settingsPage.renderERPModules();
+                window.settingsPage.addActivity(
+                    `ERP module "${module.name}" ${module.connected ? 'connected' : 'disconnected'}`,
+                    module.connected ? 'info' : 'warning'
+                );
+                window.utils.showToast(
+                    `${module.name} ${module.connected ? 'connected' : 'disconnected'}`, 
+                    module.connected ? 'success' : 'info'
+                );
+            }
+        }
+
+        function addMasterDataItem(category) {
+            const input = document.getElementById('new' + category.toUpperCase());
+            const value = input.value.trim();
+            
+            if (!value) {
+                window.utils.showToast('Please enter a value', 'error');
+                return;
+            }
+
+            const masterData = window.appState.getMasterData();
+            if (!masterData[category].includes(value)) {
+                masterData[category].push(value);
+                window.appState.updateMasterData(category, masterData[category]);
+                window.settingsPage.renderMasterData();
+                input.value = '';
+                window.utils.showToast(`Added "${value}" to ${category.toUpperCase()}`, 'success');
+                window.settingsPage.addActivity(`Added new ${category.toUpperCase()}: "${value}"`);
+            } else {
+                window.utils.showToast('Item already exists', 'error');
+            }
+        }
+
+        function removeMasterDataItem(category, index) {
+            const masterData = window.appState.getMasterData();
+            const item = masterData[category][index];
+            
+            if (confirm(`Remove "${item}" from ${category.toUpperCase()}?`)) {
+                masterData[category].splice(index, 1);
+                window.appState.updateMasterData(category, masterData[category]);
+                window.settingsPage.renderMasterData();
+                window.utils.showToast(`Removed "${item}" from ${category.toUpperCase()}`, 'info');
+                window.settingsPage.addActivity(`Removed ${category.toUpperCase()}: "${item}"`);
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            window.settingsPage = new SettingsPage();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomatUp - Plans & Pricing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700">
+                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="mt-6">
+                <ul class="space-y-2 px-4">
+                    <li>
+                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Event Log</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-video"></i>
+                            <span>Feed</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Config</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="far fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Plans</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Bar -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Search Bar -->
+                    <div class="flex-1 max-w-md">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side Icons -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="far fa-clock"></i>
+                            <span class="text-sm" data-time>05:43pm</span>
+                        </div>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="flex-1 overflow-auto p-6">
+                <!-- Breadcrumb -->
+                <nav class="mb-6">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>
+                        <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                        <span class="text-gray-700">Plans & Pricing</span>
+                    </div>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-4">Choose Your Plan</h1>
+                    <p class="text-xl text-gray-600 mb-8">Select the perfect plan for your automation needs</p>
+                    
+                    <!-- Billing Toggle -->
+                    <div class="flex items-center justify-center space-x-4">
+                        <span class="text-sm font-medium text-gray-700">Monthly</span>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="billingToggle" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                        </label>
+                        <span class="text-sm font-medium text-gray-700">
+                            Annual 
+                            <span class="text-green-600 font-semibold">(Save 20%)</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <!-- Basic Plan -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 relative">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Basic</h3>
+                            <p class="text-gray-600 mb-4">Perfect for small operations</p>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-gray-900" id="basicPrice">$99</span>
+                                <span class="text-gray-600" id="basicPeriod">/month</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Up to 5 cameras</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Basic counting features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Standard analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Email support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">7-day data retention</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times mr-3"></i>
+                                <span>Advanced AI features</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fas fa-times mr-3"></i>
+                                <span>Priority support</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="selectPlan('Basic')" class="w-full py-3 px-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition duration-200">
+                            Start Trial
+                        </button>
+                    </div>
+
+                    <!-- Advance Plan (Most Popular) -->
+                    <div class="bg-white rounded-xl shadow-lg border-2 border-blue-500 p-8 relative">
+                        <!-- Popular Badge -->
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-medium">
+                                Most Popular
+                            </span>
+                        </div>
+                        
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Advance</h3>
+                            <p class="text-gray-600 mb-4">Ideal for growing businesses</p>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-gray-900" id="advancePrice">$199</span>
+                                <span class="text-gray-600" id="advancePeriod">/month</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Up to 20 cameras</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Advanced counting & tracking</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Violation detection</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Real-time analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Priority support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">30-day data retention</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Basic ERP integration</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="selectPlan('Advance')" class="w-full py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
+                            Choose Plan
+                        </button>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8 relative">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
+                            <p class="text-gray-600 mb-4">For enterprise-scale operations</p>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-gray-900" id="proPrice">$399</span>
+                                <span class="text-gray-600" id="proPeriod">/month</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Unlimited cameras</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">All AI features</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Custom analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">24/7 support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Unlimited data retention</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Full ERP integration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Dedicated account manager</span>
+                            </li>
+                        </ul>
+                        
+                        <button onclick="selectPlan('Pro')" class="w-full py-3 px-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition duration-200">
+                            Choose Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Add Modules Section -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Add-on Modules</h2>
+                    <p class="text-gray-600 text-center mb-8">Enhance your plan with specialized modules</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer" onclick="showModuleDetails('Advanced Analytics')">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Advanced Analytics</h3>
+                            <p class="text-sm text-gray-600 mb-3">AI-powered insights and predictions</p>
+                            <p class="text-lg font-bold text-gray-900">$49/mo</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer" onclick="showModuleDetails('Safety Monitoring')">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-alt text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Safety Monitoring</h3>
+                            <p class="text-sm text-gray-600 mb-3">PPE detection and safety compliance</p>
+                            <p class="text-lg font-bold text-gray-900">$79/mo</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer" onclick="showModuleDetails('Quality Control')">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Quality Control</h3>
+                            <p class="text-sm text-gray-600 mb-3">Product defect detection</p>
+                            <p class="text-lg font-bold text-gray-900">$69/mo</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer" onclick="showModuleDetails('Custom Integration')">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-puzzle-piece text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-gray-900 mb-2">Custom Integration</h3>
+                            <p class="text-sm text-gray-600 mb-3">Tailored API integrations</p>
+                            <p class="text-lg font-bold text-gray-900">Custom</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Plan Summary -->
+                <div class="bg-blue-50 rounded-xl border border-blue-200 p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Current Plan</h3>
+                            <p class="text-gray-600">You are currently on the <span class="font-medium" id="currentPlanName">Pro Plan</span></p>
+                            <p class="text-sm text-gray-500 mt-1">Next billing date: <span id="nextBillingDate">September 20, 2025</span></p>
+                        </div>
+                        <button onclick="showBillingSummary()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
+                            View Billing
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Plan Confirmation Modal -->
+    <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-crown text-blue-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Confirm Plan Selection</h3>
+                <p class="text-gray-600 mb-6">You've selected the <span id="selectedPlanName" class="font-medium"></span></p>
+                
+                <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-600">Plan Cost:</span>
+                        <span class="font-medium" id="selectedPlanCost">$199/month</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-gray-600">Modules:</span>
+                        <span class="font-medium" id="selectedModulesCost">$0/month</span>
+                    </div>
+                    <div class="border-t pt-2 flex justify-between items-center">
+                        <span class="font-medium text-gray-900">Total:</span>
+                        <span class="font-bold text-gray-900" id="totalCost">$199/month</span>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-3">
+                    <button onclick="hidePlanModal()" class="flex-1 py-2 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                        Cancel
+                    </button>
+                    <button onclick="confirmPlan()" class="flex-1 py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module Details Modal -->
+    <div id="moduleModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-6 w-full max-w-lg mx-4">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold" id="moduleTitle">Module Details</h3>
+                <button onclick="hideModuleModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="moduleContent">
+                <!-- Module details will be populated here -->
+            </div>
+            
+            <div class="flex justify-end space-x-3 mt-6">
+                <button onclick="hideModuleModal()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                    Close
+                </button>
+                <button onclick="addModule()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    Add Module
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Billing Summary Drawer -->
+    <div id="billingDrawer" class="hidden fixed inset-y-0 right-0 w-96 bg-white shadow-lg z-50 transform translate-x-full transition-transform">
+        <div class="p-6 border-b">
+            <div class="flex items-center justify-between">
+                <h3 class="text-lg font-semibold text-gray-900">Billing Summary</h3>
+                <button onclick="hideBillingSummary()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="p-6">
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Current Plan:</span>
+                    <span class="font-medium">Pro Plan</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Next Billing:</span>
+                    <span class="font-medium">Sep 20, 2025</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Payment Method:</span>
+                    <span class="font-medium">•••• 1234</span>
+                </div>
+                
+                <div class="border-t pt-4">
+                    <h4 class="font-medium text-gray-900 mb-3">Recent Invoices</h4>
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Aug 20, 2025</span>
+                            <span class="text-gray-900">$399.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Jul 20, 2025</span>
+                            <span class="text-gray-900">$399.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Jun 20, 2025</span>
+                            <span class="text-gray-900">$399.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/shared.js"></script>
+    <script>
+        // Plans Page Logic
+        class PlansPage {
+            constructor() {
+                this.selectedPlan = null;
+                this.isAnnual = false;
+                this.plans = {
+                    Basic: { monthly: 99, annual: 950 },
+                    Advance: { monthly: 199, annual: 1910 },
+                    Pro: { monthly: 399, annual: 3830 }
+                };
+                this.modules = {
+                    'Advanced Analytics': { price: 49, description: 'AI-powered insights and predictive analytics for operational optimization.' },
+                    'Safety Monitoring': { price: 79, description: 'PPE detection, safety compliance monitoring, and incident prevention.' },
+                    'Quality Control': { price: 69, description: 'Automated defect detection and quality assurance workflows.' },
+                    'Custom Integration': { price: 'Custom', description: 'Tailored API integrations and custom feature development.' }
+                };
+                this.init();
+            }
+
+            init() {
+                this.updatePricing();
+                this.bindEvents();
+                this.loadCurrentPlan();
+            }
+
+            bindEvents() {
+                document.getElementById('billingToggle').addEventListener('change', (e) => {
+                    this.isAnnual = e.target.checked;
+                    this.updatePricing();
+                });
+            }
+
+            updatePricing() {
+                Object.keys(this.plans).forEach(plan => {
+                    const price = this.isAnnual ? this.plans[plan].annual : this.plans[plan].monthly;
+                    const period = this.isAnnual ? '/year' : '/month';
+                    
+                    document.getElementById(plan.toLowerCase() + 'Price').textContent = `$${price}`;
+                    document.getElementById(plan.toLowerCase() + 'Period').textContent = period;
+                });
+            }
+
+            loadCurrentPlan() {
+                const config = window.appState.getConfig();
+                const profile = window.appState.getProfile();
+                
+                document.getElementById('currentPlanName').textContent = config.plan + ' Plan';
+                document.getElementById('nextBillingDate').textContent = window.utils.formatDate(profile.billing.nextBilling);
+            }
+
+            selectPlan(planName) {
+                this.selectedPlan = planName;
+                const price = this.isAnnual ? this.plans[planName].annual : this.plans[planName].monthly;
+                const period = this.isAnnual ? '/year' : '/month';
+                
+                document.getElementById('selectedPlanName').textContent = planName + ' Plan';
+                document.getElementById('selectedPlanCost').textContent = `$${price}${period}`;
+                document.getElementById('selectedModulesCost').textContent = '$0' + period;
+                document.getElementById('totalCost').textContent = `$${price}${period}`;
+                
+                document.getElementById('planModal').classList.remove('hidden');
+            }
+
+            confirmPlan() {
+                if (this.selectedPlan) {
+                    window.appState.updateConfig({ plan: this.selectedPlan });
+                    
+                    const profile = window.appState.getProfile();
+                    profile.billing.currentCycle = this.isAnnual ? 'Annual' : 'Monthly';
+                    window.appState.updateProfile(profile);
+                    
+                    this.loadCurrentPlan();
+                    this.hidePlanModal();
+                    
+                    window.utils.showToast(`Successfully upgraded to ${this.selectedPlan} Plan!`, 'success');
+                }
+            }
+
+            hidePlanModal() {
+                document.getElementById('planModal').classList.add('hidden');
+            }
+
+            showModuleDetails(moduleName) {
+                const module = this.modules[moduleName];
+                document.getElementById('moduleTitle').textContent = moduleName;
+                
+                document.getElementById('moduleContent').innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-gray-600">${module.description}</p>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center">
+                                <span class="font-medium text-gray-900">Price:</span>
+                                <span class="text-lg font-bold text-gray-900">
+                                    ${typeof module.price === 'number' ? `$${module.price}/month` : module.price}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 class="font-medium text-gray-900">Features included:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                ${this.getModuleFeatures(moduleName).map(feature => `<li>• ${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('moduleModal').classList.remove('hidden');
+            }
+
+            getModuleFeatures(moduleName) {
+                const features = {
+                    'Advanced Analytics': [
+                        'Predictive maintenance alerts',
+                        'Performance optimization recommendations',
+                        'Custom dashboard creation',
+                        'Advanced reporting tools'
+                    ],
+                    'Safety Monitoring': [
+                        'PPE compliance detection',
+                        'Safety zone monitoring',
+                        'Incident reporting automation',
+                        'OSHA compliance tracking'
+                    ],
+                    'Quality Control': [
+                        'Real-time defect detection',
+                        'Quality metrics tracking',
+                        'Automated rejection workflows',
+                        'Compliance documentation'
+                    ],
+                    'Custom Integration': [
+                        'API development',
+                        'Custom feature implementation',
+                        'Third-party system integration',
+                        'Dedicated development support'
+                    ]
+                };
+                
+                return features[moduleName] || [];
+            }
+
+            hideModuleModal() {
+                document.getElementById('moduleModal').classList.add('hidden');
+            }
+
+            addModule() {
+                window.utils.showToast('Module addition feature coming soon!', 'info');
+                this.hideModuleModal();
+            }
+
+            showBillingSummary() {
+                const drawer = document.getElementById('billingDrawer');
+                drawer.classList.remove('hidden');
+                setTimeout(() => {
+                    drawer.classList.remove('translate-x-full');
+                }, 10);
+            }
+
+            hideBillingSummary() {
+                const drawer = document.getElementById('billingDrawer');
+                drawer.classList.add('translate-x-full');
+                setTimeout(() => {
+                    drawer.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Global functions
+        function selectPlan(planName) {
+            window.plansPage.selectPlan(planName);
+        }
+
+        function confirmPlan() {
+            window.plansPage.confirmPlan();
+        }
+
+        function hidePlanModal() {
+            window.plansPage.hidePlanModal();
+        }
+
+        function showModuleDetails(moduleName) {
+            window.plansPage.showModuleDetails(moduleName);
+        }
+
+        function hideModuleModal() {
+            window.plansPage.hideModuleModal();
+        }
+
+        function addModule() {
+            window.plansPage.addModule();
+        }
+
+        function showBillingSummary() {
+            window.plansPage.showBillingSummary();
+        }
+
+        function hideBillingSummary() {
+            window.plansPage.hideBillingSummary();
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            window.plansPage = new PlansPage();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "flux-dashboard",
+  "version": "1.0.0",
+  "description": "Industrial SaaS Dashboard with ROI Configuration",
+  "main": "dashboard.html",
+  "scripts": {
+    "build": "node deploy.js",
+    "deploy": "npm run build && echo 'Ready for deployment!'",
+    "serve": "python3 -m http.server 8000 --directory dist"
+  },
+  "keywords": ["dashboard", "saas", "industrial", "roi", "monitoring"],
+  "author": "Flux Systems",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

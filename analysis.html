@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomatUp - Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700">
+                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="mt-6">
+                <ul class="space-y-2 px-4">
+                    <li>
+                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Event Log</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-video"></i>
+                            <span>Feed</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Config</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="far fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Plans</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Bar -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Search Bar -->
+                    <div class="flex-1 max-w-md">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side Icons -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="far fa-clock"></i>
+                            <span class="text-sm" data-time>05:43pm</span>
+                        </div>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="flex-1 overflow-auto p-6">
+                <!-- Breadcrumb -->
+                <nav class="mb-6">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Operations</a>
+                        <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                        <span class="text-gray-700">Analysis 1</span>
+                    </div>
+                </nav>
+
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Analysis 1</h1>
+                </div>
+
+                <!-- Chart Container -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <!-- Chart Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">Weekly Production Units</h2>
+                        
+                        <!-- Time Filter -->
+                        <div class="flex items-center space-x-2">
+                            <i class="far fa-clock text-blue-600"></i>
+                            <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                                <option value="year">Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="flex items-center space-x-6 mb-6">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+                            <span class="text-sm text-gray-700">Machine A</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-blue-300 rounded-full"></div>
+                            <span class="text-sm text-gray-700">Machine B</span>
+                        </div>
+                    </div>
+
+                    <!-- Chart Canvas -->
+                    <div class="h-96">
+                        <canvas id="productionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Chart.js Configuration
+        const ctx = document.getElementById('productionChart').getContext('2d');
+        
+        const productionChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                datasets: [
+                    {
+                        label: 'Machine A',
+                        data: [32, 80, 15, 75, 25, 90],
+                        backgroundColor: '#2563eb',
+                        borderColor: '#2563eb',
+                        borderWidth: 0,
+                        borderRadius: 4,
+                        borderSkipped: false,
+                    },
+                    {
+                        label: 'Machine B',
+                        data: [15, 62, 12, 62, 32, 48],
+                        backgroundColor: '#93c5fd',
+                        borderColor: '#93c5fd',
+                        borderWidth: 0,
+                        borderRadius: 4,
+                        borderSkipped: false,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        titleColor: 'white',
+                        bodyColor: 'white',
+                        borderColor: '#e5e7eb',
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        displayColors: true,
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + ' units';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        border: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#6b7280',
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            color: '#f3f4f6',
+                            drawBorder: false
+                        },
+                        border: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#6b7280',
+                            font: {
+                                size: 12
+                            },
+                            stepSize: 20
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                },
+                elements: {
+                    bar: {
+                        borderWidth: 0
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
