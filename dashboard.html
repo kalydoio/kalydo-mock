@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomatUp - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700">
+                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            </div>
+            
+            <!-- Navigation Menu -->
+            <nav class="mt-6">
+                <ul class="space-y-2 px-4">
+                    <li>
+                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Graphic Analysis</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="logs.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Logs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Calendar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alerts.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Alerts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Bar -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Search Bar -->
+                    <div class="flex-1 max-w-md">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side Icons -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 text-gray-600">
+                            <i class="far fa-clock"></i>
+                            <span class="text-sm">05:43pm</span>
+                        </div>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        <button class="text-gray-600 hover:text-gray-800">
+                            <i class="far fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="flex-1 overflow-auto p-6">
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">Operation</h1>
+                    <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+
+                <!-- Operation Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Operation 1 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 1</h3>
+                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        
+                        <!-- Mini Chart -->
+                        <div class="flex items-end space-x-1 mb-4 h-16">
+                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-12 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-6 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">937.40</div>
+                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                            </div>
+                            <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Operation 2 (Highlighted) -->
+                    <div class="bg-white rounded-xl shadow-sm border-2 border-blue-500 p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 2</h3>
+                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        
+                        <!-- Mini Chart -->
+                        <div class="flex items-end space-x-1 mb-4 h-16">
+                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-14 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-12 w-3 rounded-sm"></div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">937.40</div>
+                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                            </div>
+                            <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Operation 3 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 3</h3>
+                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        
+                        <!-- Mini Chart -->
+                        <div class="flex items-end space-x-1 mb-4 h-16">
+                            <div class="bg-blue-500 h-6 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-4 w-3 rounded-sm"></div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">937.40</div>
+                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                            </div>
+                            <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Operation 4 -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operation 4</h3>
+                        <p class="text-gray-600 text-sm mb-4">Lorem ipsum dolor sit amet consectetur.</p>
+                        
+                        <!-- Mini Chart -->
+                        <div class="flex items-end space-x-1 mb-4 h-16">
+                            <div class="bg-blue-500 h-8 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-12 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-6 w-3 rounded-sm"></div>
+                            <div class="bg-blue-500 h-10 w-3 rounded-sm"></div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="text-2xl font-bold text-gray-900">937.40</div>
+                                <div class="text-xs text-gray-500">(+0.2%last 7 days)</div>
+                            </div>
+                            <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
