@@ -361,6 +361,40 @@ window.mockAPI = MockAPI;
 window.utils = Utils;
 window.chartHelper = ChartHelper;
 
+// Enhanced Select Dropdown Styling
+const enhancedSelectStyles = `
+    .enhanced-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+        cursor: pointer;
+    }
+    
+    .enhanced-select:focus {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    }
+    
+    .enhanced-select option {
+        padding: 0.5rem;
+        color: #374151;
+    }
+`;
+
+// Apply enhanced select styles
+function applyEnhancedStyles() {
+    const style = document.createElement('style');
+    style.textContent = enhancedSelectStyles;
+    document.head.appendChild(style);
+    
+    // Apply enhanced-select class to all select elements
+    document.querySelectorAll('select').forEach(select => {
+        select.classList.add('enhanced-select');
+    });
+}
+
 // Update current time in header
 function updateTime() {
     const timeElements = document.querySelectorAll('[data-time]');
@@ -380,4 +414,5 @@ function updateTime() {
 document.addEventListener('DOMContentLoaded', () => {
     updateTime();
     setInterval(updateTime, 60000); // Update every minute
+    applyEnhancedStyles(); // Apply enhanced select styles
 });
