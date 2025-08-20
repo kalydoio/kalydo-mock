@@ -1,4 +1,194 @@
-<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>AutomatUp - ROI Configuration</title>    <script src="https://cdn.tailwindcss.com"></script>    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></head><body class="bg-gray-50">    <!-- Main Container -->    <div class="flex h-screen">        <!-- Sidebar -->        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">            <!-- Logo -->            <div class="p-6 border-b border-gray-700">                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">            </div>                        <!-- Navigation Menu -->            <nav class="mt-6">                <ul class="space-y-2 px-4">                    <li>                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-th-large"></i>                            <span>Dashboard</span>                        </a>                    </li>                    <li>                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-chart-bar"></i>                            <span>Analytics</span>                        </a>                    </li>                    <li>                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-file-alt"></i>                            <span>Reports</span>                        </a>                    </li>                    <li>                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-list-alt"></i>                            <span>Event Log</span>                        </a>                    </li>                    <li>                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-video"></i>                            <span>Feed</span>                        </a>                    </li>                    <li>                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-cog"></i>                            <span>Settings</span>                        </a>                    </li>                    <li>                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">                            <i class="fas fa-sliders-h"></i>                            <span>Config</span>                        </a>                    </li>                    <li>                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="far fa-user"></i>                            <span>Profile</span>                        </a>                    </li>                    <li>                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">                            <i class="fas fa-credit-card"></i>                            <span>Plans</span>                        </a>                    </li>                </ul>            </nav>        </aside>        <!-- Main Content -->        <main class="flex-1 flex flex-col overflow-hidden">            <!-- Top Bar -->            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">                <div class="flex items-center justify-between">                    <!-- Search Bar -->                    <div class="flex-1 max-w-md">                        <div class="relative">                            <input                                type="text"                                placeholder="Search configuration..."                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"                            />                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>                        </div>                    </div>                                        <!-- Right Side Icons -->                    <div class="flex items-center space-x-4">                        <div class="flex items-center space-x-2 text-gray-600">                            <i class="far fa-clock"></i>                            <span class="text-sm" data-time>05:43pm</span>                        </div>                        <button class="text-gray-600 hover:text-gray-800">                            <i class="far fa-bell"></i>                        </button>                        <button class="text-gray-600 hover:text-gray-800">                            <i class="far fa-user"></i>                        </button>                    </div>                </div>            </header>            <!-- Page Content -->            <div class="flex-1 overflow-auto p-6">                <!-- Breadcrumb -->                <nav class="mb-6">                    <div class="flex items-center space-x-2 text-sm">                        <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>                        <i class="fas fa-chevron-right text-gray-400 text-xs"></i>                        <span class="text-gray-700">ROI Configuration</span>                    </div>                </nav>                <!-- Page Header -->                <div class="mb-8">                    <h1 class="text-3xl font-bold text-gray-900">ROI Configuration</h1>                    <p class="text-gray-600 mt-2">Configure automation rules by selecting regions of interest on camera feeds</p>                </div>                <!-- Main Configuration Layout -->                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">                    <!-- Camera Feed & ROI Selection -->                    <div class="lg:col-span-2">                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">                            <div class="flex items-center justify-between mb-4">                                <h2 class="text-xl font-semibold text-gray-900">Camera Feed</h2>                                <div class="flex items-center space-x-3">                                    <select id="cameraSelect" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">                                        <option value="dock-a-cam1">Dock A Camera 1</option>                                        <option value="dock-a-cam2">Dock A Camera 2</option>                                        <option value="dock-b-cam1">Dock B Camera 1</option>                                        <option value="warehouse-cam1">Warehouse Cam 1</option>                                        <option value="loading-bay-1">Loading Bay 1</option>                                    </select>                                    <button onclick="toggleROIMode()" id="roiModeBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">                                        <i class="fas fa-draw-polygon mr-2"></i>                                        Draw ROI                                    </button>                                </div>                            </div>                            <!-- Video Feed Container -->                            <div class="relative bg-gray-900 rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">                                <canvas id="videoCanvas" class="w-full h-full cursor-crosshair" width="800" height="450"></canvas>                                                                <!-- ROI Controls Overlay -->                                <div id="roiControls" class="absolute top-4 left-4 bg-black bg-opacity-60 text-white rounded-lg p-3 flex items-center space-x-3" style="display: none;">                                    <span class="text-sm">Draw ROI:</span>                                    <button onclick="clearROIs()" class="px-2 py-1 bg-red-600 hover:bg-red-700 rounded text-xs">                                        <i class="fas fa-trash mr-1"></i>Clear                                    </button>                                    <button onclick="undoLastROI()" class="px-2 py-1 bg-yellow-600 hover:bg-yellow-700 rounded text-xs">                                        <i class="fas fa-undo mr-1"></i>Undo                                    </button>                                </div>                                <!-- Live Indicator -->                                <div class="absolute top-4 right-4 flex items-center space-x-2">                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>                                    <span class="text-white text-sm font-medium">LIVE</span>                                </div>                            </div>                            <!-- ROI List -->                            <div class="mt-4">                                <h3 class="text-sm font-medium text-gray-700 mb-2">Defined ROIs</h3>                                <div id="roiList" class="space-y-2">                                    <!-- ROI items will be populated here -->                                </div>                            </div>                        </div>                    </div>                    <!-- Configuration Panel -->                    <div class="space-y-6">                        <!-- Rule Configuration -->                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Rule Configuration</h2>                                                        <form id="roiConfigForm" class="space-y-4">                                <!-- Where (ROI Selection) -->                                <div>                                    <label class="block text-sm font-medium text-gray-700 mb-2">                                        <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>                                        Where (ROI)                                    </label>                                    <select id="roiSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">                                        <option value="">Select ROI</option>                                    </select>                                </div>                                <!-- What (Object) -->                                <div>                                    <label class="block text-sm font-medium text-gray-700 mb-2">                                        <i class="fas fa-cube text-green-600 mr-2"></i>                                        What (Object)                                    </label>                                    <select id="objectSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">                                        <option value="sack">Sacks</option>                                        <option value="vehicle">Vehicles</option>                                        <option value="person">Personnel</option>                                        <option value="equipment">Equipment</option>                                        <option value="pallet">Pallets</option>                                    </select>                                </div>                                <!-- How (Action) -->                                <div>                                    <label class="block text-sm font-medium text-gray-700 mb-2">                                        <i class="fas fa-cogs text-purple-600 mr-2"></i>                                        How (Action)                                    </label>                                    <select id="actionSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">                                        <option value="counting">Count Objects</option>                                        <option value="tracking">Track Movement</option>                                        <option value="detection">Detect Presence</option>                                        <option value="violation">Monitor Violations</option>                                        <option value="dwell_time">Monitor Dwell Time</option>                                    </select>                                </div>                                <!-- When (Trigger) -->                                <div>                                    <label class="block text-sm font-medium text-gray-700 mb-2">                                        <i class="fas fa-clock text-orange-600 mr-2"></i>                                        When (Trigger)                                    </label>                                    <select id="triggerSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">                                        <option value="continuous">Continuous</option>                                        <option value="enter">Object Enters ROI</option>                                        <option value="exit">Object Exits ROI</option>                                        <option value="change">Change Detected</option>                                        <option value="threshold">Threshold Exceeded</option>                                    </select>                                </div>                                <!-- Threshold Settings -->                                <div id="thresholdSettings" style="display: none;">                                    <label class="block text-sm font-medium text-gray-700 mb-2">Threshold Value</label>                                    <input type="number" id="thresholdValue" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter threshold value">                                </div>                                <!-- Action Buttons -->                                <div class="flex space-x-3 pt-4">                                    <button type="button" onclick="saveROIRule()" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">                                        <i class="fas fa-save mr-2"></i>                                        Save Rule                                    </button>                                    <button type="button" onclick="resetForm()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200">                                        <i class="fas fa-undo mr-2"></i>                                        Reset                                    </button>                                </div>                            </form>                        </div>                        <!-- Active Rules -->                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Active Rules</h2>                            <div id="activeRules" class="space-y-3">                                <!-- Active rules will be populated here -->                            </div>                        </div>                    </div>                </div>            </div>        </main>    </div>    <script src="js/shared.js"></script>    <script>        // ROI Configuration System        class ROIConfig {            constructor() {                this.canvas = document.getElementById('videoCanvas');                this.ctx = this.canvas.getContext('2d');                this.isDrawing = false;                this.currentROI = [];                this.rois = [];                this.rules = [];                this.roiMode = false;                                this.init();            }            init() {                this.setupCanvas();                this.loadMockVideoFeed();                this.setupEventListeners();                this.loadExistingRules();            }            setupCanvas() {                // Set canvas size                const container = this.canvas.parentElement;                const rect = container.getBoundingClientRect();                this.canvas.width = 800;                this.canvas.height = 450;                                // Draw mock video feed background                this.ctx.fillStyle = '#1f2937';                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);            }            setupEventListeners() {                this.canvas.addEventListener('mousedown', this.startDrawing.bind(this));                this.canvas.addEventListener('mousemove', this.draw.bind(this));                this.canvas.addEventListener('mouseup', this.stopDrawing.bind(this));                                // Trigger selection listener                document.getElementById('triggerSelect').addEventListener('change', (e) => {                    const thresholdSettings = document.getElementById('thresholdSettings');                    if (e.target.value === 'threshold') {                        thresholdSettings.style.display = 'block';                    } else {                        thresholdSettings.style.display = 'none';                    }                });            }            loadMockVideoFeed() {                // Simulate warehouse environment                this.ctx.fillStyle = '#374151';                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);                                // Draw mock warehouse elements                this.ctx.fillStyle = '#6b7280';                this.ctx.fillRect(50, 300, 150, 100); // Loading dock                this.ctx.fillRect(250, 200, 200, 150); // Storage area                this.ctx.fillRect(500, 100, 100, 200); // Equipment area                                // Add some labels                this.ctx.fillStyle = '#f3f4f6';                this.ctx.font = '12px Arial';                this.ctx.fillText('Loading Dock', 60, 320);                this.ctx.fillText('Storage Area', 260, 220);                this.ctx.fillText('Equipment', 510, 120);                                this.redrawROIs();            }            startDrawing(e) {                if (!this.roiMode) return;                                const rect = this.canvas.getBoundingClientRect();                const x = ((e.clientX - rect.left) / rect.width) * this.canvas.width;                const y = ((e.clientY - rect.top) / rect.height) * this.canvas.height;                                this.isDrawing = true;                this.currentROI = [{ x, y }];            }            draw(e) {                if (!this.isDrawing || !this.roiMode) return;                                const rect = this.canvas.getBoundingClientRect();                const x = ((e.clientX - rect.left) / rect.width) * this.canvas.width;                const y = ((e.clientY - rect.top) / rect.height) * this.canvas.height;                                this.currentROI.push({ x, y });                this.redrawCanvas();            }            stopDrawing() {                if (!this.isDrawing || !this.roiMode) return;                                this.isDrawing = false;                if (this.currentROI.length > 2) {
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomatUp - ROI Configuration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+            <!-- Logo -->
+            <div class="p-6 border-b border-gray-700"> <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto"> </div>
+            <!-- Navigation Menu -->
+            <nav class="mt-6">
+                <ul class="space-y-2 px-4">
+                    <li>
+                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-th-large"></i> <span>Dashboard</span> </a>
+                    </li>
+                    <li>
+                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-chart-bar"></i> <span>Analytics</span> </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-file-alt"></i> <span>Reports</span> </a>
+                    </li>
+                    <li>
+                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-list-alt"></i> <span>Event Log</span> </a>
+                    </li>
+                    <li>
+                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-video"></i> <span>Feed</span> </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-cog"></i> <span>Settings</span> </a>
+                    </li>
+                    <li>
+                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white"> <i class="fas fa-sliders-h"></i> <span>Config</span> </a>
+                    </li>
+                    <li>
+                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="far fa-user"></i> <span>Profile</span> </a>
+                    </li>
+                    <li>
+                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-credit-card"></i> <span>Plans</span> </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Bar -->
+            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Search Bar -->
+                    <div class="flex-1 max-w-md">
+                        <div class="relative">
+                            <input type="text" placeholder="Search configuration..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" /> <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i> </div>
+                    </div>
+                    <!-- Right Side Icons -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2 text-gray-600"> <i class="far fa-clock"></i> <span class="text-sm" data-time>05:43pm</span> </div>
+                        <button class="text-gray-600 hover:text-gray-800"> <i class="far fa-bell"></i> </button>
+                        <button class="text-gray-600 hover:text-gray-800"> <i class="far fa-user"></i> </button>
+                    </div>
+                </div>
+            </header>
+            <!-- Page Content -->
+            <div class="flex-1 overflow-auto p-6">
+                <!-- Breadcrumb -->
+                <nav class="mb-6">
+                    <div class="flex items-center space-x-2 text-sm"> <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a> <i class="fas fa-chevron-right text-gray-400 text-xs"></i> <span class="text-gray-700">ROI Configuration</span> </div>
+                </nav>
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-gray-900">ROI Configuration</h1>
+                    <p class="text-gray-600 mt-2">Configure automation rules by selecting regions of interest on camera feeds</p>
+                </div>
+                <!-- Main Configuration Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Camera Feed & ROI Selection -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xl font-semibold text-gray-900">Camera Feed</h2>
+                                <div class="flex items-center space-x-3">
+                                    <select id="cameraSelect" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="dock-a-cam1">Dock A Camera 1</option>
+                                        <option value="dock-a-cam2">Dock A Camera 2</option>
+                                        <option value="dock-b-cam1">Dock B Camera 1</option>
+                                        <option value="warehouse-cam1">Warehouse Cam 1</option>
+                                        <option value="loading-bay-1">Loading Bay 1</option>
+                                    </select>
+                                    <button onclick="toggleROIMode()" id="roiModeBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"> <i class="fas fa-draw-polygon mr-2"></i> Draw ROI </button>
+                                </div>
+                            </div>
+                            <!-- Video Feed Container -->
+                            <div class="relative bg-gray-900 rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
+                                <canvas id="videoCanvas" class="w-full h-full cursor-crosshair" width="800" height="450"></canvas>
+                                <!-- ROI Controls Overlay -->
+                                <div id="roiControls" class="absolute top-4 left-4 bg-black bg-opacity-60 text-white rounded-lg p-3 flex items-center space-x-3" style="display: none;"> <span class="text-sm">Draw ROI:</span>
+                                    <button onclick="clearROIs()" class="px-2 py-1 bg-red-600 hover:bg-red-700 rounded text-xs"> <i class="fas fa-trash mr-1"></i>Clear </button>
+                                    <button onclick="undoLastROI()" class="px-2 py-1 bg-yellow-600 hover:bg-yellow-700 rounded text-xs"> <i class="fas fa-undo mr-1"></i>Undo </button>
+                                </div>
+                                <!-- Live Indicator -->
+                                <div class="absolute top-4 right-4 flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div> <span class="text-white text-sm font-medium">LIVE</span> </div>
+                            </div>
+                            <!-- ROI List -->
+                            <div class="mt-4">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Defined ROIs</h3>
+                                <div id="roiList" class="space-y-2">
+                                    <!-- ROI items will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Configuration Panel -->
+                    <div class="space-y-6">
+                        <!-- Rule Configuration -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Rule Configuration</h2>
+                            <form id="roiConfigForm" class="space-y-4">
+                                <!-- Where (ROI Selection) -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Where (ROI) </label>
+                                    <select id="roiSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Select ROI</option>
+                                    </select>
+                                </div>
+                                <!-- What (Object) -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-cube text-green-600 mr-2"></i> What (Object) </label>
+                                    <select id="objectSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="sack">Sacks</option>
+                                        <option value="vehicle">Vehicles</option>
+                                        <option value="person">Personnel</option>
+                                        <option value="equipment">Equipment</option>
+                                        <option value="pallet">Pallets</option>
+                                    </select>
+                                </div>
+                                <!-- How (Action) -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-cogs text-purple-600 mr-2"></i> How (Action) </label>
+                                    <select id="actionSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="counting">Count Objects</option>
+                                        <option value="tracking">Track Movement</option>
+                                        <option value="detection">Detect Presence</option>
+                                        <option value="violation">Monitor Violations</option>
+                                        <option value="dwell_time">Monitor Dwell Time</option>
+                                    </select>
+                                </div>
+                                <!-- When (Trigger) -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-clock text-orange-600 mr-2"></i> When (Trigger) </label>
+                                    <select id="triggerSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="continuous">Continuous</option>
+                                        <option value="enter">Object Enters ROI</option>
+                                        <option value="exit">Object Exits ROI</option>
+                                        <option value="change">Change Detected</option>
+                                        <option value="threshold">Threshold Exceeded</option>
+                                    </select>
+                                </div>
+                                <!-- Threshold Settings -->
+                                <div id="thresholdSettings" style="display: none;">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Threshold Value</label>
+                                    <input type="number" id="thresholdValue" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter threshold value"> </div>
+                                <!-- Action Buttons -->
+                                <div class="flex space-x-3 pt-4">
+                                    <button type="button" onclick="saveROIRule()" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"> <i class="fas fa-save mr-2"></i> Save Rule </button>
+                                    <button type="button" onclick="resetForm()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200"> <i class="fas fa-undo mr-2"></i> Reset </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Active Rules -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Active Rules</h2>
+                            <div id="activeRules" class="space-y-3">
+                                <!-- Active rules will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/shared.js"></script>
+    <script>
+        // ROI Configuration System        class ROIConfig {            constructor() {                this.canvas = document.getElementById('videoCanvas');                this.ctx = this.canvas.getContext('2d');                this.isDrawing = false;                this.currentROI = [];                this.rois = [];                this.rules = [];                this.roiMode = false;                                this.init();            }            init() {                this.setupCanvas();                this.loadMockVideoFeed();                this.setupEventListeners();                this.loadExistingRules();            }            setupCanvas() {                // Set canvas size                const container = this.canvas.parentElement;                const rect = container.getBoundingClientRect();                this.canvas.width = 800;                this.canvas.height = 450;                                // Draw mock video feed background                this.ctx.fillStyle = '#1f2937';                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);            }            setupEventListeners() {                this.canvas.addEventListener('mousedown', this.startDrawing.bind(this));                this.canvas.addEventListener('mousemove', this.draw.bind(this));                this.canvas.addEventListener('mouseup', this.stopDrawing.bind(this));                                // Trigger selection listener                document.getElementById('triggerSelect').addEventListener('change', (e) => {                    const thresholdSettings = document.getElementById('thresholdSettings');                    if (e.target.value === 'threshold') {                        thresholdSettings.style.display = 'block';                    } else {                        thresholdSettings.style.display = 'none';                    }                });            }            loadMockVideoFeed() {                // Simulate warehouse environment                this.ctx.fillStyle = '#374151';                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);                                // Draw mock warehouse elements                this.ctx.fillStyle = '#6b7280';                this.ctx.fillRect(50, 300, 150, 100); // Loading dock                this.ctx.fillRect(250, 200, 200, 150); // Storage area                this.ctx.fillRect(500, 100, 100, 200); // Equipment area                                // Add some labels                this.ctx.fillStyle = '#f3f4f6';                this.ctx.font = '12px Arial';                this.ctx.fillText('Loading Dock', 60, 320);                this.ctx.fillText('Storage Area', 260, 220);                this.ctx.fillText('Equipment', 510, 120);                                this.redrawROIs();            }            startDrawing(e) {                if (!this.roiMode) return;                                const rect = this.canvas.getBoundingClientRect();                const x = ((e.clientX - rect.left) / rect.width) * this.canvas.width;                const y = ((e.clientY - rect.top) / rect.height) * this.canvas.height;                                this.isDrawing = true;                this.currentROI = [{ x, y }];            }            draw(e) {                if (!this.isDrawing || !this.roiMode) return;                                const rect = this.canvas.getBoundingClientRect();                const x = ((e.clientX - rect.left) / rect.width) * this.canvas.width;                const y = ((e.clientY - rect.top) / rect.height) * this.canvas.height;                                this.currentROI.push({ x, y });                this.redrawCanvas();            }            stopDrawing() {                if (!this.isDrawing || !this.roiMode) return;                                this.isDrawing = false;                if (this.currentROI.length > 2) {
                     const roiId = `roi_${Date.now()}`;
                     this.rois.push({
                         id: roiId,
@@ -222,4 +412,5 @@
         });
     </script>
 </body>
+
 </html>
