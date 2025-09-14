@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'primary-dark': '#13291b',
-                        'primary-accent': '#63c88c', 
+                        'primary-accent': '#63c88c',
                         'primary-light': '#dbf5e9',
                         'primary-hover': '#4fb377',
                         'primary-focus': '#2f6b42',
@@ -30,134 +33,106 @@
                         'neutral-900': '#0f172a'
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                        'display': ['Poppins', 'Inter', 'sans-serif']
+                        'sans': ['Poppins'],
+                        'display': ['Poppins']
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .sidebar-gradient {
-            background: linear-gradient(180deg, #13291b 0%, #1f3c29 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.2s ease-in-out;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
-            transition: all 0.2s ease-in-out;
-            box-shadow: 0 2px 4px rgba(99, 200, 140, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #4fb377 0%, #2f6b42 100%);
-            box-shadow: 0 4px 12px rgba(99, 200, 140, 0.3);
-            transform: translateY(-1px);
-        }
-        
-        .input-focus:focus {
-            border-color: #63c88c !important;
-            --tw-ring-color: rgb(99 200 140 / 0.1) !important;
-        }
-        
-        .nav-active {
-            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
-        }
-        
-        .nav-inactive {
-            color: #cbd5e1;
-            transition: all 0.2s ease-in-out;
-        }
-        
-        .nav-inactive:hover {
-            background-color: #1f3c29;
-            color: #e2e8f0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
+
 <body class="bg-gray-50">
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 sidebar-gradient text-white flex-shrink-0">
+
+        <aside id="sidebar" class="sidebar-gradient text-white flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 border-b border-primary-focus/20">
-                <img src="logo_light.png" alt="Kalydo Logo" class="h-10 w-auto">
+            <div class="p-6 border-b border-primary-focus/20 relative">
+                <div class="relative h-10">
+                    <img src="logo_light.png" alt="Kalydo Logo" class="h-10 w-auto logo-full">
+                    <img src="logo_abbr.png" alt="K" class="h-10 w-auto logo-abbr">
+                </div>
+                <!-- Toggle Button -->
+                <button
+                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
             </div>
-            
+
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
-                    <li>
-                        <a href="dashboard.html" class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
-                            <i class="fas fa-th-large"></i>
-                            <span>Dashboard</span>
+                    <li class="relative">
+                        <a href="dashboard.html"
+                            class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
+
+                            <i class="fas fa-th-large flex-shrink-0"></i>
+                            <span class="nav-text">Dashboard</span>
+                            <div class="tooltip">Dashboard</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="analysis.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Analytics</span>
+                            <i class="fas fa-chart-bar flex-shrink-0"></i>
+                            <span class="nav-text">Analytics</span>
+                            <div class="tooltip">Analytics</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="reports.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Reports</span>
+                            <i class="fas fa-file-alt flex-shrink-0"></i>
+                            <span class="nav-text">Reports</span>
+                            <div class="tooltip">Reports</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="event-log.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-list-alt"></i>
-                            <span>Event Log</span>
+                            <i class="fas fa-list-alt flex-shrink-0"></i>
+                            <span class="nav-text">Event Log</span>
+                            <div class="tooltip">Event Log</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="feed.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-video"></i>
-                            <span>Feed</span>
+                            <i class="fas fa-video flex-shrink-0"></i>
+                            <span class="nav-text">Feed</span>
+                            <div class="tooltip">Feed</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="settings.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-cog"></i>
-                            <span>Settings</span>
+                            <i class="fas fa-cog flex-shrink-0"></i>
+                            <span class="nav-text">Settings</span>
+                            <div class="tooltip">Settings</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="config.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-sliders-h"></i>
-                            <span>Config</span>
+                            <i class="fas fa-sliders-h flex-shrink-0"></i>
+                            <span class="nav-text">Config</span>
+                            <div class="tooltip">Config</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="profile.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="far fa-user"></i>
-                            <span>Profile</span>
+                            <i class="far fa-user flex-shrink-0"></i>
+                            <span class="nav-text">Profile</span>
+                            <div class="tooltip">Profile</div>
                         </a>
                     </li>
-                    <li>
+                    <li class="relative">
                         <a href="plans.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
-                            <i class="fas fa-credit-card"></i>
-                            <span>Plans</span>
+                            <i class="fas fa-credit-card flex-shrink-0"></i>
+                            <span class="nav-text">Plans</span>
+                            <div class="tooltip">Plans</div>
                         </a>
                     </li>
                 </ul>
             </nav>
         </aside>
-
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Bar -->
@@ -166,15 +141,13 @@
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
                         <div class="relative">
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
-                            />
-                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+                            <input type="text" placeholder="Search"
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                            <i
+                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-2 text-primary-dark">
@@ -202,7 +175,8 @@
                 <!-- Featured KPI Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <!-- Vehicle Docking Card -->
-                    <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <h3 class="text-lg font-semibold text-primary-dark">Vehicle Docking</h3>
@@ -212,12 +186,12 @@
                                 <i class="fas fa-truck text-primary-accent text-xl"></i>
                             </div>
                         </div>
-                        
+
                         <!-- Mini Chart -->
                         <div class="mb-4">
                             <canvas id="vehicleSparkline" width="200" height="40"></canvas>
                         </div>
-                        
+
                         <div class="flex items-center justify-between">
                             <div>
                                 <div class="text-2xl font-bold text-primary-dark">23</div>
@@ -230,7 +204,8 @@
                     </div>
 
                     <!-- Sack Counting Card -->
-                    <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border-2 border-primary-accent p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border-2 border-primary-accent p-6">
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <h3 class="text-lg font-semibold text-primary-dark">Sack Counting</h3>
@@ -240,12 +215,12 @@
                                 <i class="fas fa-boxes text-primary-accent text-xl"></i>
                             </div>
                         </div>
-                        
+
                         <!-- Mini Chart -->
                         <div class="mb-4">
                             <canvas id="sackSparkline" width="200" height="40"></canvas>
                         </div>
-                        
+
                         <div class="flex items-center justify-between">
                             <div>
                                 <div class="text-2xl font-bold text-primary-dark">1,247</div>
@@ -258,7 +233,8 @@
                     </div>
 
                     <!-- Violations Card -->
-                    <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <h3 class="text-lg font-semibold text-primary-dark">Violations</h3>
@@ -268,12 +244,12 @@
                                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
                             </div>
                         </div>
-                        
+
                         <!-- Mini Chart -->
                         <div class="mb-4">
                             <canvas id="violationSparkline" width="200" height="40"></canvas>
                         </div>
-                        
+
                         <div class="flex items-center justify-between">
                             <div>
                                 <div class="text-2xl font-bold text-primary-dark">3</div>
@@ -290,9 +266,10 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- Action Items -->
                     <div class="lg:col-span-2">
-                        <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                             <h2 class="text-xl font-semibold text-primary-dark mb-6">Action Items</h2>
-                            
+
                             <div class="space-y-4" id="actionItems">
                                 <!-- Action items will be populated here -->
                             </div>
@@ -300,10 +277,11 @@
                     </div>
 
                     <!-- Chat Section -->
-                    <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <h2 class="text-xl font-semibold text-primary-dark mb-4">Analytics Chat</h2>
                         <p class="text-sm text-neutral-600 mb-4">Ask questions about your data in natural language</p>
-                        
+
                         <!-- Chat Messages -->
                         <div class="space-y-3 mb-4 max-h-64 overflow-y-auto" id="chatMessages">
                             <div class="bg-primary-light/50 rounded-lg p-3">
@@ -313,19 +291,12 @@
                                 </p>
                             </div>
                         </div>
-                        
+
                         <!-- Chat Input -->
                         <form id="chatForm" class="flex space-x-2">
-                            <input 
-                                type="text" 
-                                id="chatInput"
-                                placeholder="Ask about your data..." 
-                                class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
-                            />
-                            <button 
-                                type="submit" 
-                                class="btn-primary p-2 rounded-xl text-white transition duration-200"
-                            >
+                            <input type="text" id="chatInput" placeholder="Ask about your data..."
+                                class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                            <button type="submit" class="btn-primary p-2 rounded-xl text-white transition duration-200">
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
@@ -334,22 +305,25 @@
 
                 <!-- Generated Chart Section -->
                 <div id="generatedChartSection" class="hidden mt-6">
-                    <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <div class="flex items-center justify-between mb-4">
                             <h2 class="text-xl font-semibold text-primary-dark">Generated Analysis</h2>
-                            <button onclick="closeGeneratedChart()" class="text-neutral-400 hover:text-primary-accent transition-colors duration-200">
+                            <button onclick="closeGeneratedChart()"
+                                class="text-neutral-400 hover:text-primary-accent transition-colors duration-200">
                                 <i class="fas fa-times"></i>
                             </button>
                         </div>
-                        
+
                         <!-- Generated SQL -->
                         <div class="mb-4">
                             <h3 class="text-sm font-medium text-primary-focus mb-2">Generated Query:</h3>
-                            <div class="bg-primary-dark text-primary-accent p-3 rounded-xl font-mono text-sm overflow-x-auto">
+                            <div
+                                class="bg-primary-dark text-primary-accent p-3 rounded-xl font-mono text-sm overflow-x-auto">
                                 <code id="generatedSQL">SELECT * FROM events...</code>
                             </div>
                         </div>
-                        
+
                         <!-- Generated Chart -->
                         <div class="h-64">
                             <canvas id="generatedChart"></canvas>
@@ -399,7 +373,7 @@
                         dueDate: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000) // 1 day ago
                     }
                 ];
-                
+
                 this.generatedChart = null;
                 this.init();
             }
@@ -412,12 +386,12 @@
 
             renderActionItems() {
                 const container = document.getElementById('actionItems');
-                
+
                 // Sort by priority and status
                 const sortedItems = this.actionItems.sort((a, b) => {
                     const priorityOrder = { high: 3, medium: 2, low: 1 };
                     const statusOrder = { pending: 3, 'in-progress': 2, completed: 1 };
-                    
+
                     if (a.priority !== b.priority) {
                         return priorityOrder[b.priority] - priorityOrder[a.priority];
                     }
@@ -428,7 +402,7 @@
                     const priorityClass = this.getPriorityClass(item.priority);
                     const statusClass = this.getStatusClass(item.status);
                     const isOverdue = item.status !== 'completed' && new Date() > item.dueDate;
-                    
+
                     return `
                         <div class="border border-gray-200 rounded-lg p-4 ${isOverdue ? 'border-red-300 bg-red-50' : ''}">
                             <div class="flex items-start justify-between">
@@ -486,11 +460,11 @@
                 // Vehicle data
                 const vehicleData = [15, 23, 18, 27, 31, 23, 19];
                 window.chartHelper.createSparkline('vehicleSparkline', vehicleData, '#3b82f6');
-                
+
                 // Sack data
                 const sackData = [1100, 1200, 950, 1300, 1180, 1247, 1190];
                 window.chartHelper.createSparkline('sackSparkline', sackData, '#10b981');
-                
+
                 // Violation data
                 const violationData = [8, 6, 3, 4, 7, 6, 3];
                 window.chartHelper.createSparkline('violationSparkline', violationData, '#ef4444');
@@ -507,7 +481,7 @@
             async handleChatSubmit() {
                 const input = document.getElementById('chatInput');
                 const query = input.value.trim();
-                
+
                 if (!query) return;
 
                 // Add user message
@@ -520,19 +494,19 @@
                 try {
                     // Generate SQL
                     const sql = await window.mockAPI.generateSQL(query);
-                    
+
                     // Generate chart data
                     const chartData = await window.mockAPI.generateChartData(sql);
-                    
+
                     // Remove loading message
                     this.removeChatMessage();
-                    
+
                     // Add bot response
                     this.addChatMessage('I\'ve generated an analysis based on your query. Check the chart below!', 'bot');
-                    
+
                     // Show generated chart
                     this.showGeneratedChart(sql, chartData);
-                    
+
                 } catch (error) {
                     this.removeChatMessage();
                     this.addChatMessage('Sorry, I couldn\'t process your request. Please try rephrasing.', 'bot');
@@ -543,12 +517,11 @@
                 const container = document.getElementById('chatMessages');
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `${sender === 'user' ? 'ml-8' : 'mr-8'} ${isLoading ? 'loading-message' : ''}`;
-                
+
                 messageDiv.innerHTML = `
-                    <div class="rounded-lg p-3 ${
-                        sender === 'user' 
-                            ? 'bg-blue-600 text-white' 
-                            : 'bg-gray-50 text-gray-900'
+                    <div class="rounded-lg p-3 ${sender === 'user'
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-50 text-gray-900'
                     }">
                         <p class="text-sm">
                             ${sender === 'bot' ? '<i class="fas fa-robot mr-2"></i>' : ''}
@@ -557,7 +530,7 @@
                         </p>
                     </div>
                 `;
-                
+
                 container.appendChild(messageDiv);
                 container.scrollTop = container.scrollHeight;
             }
@@ -573,12 +546,12 @@
             showGeneratedChart(sql, chartData) {
                 document.getElementById('generatedSQL').textContent = sql;
                 document.getElementById('generatedChartSection').classList.remove('hidden');
-                
+
                 // Destroy existing chart
                 if (this.generatedChart) {
                     this.generatedChart.destroy();
                 }
-                
+
                 // Create new chart
                 this.generatedChart = window.chartHelper.createChart('generatedChart', {
                     type: 'bar',
@@ -598,10 +571,10 @@
                         }
                     }
                 });
-                
+
                 // Scroll to chart
-                document.getElementById('generatedChartSection').scrollIntoView({ 
-                    behavior: 'smooth' 
+                document.getElementById('generatedChartSection').scrollIntoView({
+                    behavior: 'smooth'
                 });
             }
 
@@ -618,13 +591,13 @@
                 const now = new Date();
                 const diffTime = date - now;
                 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                
+
                 if (diffDays === 0) return 'Today';
                 if (diffDays === 1) return 'Tomorrow';
                 if (diffDays === -1) return 'Yesterday';
                 if (diffDays > 1) return `In ${diffDays} days`;
                 if (diffDays < -1) return `${Math.abs(diffDays)} days ago`;
-                
+
                 return window.utils.formatDate(date);
             }
         }
@@ -643,5 +616,7 @@
             window.dashboardPage = new DashboardPage();
         });
     </script>
+    <script src="js/sidebar.js"></script>
 </body>
+
 </html>
