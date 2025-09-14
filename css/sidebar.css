@@ -1,0 +1,114 @@
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.sidebar-gradient {
+  background: linear-gradient(180deg, #13291b 0%, #1f3c29 100%);
+}
+
+/* Collapsible Sidebar Styles */
+#sidebar {
+  width: 256px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidebar.sidebar-collapsed {
+  width: 80px;
+}
+
+.sidebar-collapsed .nav-text {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+}
+
+.sidebar-collapsed .logo-full {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+}
+
+.sidebar-collapsed .logo-abbr {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.logo-full {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.logo-abbr {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.nav-text {
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+}
+
+/* Tooltip Styles */
+.sidebar-collapsed .relative:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+  background: #1f2937;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 4px solid transparent;
+  border-right-color: #1f2937;
+}
+
+.nav-active {
+  background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+}
+
+.nav-inactive {
+  color: #cbd5e1;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-inactive:hover {
+  background-color: #1f3c29;
+  color: #e2e8f0;
+}
+
+.toggle-bg {
+  background-color: #e2e8f0;
+}
+
+.toggle-bg:checked {
+  background-color: #63c88c;
+}

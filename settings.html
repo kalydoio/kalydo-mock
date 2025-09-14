@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalydo - Settings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'primary-dark': '#13291b',
-                        'primary-accent': '#63c88c', 
+                        'primary-accent': '#63c88c',
                         'primary-light': '#dbf5e9',
                         'primary-hover': '#4fb377',
                         'primary-focus': '#2f6b42',
@@ -37,122 +40,15 @@
         }
     </script>
     <style>
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .sidebar-gradient {
-            background: linear-gradient(180deg, #13291b 0%, #1f3c29 100%);
-        }
-        
         .card-hover {
             transition: all 0.2s ease-in-out;
         }
-        
-        /* Collapsible Sidebar Styles */
-        #sidebar {
-            width: 256px;
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
-        #sidebar.sidebar-collapsed {
-            width: 80px;
-        }
-
-        .sidebar-collapsed .nav-text {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-10px);
-            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-        }
-
-        .sidebar-collapsed .logo-full {
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.8);
-        }
-
-        .sidebar-collapsed .logo-abbr {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-        }
-
-        .logo-full {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-        }
-
-        .logo-abbr {
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.8);
-            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .nav-text {
-            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-        }
-
-
-        /* Tooltip Styles */
-        .sidebar-collapsed .relative:hover .tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        .tooltip {
-            position: absolute;
-            left: calc(100% + 12px);
-            top: 50%;
-            transform: translateY(-50%) translateX(-10px);
-            background: #1f2937;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-            z-index: 1000;
-            pointer-events: none;
-        }
-
-        .tooltip::before {
-            content: '';
-            position: absolute;
-            left: -4px;
-            top: 50%;
-            transform: translateY(-50%);
-            border: 4px solid transparent;
-            border-right-color: #1f2937;
-        }
-
-        .nav-inactive {
-            color: #9ca3af;
-        }
-
-        .nav-inactive:hover {
-            background-color: #374151;
-            color: #ffffff;
-        }
-
-        .nav-active {
-            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
-        }
-        
         .card-hover:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
             transition: all 0.2s ease-in-out;
@@ -164,35 +60,15 @@
             box-shadow: 0 4px 12px rgba(99, 200, 140, 0.3);
             transform: translateY(-1px);
         }
-        
+
         .input-focus:focus {
             border-color: #63c88c !important;
             --tw-ring-color: rgb(99 200 140 / 0.1) !important;
         }
-        
-        .nav-active {
-            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
-        }
-        
-        .nav-inactive {
-            color: #cbd5e1;
-            transition: all 0.2s ease-in-out;
-        }
-        
-        .nav-inactive:hover {
-            background-color: #1f3c29;
-            color: #e2e8f0;
-        }
-        
-        .toggle-bg {
-            background-color: #e2e8f0;
-        }
-        
-        .toggle-bg:checked {
-            background-color: #63c88c;
-        }
     </style>
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
+
 <body class="bg-gray-50">
     <!-- Main Container -->
     <div class="flex h-screen">
@@ -205,11 +81,12 @@
                     <img src="logo_abbr.png" alt="K" class="h-10 w-auto logo-abbr">
                 </div>
                 <!-- Toggle Button -->
-                <button class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                <button
+                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
                     <i class="fas fa-chevron-left text-sm"></i>
                 </button>
             </div>
-            
+
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
@@ -249,7 +126,8 @@
                         </a>
                     </li>
                     <li class="relative">
-                        <a href="settings.html" class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
+                        <a href="settings.html"
+                            class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
                             <i class="fas fa-cog flex-shrink-0"></i>
                             <span class="nav-text">Settings</span>
                             <div class="tooltip">Settings</div>
@@ -288,15 +166,13 @@
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
                         <div class="relative">
-                            <input
-                                type="text"
-                                placeholder="Search settings..."
-                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
-                            />
-                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+                            <input type="text" placeholder="Search settings..."
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                            <i
+                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center space-x-2 text-primary-dark">
@@ -332,30 +208,35 @@
 
                 <div class="space-y-8">
                     <!-- Activity Tracking -->
-                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <section
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <h2 class="text-xl font-semibold text-primary-dark mb-6">Activity Tracking</h2>
-                        
+
                         <div class="space-y-4">
                             <!-- Activity Log Header -->
                             <div class="flex items-center justify-between">
                                 <h3 class="text-lg font-medium text-primary-dark">Recent Activity</h3>
-                                <button onclick="clearActivityLog()" class="text-sm text-red-500 hover:text-red-600 transition-colors font-medium">
+                                <button onclick="clearActivityLog()"
+                                    class="text-sm text-red-500 hover:text-red-600 transition-colors font-medium">
                                     Clear Log
                                 </button>
                             </div>
-                            
+
                             <!-- Activity Log Container -->
                             <div class="bg-primary-light/30 rounded-xl p-4 max-h-64 overflow-y-auto" id="activityLog">
                                 <!-- Activity items will be populated here -->
                             </div>
-                            
+
                             <!-- Activity Settings -->
                             <div class="flex items-center justify-between pt-4 border-t border-neutral-200">
                                 <label class="flex items-center">
-                                    <input type="checkbox" id="enableActivityTracking" class="mr-3 h-4 w-4 text-primary-accent rounded focus:ring-primary-accent border-neutral-300" checked>
+                                    <input type="checkbox" id="enableActivityTracking"
+                                        class="mr-3 h-4 w-4 text-primary-accent rounded focus:ring-primary-accent border-neutral-300"
+                                        checked>
                                     <span class="text-sm font-medium text-primary-dark">Enable Activity Tracking</span>
                                 </label>
-                                <select id="activityRetention" class="input-focus border-2 border-neutral-200 rounded-xl px-4 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent">
+                                <select id="activityRetention"
+                                    class="input-focus border-2 border-neutral-200 rounded-xl px-4 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent">
                                     <option value="7">Keep 7 days</option>
                                     <option value="30" selected>Keep 30 days</option>
                                     <option value="90">Keep 90 days</option>
@@ -365,33 +246,41 @@
                     </section>
 
                     <!-- ERP Integration -->
-                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <section
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <h2 class="text-xl font-semibold text-primary-dark mb-6">ERP Integration</h2>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="erpModules">
                             <!-- ERP module cards will be populated here -->
                         </div>
                     </section>
 
                     <!-- Camera Configuration -->
-                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <section
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <h2 class="text-xl font-semibold text-primary-dark mb-6">Camera Configuration</h2>
-                        
+
                         <form id="cameraConfigForm" class="space-y-4">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-primary-dark mb-2">Camera Name</label>
-                                    <input type="text" name="name" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white transition-all" placeholder="Enter camera name">
+                                    <input type="text" name="name"
+                                        class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white transition-all"
+                                        placeholder="Enter camera name">
                                 </div>
-                                
+
                                 <div>
-                                    <label class="block text-sm font-medium text-primary-dark mb-2">IP Address / RTSP URL</label>
-                                    <input type="text" name="ip" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white transition-all" placeholder="192.168.1.100">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">IP Address / RTSP
+                                        URL</label>
+                                    <input type="text" name="ip"
+                                        class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white transition-all"
+                                        placeholder="192.168.1.100">
                                 </div>
-                                
+
                                 <div>
                                     <label class="block text-sm font-medium text-primary-dark mb-2">Assign Area</label>
-                                    <select name="area" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
+                                    <select name="area"
+                                        class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
                                         <option value="">Select Area</option>
                                         <option value="Dock A">Dock A</option>
                                         <option value="Dock B">Dock B</option>
@@ -401,10 +290,12 @@
                                         <option value="Perimeter">Perimeter</option>
                                     </select>
                                 </div>
-                                
+
                                 <div>
-                                    <label class="block text-sm font-medium text-primary-dark mb-2">Feature Assignment</label>
-                                    <select name="feature" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">Feature
+                                        Assignment</label>
+                                    <select name="feature"
+                                        class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
                                         <option value="">Select Feature</option>
                                         <option value="Counting">Counting</option>
                                         <option value="Vehicle Tracking">Vehicle Tracking</option>
@@ -414,25 +305,30 @@
                                     </select>
                                 </div>
                             </div>
-                            
-                            <button type="submit" class="btn-primary px-6 py-3 text-white rounded-xl font-medium transition duration-200">
+
+                            <button type="submit"
+                                class="btn-primary px-6 py-3 text-white rounded-xl font-medium transition duration-200">
                                 Add Camera
                             </button>
                         </form>
                     </section>
 
                     <!-- Master Data -->
-                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <section
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <h2 class="text-xl font-semibold text-primary-dark mb-6">Master Data Management</h2>
-                        
+
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <!-- AOI (Areas of Interest) -->
                             <div>
                                 <h3 class="text-lg font-medium text-primary-dark mb-4">Areas of Interest (AOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newAOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new area">
-                                        <button onclick="addMasterDataItem('aoi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
+                                        <input type="text" id="newAOI"
+                                            class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                                            placeholder="Add new area">
+                                        <button onclick="addMasterDataItem('aoi')"
+                                            class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -447,8 +343,11 @@
                                 <h3 class="text-lg font-medium text-primary-dark mb-4">Objects of Interest (OOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newOOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new object">
-                                        <button onclick="addMasterDataItem('ooi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
+                                        <input type="text" id="newOOI"
+                                            class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                                            placeholder="Add new object">
+                                        <button onclick="addMasterDataItem('ooi')"
+                                            class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -463,8 +362,11 @@
                                 <h3 class="text-lg font-medium text-primary-dark mb-4">Happenings of Interest (HOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newHOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new happening">
-                                        <button onclick="addMasterDataItem('hoi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
+                                        <input type="text" id="newHOI"
+                                            class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                                            placeholder="Add new happening">
+                                        <button onclick="addMasterDataItem('hoi')"
+                                            class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -479,8 +381,11 @@
                                 <h3 class="text-lg font-medium text-primary-dark mb-4">Event Types</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newEvent" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new event type">
-                                        <button onclick="addMasterDataItem('events')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
+                                        <input type="text" id="newEvent"
+                                            class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                                            placeholder="Add new event type">
+                                        <button onclick="addMasterDataItem('events')"
+                                            class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -495,8 +400,11 @@
                                 <h3 class="text-lg font-medium text-primary-dark mb-4">Variables of Interest (VOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newVOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new variable">
-                                        <button onclick="addMasterDataItem('voi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
+                                        <input type="text" id="newVOI"
+                                            class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                                            placeholder="Add new variable">
+                                        <button onclick="addMasterDataItem('voi')"
+                                            class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -563,9 +471,8 @@
                 const container = document.getElementById('activityLog');
                 container.innerHTML = this.activityLog.map(activity => `
                     <div class="flex items-start space-x-3 py-2 border-b border-gray-200 last:border-b-0">
-                        <div class="w-2 h-2 rounded-full mt-2 ${
-                            activity.type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
-                        }"></div>
+                        <div class="w-2 h-2 rounded-full mt-2 ${activity.type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
+                    }"></div>
                         <div class="flex-1">
                             <p class="text-sm text-gray-900">${activity.message}</p>
                             <p class="text-xs text-gray-500">${this.formatTimestamp(activity.timestamp)}</p>
@@ -596,9 +503,8 @@
                         </div>
                         <div class="flex items-center justify-between text-sm">
                             <span class="text-gray-600">Status:</span>
-                            <span class="px-2 py-1 text-xs font-medium rounded-full ${
-                                module.connected ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                            }">
+                            <span class="px-2 py-1 text-xs font-medium rounded-full ${module.connected ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                    }">
                                 ${module.connected ? 'Connected' : 'Disconnected'}
                             </span>
                         </div>
@@ -608,7 +514,7 @@
 
             renderMasterData() {
                 const masterData = window.appState.getMasterData();
-                
+
                 Object.keys(masterData).forEach(category => {
                     const container = document.getElementById(category + 'List');
                     if (container) {
@@ -635,14 +541,14 @@
                 // Activity tracking settings
                 document.getElementById('enableActivityTracking').addEventListener('change', (e) => {
                     window.utils.showToast(
-                        `Activity tracking ${e.target.checked ? 'enabled' : 'disabled'}`, 
+                        `Activity tracking ${e.target.checked ? 'enabled' : 'disabled'}`,
                         'info'
                     );
                 });
 
                 document.getElementById('activityRetention').addEventListener('change', (e) => {
                     window.utils.showToast(
-                        `Activity retention set to ${e.target.value} days`, 
+                        `Activity retention set to ${e.target.value} days`,
                         'info'
                     );
                 });
@@ -650,7 +556,7 @@
 
             addCameraFromSettings(form) {
                 const formData = new FormData(form);
-                
+
                 if (!formData.get('name') || !formData.get('ip')) {
                     window.utils.showToast('Please fill in required fields', 'error');
                     return;
@@ -667,7 +573,7 @@
                 window.appState.addCamera(newCamera);
                 form.reset();
                 window.utils.showToast('Camera added successfully!', 'success');
-                
+
                 // Add to activity log
                 this.addActivity(`New camera "${newCamera.name}" added to ${newCamera.area}`);
             }
@@ -679,12 +585,12 @@
                     timestamp: new Date(),
                     type: type
                 });
-                
+
                 // Keep only last 50 activities
                 if (this.activityLog.length > 50) {
                     this.activityLog = this.activityLog.slice(0, 50);
                 }
-                
+
                 this.renderActivityLog();
             }
 
@@ -721,7 +627,7 @@
                     module.connected ? 'info' : 'warning'
                 );
                 window.utils.showToast(
-                    `${module.name} ${module.connected ? 'connected' : 'disconnected'}`, 
+                    `${module.name} ${module.connected ? 'connected' : 'disconnected'}`,
                     module.connected ? 'success' : 'info'
                 );
             }
@@ -730,7 +636,7 @@
         function addMasterDataItem(category) {
             const input = document.getElementById('new' + category.toUpperCase());
             const value = input.value.trim();
-            
+
             if (!value) {
                 window.utils.showToast('Please enter a value', 'error');
                 return;
@@ -752,7 +658,7 @@
         function removeMasterDataItem(category, index) {
             const masterData = window.appState.getMasterData();
             const item = masterData[category][index];
-            
+
             if (confirm(`Remove "${item}" from ${category.toUpperCase()}?`)) {
                 masterData[category].splice(index, 1);
                 window.appState.updateMasterData(category, masterData[category]);
@@ -762,34 +668,13 @@
             }
         }
 
-        // Sidebar toggle functionality
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const toggleBtn = document.querySelector('.sidebar-toggle');
-            const toggleIcon = toggleBtn.querySelector('i');
-            
-            sidebar.classList.toggle('sidebar-collapsed');
-            
-            // Update button icon with delay for smooth transition
-            setTimeout(() => {
-                if (sidebar.classList.contains('sidebar-collapsed')) {
-                    toggleIcon.className = 'fas fa-bars';
-                } else {
-                    toggleIcon.className = 'fas fa-chevron-left';
-                }
-            }, 150);
-        }
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             window.settingsPage = new SettingsPage();
-            
-            // Initialize sidebar toggle
-            const toggleBtn = document.querySelector('.sidebar-toggle');
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', toggleSidebar);
-            }
         });
     </script>
+    <script src="js/sidebar.js"></script>
 </body>
+
 </html>
