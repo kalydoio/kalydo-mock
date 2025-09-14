@@ -3,73 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutomatUp - Settings</title>
+    <title>Kalydo - Settings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#13291b',
+                        'primary-accent': '#63c88c', 
+                        'primary-light': '#dbf5e9',
+                        'primary-hover': '#4fb377',
+                        'primary-focus': '#2f6b42',
+                        'neutral-50': '#f8fafc',
+                        'neutral-100': '#f1f5f9',
+                        'neutral-200': '#e2e8f0',
+                        'neutral-300': '#cbd5e1',
+                        'neutral-400': '#94a3b8',
+                        'neutral-500': '#64748b',
+                        'neutral-600': '#475569',
+                        'neutral-700': '#334155',
+                        'neutral-800': '#1e293b',
+                        'neutral-900': '#0f172a'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #13291b 0%, #1f3c29 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(99, 200, 140, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4fb377 0%, #2f6b42 100%);
+            box-shadow: 0 4px 12px rgba(99, 200, 140, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .input-focus:focus {
+            border-color: #63c88c !important;
+            --tw-ring-color: rgb(99 200 140 / 0.1) !important;
+        }
+        
+        .nav-active {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+        }
+        
+        .nav-inactive {
+            color: #cbd5e1;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .nav-inactive:hover {
+            background-color: #1f3c29;
+            color: #e2e8f0;
+        }
+        
+        .toggle-bg {
+            background-color: #e2e8f0;
+        }
+        
+        .toggle-bg:checked {
+            background-color: #63c88c;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-primary-light">
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside class="w-64 sidebar-gradient text-white flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 border-b border-gray-700">
-                <img src="logo_light.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            <div class="p-6 border-b border-primary-focus/20">
+                <img src="logo_light.png" alt="Kalydo Logo" class="h-10 w-auto">
             </div>
             
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
                     <li>
-                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="dashboard.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-th-large"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="analysis.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-chart-bar"></i>
                             <span>Analytics</span>
                         </a>
                     </li>
                     <li>
-                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="reports.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-file-alt"></i>
                             <span>Reports</span>
                         </a>
                     </li>
                     <li>
-                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="event-log.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-list-alt"></i>
                             <span>Event Log</span>
                         </a>
                     </li>
                     <li>
-                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="feed.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-video"></i>
                             <span>Feed</span>
                         </a>
                     </li>
                     <li>
-                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
+                        <a href="settings.html" class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
                             <i class="fas fa-cog"></i>
                             <span>Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="config.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-sliders-h"></i>
                             <span>Config</span>
                         </a>
                     </li>
                     <li>
-                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="profile.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="far fa-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="plans.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-credit-card"></i>
                             <span>Plans</span>
                         </a>
@@ -81,7 +168,7 @@
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Bar -->
-            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
                 <div class="flex items-center justify-between">
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
@@ -89,22 +176,22 @@
                             <input
                                 type="text"
                                 placeholder="Search settings..."
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
                             />
-                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
                         </div>
                     </div>
                     
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-gray-600">
+                        <div class="flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
-                            <span class="text-sm" data-time>05:43pm</span>
+                            <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-bell"></i>
                         </button>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-user"></i>
                         </button>
                     </div>
@@ -124,36 +211,36 @@
 
                 <!-- Page Header -->
                 <div class="mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900">Settings</h1>
-                    <p class="text-gray-600 mt-2">Configure system settings and integrations</p>
+                    <h1 class="text-3xl font-bold font-display text-primary-dark">Settings</h1>
+                    <p class="text-primary-focus mt-2 font-medium">Configure system settings and integrations</p>
                 </div>
 
                 <div class="space-y-8">
                     <!-- Activity Tracking -->
-                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Activity Tracking</h2>
+                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                        <h2 class="text-xl font-semibold text-primary-dark mb-6">Activity Tracking</h2>
                         
                         <div class="space-y-4">
                             <!-- Activity Log Header -->
                             <div class="flex items-center justify-between">
-                                <h3 class="text-lg font-medium text-gray-900">Recent Activity</h3>
-                                <button onclick="clearActivityLog()" class="text-sm text-red-600 hover:text-red-700">
+                                <h3 class="text-lg font-medium text-primary-dark">Recent Activity</h3>
+                                <button onclick="clearActivityLog()" class="text-sm text-red-500 hover:text-red-600 transition-colors font-medium">
                                     Clear Log
                                 </button>
                             </div>
                             
                             <!-- Activity Log Container -->
-                            <div class="bg-gray-50 rounded-lg p-4 max-h-64 overflow-y-auto" id="activityLog">
+                            <div class="bg-primary-light/30 rounded-xl p-4 max-h-64 overflow-y-auto" id="activityLog">
                                 <!-- Activity items will be populated here -->
                             </div>
                             
                             <!-- Activity Settings -->
-                            <div class="flex items-center justify-between pt-4 border-t">
+                            <div class="flex items-center justify-between pt-4 border-t border-neutral-200">
                                 <label class="flex items-center">
-                                    <input type="checkbox" id="enableActivityTracking" class="mr-2" checked>
-                                    <span class="text-sm font-medium text-gray-700">Enable Activity Tracking</span>
+                                    <input type="checkbox" id="enableActivityTracking" class="mr-3 h-4 w-4 text-primary-accent rounded focus:ring-primary-accent border-neutral-300" checked>
+                                    <span class="text-sm font-medium text-primary-dark">Enable Activity Tracking</span>
                                 </label>
-                                <select id="activityRetention" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                                <select id="activityRetention" class="input-focus border-2 border-neutral-200 rounded-xl px-4 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent">
                                     <option value="7">Keep 7 days</option>
                                     <option value="30" selected>Keep 30 days</option>
                                     <option value="90">Keep 90 days</option>
@@ -163,8 +250,8 @@
                     </section>
 
                     <!-- ERP Integration -->
-                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-6">ERP Integration</h2>
+                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                        <h2 class="text-xl font-semibold text-primary-dark mb-6">ERP Integration</h2>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="erpModules">
                             <!-- ERP module cards will be populated here -->
@@ -172,24 +259,24 @@
                     </section>
 
                     <!-- Camera Configuration -->
-                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Camera Configuration</h2>
+                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                        <h2 class="text-xl font-semibold text-primary-dark mb-6">Camera Configuration</h2>
                         
                         <form id="cameraConfigForm" class="space-y-4">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Camera Name</label>
-                                    <input type="text" name="name" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter camera name">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">Camera Name</label>
+                                    <input type="text" name="name" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white transition-all" placeholder="Enter camera name">
                                 </div>
                                 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">IP Address / RTSP URL</label>
-                                    <input type="text" name="ip" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="192.168.1.100">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">IP Address / RTSP URL</label>
+                                    <input type="text" name="ip" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white transition-all" placeholder="192.168.1.100">
                                 </div>
                                 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Assign Area</label>
-                                    <select name="area" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">Assign Area</label>
+                                    <select name="area" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
                                         <option value="">Select Area</option>
                                         <option value="Dock A">Dock A</option>
                                         <option value="Dock B">Dock B</option>
@@ -201,8 +288,8 @@
                                 </div>
                                 
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Feature Assignment</label>
-                                    <select name="feature" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">Feature Assignment</label>
+                                    <select name="feature" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
                                         <option value="">Select Feature</option>
                                         <option value="Counting">Counting</option>
                                         <option value="Vehicle Tracking">Vehicle Tracking</option>
@@ -213,24 +300,24 @@
                                 </div>
                             </div>
                             
-                            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
+                            <button type="submit" class="btn-primary px-6 py-3 text-white rounded-xl font-medium transition duration-200">
                                 Add Camera
                             </button>
                         </form>
                     </section>
 
                     <!-- Master Data -->
-                    <section class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Master Data Management</h2>
+                    <section class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                        <h2 class="text-xl font-semibold text-primary-dark mb-6">Master Data Management</h2>
                         
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <!-- AOI (Areas of Interest) -->
                             <div>
-                                <h3 class="text-lg font-medium text-gray-900 mb-4">Areas of Interest (AOI)</h3>
+                                <h3 class="text-lg font-medium text-primary-dark mb-4">Areas of Interest (AOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newAOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new area">
-                                        <button onclick="addMasterDataItem('aoi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                        <input type="text" id="newAOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new area">
+                                        <button onclick="addMasterDataItem('aoi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -242,11 +329,11 @@
 
                             <!-- OOI (Objects of Interest) -->
                             <div>
-                                <h3 class="text-lg font-medium text-gray-900 mb-4">Objects of Interest (OOI)</h3>
+                                <h3 class="text-lg font-medium text-primary-dark mb-4">Objects of Interest (OOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newOOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new object">
-                                        <button onclick="addMasterDataItem('ooi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                        <input type="text" id="newOOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new object">
+                                        <button onclick="addMasterDataItem('ooi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -258,11 +345,11 @@
 
                             <!-- HOI (Happenings of Interest) -->
                             <div>
-                                <h3 class="text-lg font-medium text-gray-900 mb-4">Happenings of Interest (HOI)</h3>
+                                <h3 class="text-lg font-medium text-primary-dark mb-4">Happenings of Interest (HOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newHOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new happening">
-                                        <button onclick="addMasterDataItem('hoi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                        <input type="text" id="newHOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new happening">
+                                        <button onclick="addMasterDataItem('hoi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -274,11 +361,11 @@
 
                             <!-- Event Types -->
                             <div>
-                                <h3 class="text-lg font-medium text-gray-900 mb-4">Event Types</h3>
+                                <h3 class="text-lg font-medium text-primary-dark mb-4">Event Types</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newEvent" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new event type">
-                                        <button onclick="addMasterDataItem('events')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                        <input type="text" id="newEvent" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new event type">
+                                        <button onclick="addMasterDataItem('events')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -290,11 +377,11 @@
 
                             <!-- VOI (Variables of Interest) -->
                             <div class="lg:col-span-2">
-                                <h3 class="text-lg font-medium text-gray-900 mb-4">Variables of Interest (VOI)</h3>
+                                <h3 class="text-lg font-medium text-primary-dark mb-4">Variables of Interest (VOI)</h3>
                                 <div class="space-y-2">
                                     <div class="flex items-center space-x-2">
-                                        <input type="text" id="newVOI" class="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm" placeholder="Add new variable">
-                                        <button onclick="addMasterDataItem('voi')" class="px-3 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700">
+                                        <input type="text" id="newVOI" class="input-focus flex-1 border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-accent" placeholder="Add new variable">
+                                        <button onclick="addMasterDataItem('voi')" class="btn-primary px-3 py-2 text-white rounded-xl text-sm font-medium">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -345,7 +432,7 @@
                     'Camera "Warehouse Cam 2" disconnected',
                     'Alert triggered: Count mismatch detected',
                     'Backup completed successfully',
-                    'User "john@automatup.com" updated profile',
+                    'User "john@Kalydo.com" updated profile',
                     'System maintenance completed'
                 ];
 

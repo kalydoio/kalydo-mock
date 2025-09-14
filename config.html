@@ -7,44 +7,154 @@
     <title>AutomatUp - ROI Configuration</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#13291b',
+                        'primary-focus': '#1f3c29', 
+                        'primary-accent': '#63c88c',
+                        'primary-light': '#dbf5e9',
+                        'neutral-50': '#fafafa',
+                        'neutral-100': '#f5f5f5',
+                        'neutral-200': '#e5e5e5',
+                        'neutral-300': '#d4d4d4',
+                        'neutral-400': '#a3a3a3',
+                        'neutral-500': '#737373',
+                        'neutral-600': '#525252',
+                        'neutral-700': '#404040',
+                        'neutral-800': '#262626',
+                        'neutral-900': '#171717'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #13291b 0%, #1f3c29 50%, #13291b 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+        
+        .input-focus {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .input-focus:focus {
+            border-color: #63c88c !important;
+            --tw-ring-color: rgb(99 200 140 / 0.1) !important;
+        }
+        
+        .nav-active {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+        }
+        
+        .nav-inactive {
+            color: #cbd5e1;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .nav-inactive:hover {
+            background-color: #1f3c29;
+            color: #e2e8f0;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-primary-light">
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside class="w-64 sidebar-gradient text-white flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 border-b border-gray-700"> <img src="logo_light.png" alt="AutomatUp Logo" class="h-10 w-auto"> </div>
+            <div class="p-6 border-b border-primary-focus/20">
+                <img src="logo_light.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            </div>
+            
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
                     <li>
-                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-th-large"></i> <span>Dashboard</span> </a>
+                        <a href="dashboard.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-th-large"></i>
+                            <span>Dashboard</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-chart-bar"></i> <span>Analytics</span> </a>
+                        <a href="analysis.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-file-alt"></i> <span>Reports</span> </a>
+                        <a href="reports.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Reports</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-list-alt"></i> <span>Event Log</span> </a>
+                        <a href="event-log.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-list-alt"></i>
+                            <span>Event Log</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-video"></i> <span>Feed</span> </a>
+                        <a href="feed.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-video"></i>
+                            <span>Feed</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-cog"></i> <span>Settings</span> </a>
+                        <a href="settings.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white"> <i class="fas fa-sliders-h"></i> <span>Config</span> </a>
+                        <a href="config.html" class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Config</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="far fa-user"></i> <span>Profile</span> </a>
+                        <a href="profile.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="far fa-user"></i>
+                            <span>Profile</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200"> <i class="fas fa-credit-card"></i> <span>Plans</span> </a>
+                        <a href="plans.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Plans</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -52,21 +162,36 @@
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Bar -->
-            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <header class="bg-white/80 backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
                 <div class="flex items-center justify-between">
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
                         <div class="relative">
-                            <input type="text" placeholder="Search configuration..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" /> <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i> </div>
+                            <input
+                                type="text"
+                                placeholder="Search configuration..."
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50"
+                            />
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+                        </div>
                     </div>
+                    
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-gray-600"> <i class="far fa-clock"></i> <span class="text-sm" data-time>05:43pm</span> </div>
-                        <button class="text-gray-600 hover:text-gray-800"> <i class="far fa-bell"></i> </button>
-                        <button class="text-gray-600 hover:text-gray-800"> <i class="far fa-user"></i> </button>
+                        <div class="flex items-center space-x-2 text-primary-dark">
+                            <i class="far fa-clock"></i>
+                            <span class="text-sm font-medium" data-time>05:43pm</span>
+                        </div>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
+                            <i class="far fa-bell"></i>
+                        </button>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
+                            <i class="far fa-user"></i>
+                        </button>
                     </div>
                 </div>
             </header>
+
             <!-- Page Content -->
             <div class="flex-1 overflow-auto p-6">
                 <!-- Breadcrumb -->
@@ -74,43 +199,54 @@
                     <div class="flex items-center space-x-2 text-sm"> <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a> <i class="fas fa-chevron-right text-gray-400 text-xs"></i> <span class="text-gray-700">ROI Configuration</span> </div>
                 </nav>
                 <!-- Page Header -->
-                <div class="mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900">ROI Configuration</h1>
-                    <p class="text-gray-600 mt-2">Configure automation rules by selecting regions of interest on camera feeds</p>
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 class="text-3xl font-bold font-display text-primary-dark">ROI Configuration</h1>
+                        <p class="text-primary-focus mt-2 font-medium">Configure automation rules by selecting regions of interest on camera feeds</p>
+                    </div>
                 </div>
                 <!-- Main Configuration Layout -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- Camera Feed & ROI Selection -->
                     <div class="lg:col-span-2">
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div class="card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                             <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-xl font-semibold text-gray-900">Camera Feed</h2>
+                                <h2 class="text-xl font-semibold text-primary-dark">Camera Feed</h2>
                                 <div class="flex items-center space-x-3">
-                                    <select id="cameraSelect" class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <select id="cameraSelect" class="input-focus border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50">
                                         <option value="dock-a-cam1">Dock A Camera 1</option>
                                         <option value="dock-a-cam2">Dock A Camera 2</option>
                                         <option value="dock-b-cam1">Dock B Camera 1</option>
                                         <option value="warehouse-cam1">Warehouse Cam 1</option>
                                         <option value="loading-bay-1">Loading Bay 1</option>
                                     </select>
-                                    <button onclick="toggleROIMode()" id="roiModeBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"> <i class="fas fa-draw-polygon mr-2"></i> Draw ROI </button>
+                                    <button onclick="toggleROIMode()" id="roiModeBtn" class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">
+                                        <i class="fas fa-draw-polygon mr-2"></i> Draw ROI
+                                    </button>
                                 </div>
                             </div>
                             <!-- Video Feed Container -->
-                            <div class="relative bg-gray-900 rounded-lg overflow-hidden" style="aspect-ratio: 16/9;">
+                            <div class="relative bg-gray-900 rounded-2xl overflow-hidden" style="aspect-ratio: 16/9;">
                                 <canvas id="videoCanvas" class="w-full h-full cursor-crosshair" width="800" height="450"></canvas>
                                 <!-- ROI Controls Overlay -->
-                                <div id="roiControls" class="absolute top-4 left-4 bg-black bg-opacity-60 text-white rounded-lg p-3 flex items-center space-x-3" style="display: none;"> <span class="text-sm">Draw ROI:</span>
-                                    <button onclick="clearROIs()" class="px-2 py-1 bg-red-600 hover:bg-red-700 rounded text-xs"> <i class="fas fa-trash mr-1"></i>Clear </button>
-                                    <button onclick="undoLastROI()" class="px-2 py-1 bg-yellow-600 hover:bg-yellow-700 rounded text-xs"> <i class="fas fa-undo mr-1"></i>Undo </button>
+                                <div id="roiControls" class="absolute top-4 left-4 bg-black bg-opacity-60 text-white rounded-xl p-3 flex items-center space-x-3" style="display: none;">
+                                    <span class="text-sm">Draw ROI:</span>
+                                    <button onclick="clearROIs()" class="px-2 py-1 bg-red-600 hover:bg-red-700 rounded-xl text-xs">
+                                        <i class="fas fa-trash mr-1"></i>Clear
+                                    </button>
+                                    <button onclick="undoLastROI()" class="px-2 py-1 bg-yellow-600 hover:bg-yellow-700 rounded-xl text-xs">
+                                        <i class="fas fa-undo mr-1"></i>Undo
+                                    </button>
                                 </div>
                                 <!-- Live Indicator -->
                                 <div class="absolute top-4 right-4 flex items-center space-x-2">
-                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div> <span class="text-white text-sm font-medium">LIVE</span> </div>
+                                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                    <span class="text-white text-sm font-medium">LIVE</span>
+                                </div>
                             </div>
                             <!-- ROI List -->
                             <div class="mt-4">
-                                <h3 class="text-sm font-medium text-gray-700 mb-2">Defined ROIs</h3>
+                                <h3 class="text-sm font-medium text-primary-dark mb-2">Defined ROIs</h3>
                                 <div id="roiList" class="space-y-2">
                                     <!-- ROI items will be populated here -->
                                 </div>
@@ -120,20 +256,24 @@
                     <!-- Configuration Panel -->
                     <div class="space-y-6">
                         <!-- Rule Configuration -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Rule Configuration</h2>
+                        <div class="card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            <h2 class="text-xl font-semibold text-primary-dark mb-4">Rule Configuration</h2>
                             <form id="roiConfigForm" class="space-y-4">
                                 <!-- Where (ROI Selection) -->
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Where (ROI) </label>
-                                    <select id="roiSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">
+                                        <i class="fas fa-map-marker-alt text-primary-accent mr-2"></i> Where (ROI)
+                                    </label>
+                                    <select id="roiSelect" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50">
                                         <option value="">Select ROI</option>
                                     </select>
                                 </div>
                                 <!-- What (Object) -->
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-cube text-green-600 mr-2"></i> What (Object) </label>
-                                    <select id="objectSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">
+                                        <i class="fas fa-cube text-primary-accent mr-2"></i> What (Object)
+                                    </label>
+                                    <select id="objectSelect" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50">
                                         <option value="sack">Sacks</option>
                                         <option value="vehicle">Vehicles</option>
                                         <option value="person">Personnel</option>
@@ -143,8 +283,10 @@
                                 </div>
                                 <!-- How (Action) -->
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-cogs text-purple-600 mr-2"></i> How (Action) </label>
-                                    <select id="actionSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">
+                                        <i class="fas fa-cogs text-primary-accent mr-2"></i> How (Action)
+                                    </label>
+                                    <select id="actionSelect" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50">
                                         <option value="counting">Count Objects</option>
                                         <option value="tracking">Track Movement</option>
                                         <option value="detection">Detect Presence</option>
@@ -154,8 +296,10 @@
                                 </div>
                                 <!-- When (Trigger) -->
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2"> <i class="fas fa-clock text-orange-600 mr-2"></i> When (Trigger) </label>
-                                    <select id="triggerSelect" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">
+                                        <i class="fas fa-clock text-primary-accent mr-2"></i> When (Trigger)
+                                    </label>
+                                    <select id="triggerSelect" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50">
                                         <option value="continuous">Continuous</option>
                                         <option value="enter">Object Enters ROI</option>
                                         <option value="exit">Object Exits ROI</option>
@@ -165,18 +309,23 @@
                                 </div>
                                 <!-- Threshold Settings -->
                                 <div id="thresholdSettings" style="display: none;">
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Threshold Value</label>
-                                    <input type="number" id="thresholdValue" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter threshold value"> </div>
+                                    <label class="block text-sm font-medium text-primary-dark mb-2">Threshold Value</label>
+                                    <input type="number" id="thresholdValue" class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white/50" placeholder="Enter threshold value">
+                                </div>
                                 <!-- Action Buttons -->
                                 <div class="flex space-x-3 pt-4">
-                                    <button type="button" onclick="saveROIRule()" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"> <i class="fas fa-save mr-2"></i> Save Rule </button>
-                                    <button type="button" onclick="resetForm()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200"> <i class="fas fa-undo mr-2"></i> Reset </button>
+                                    <button type="button" onclick="saveROIRule()" class="btn-primary flex-1 px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">
+                                        <i class="fas fa-save mr-2"></i> Save Rule
+                                    </button>
+                                    <button type="button" onclick="resetForm()" class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors">
+                                        <i class="fas fa-undo mr-2"></i> Reset
+                                    </button>
                                 </div>
                             </form>
                         </div>
                         <!-- Active Rules -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Active Rules</h2>
+                        <div class="card-hover bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            <h2 class="text-xl font-semibold text-primary-dark mb-4">Active Rules</h2>
                             <div id="activeRules" class="space-y-3">
                                 <!-- Active rules will be populated here -->
                             </div>

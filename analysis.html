@@ -3,74 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutomatUp - Analysis</title>
+    <title>Kalydo - Analytics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#13291b',
+                        'primary-accent': '#63c88c', 
+                        'primary-light': '#dbf5e9',
+                        'primary-hover': '#4fb377',
+                        'primary-focus': '#2f6b42',
+                        'neutral-50': '#f8fafc',
+                        'neutral-100': '#f1f5f9',
+                        'neutral-200': '#e2e8f0',
+                        'neutral-300': '#cbd5e1',
+                        'neutral-400': '#94a3b8',
+                        'neutral-500': '#64748b',
+                        'neutral-600': '#475569',
+                        'neutral-700': '#334155',
+                        'neutral-800': '#1e293b',
+                        'neutral-900': '#0f172a'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Poppins', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #13291b 0%, #1f3c29 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(99, 200, 140, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4fb377 0%, #2f6b42 100%);
+            box-shadow: 0 4px 12px rgba(99, 200, 140, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .input-focus:focus {
+            border-color: #63c88c !important;
+            --tw-ring-color: rgb(99 200 140 / 0.1) !important;
+        }
+        
+        .nav-active {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+        }
+        
+        .nav-inactive {
+            color: #cbd5e1;
+            transition: all 0.2s ease-in-out;
+        }
+        
+        .nav-inactive:hover {
+            background-color: #1f3c29;
+            color: #e2e8f0;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+
+<body class="bg-primary-light">
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside class="w-64 sidebar-gradient text-white flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 border-b border-gray-700">
-                <img src="logo_light.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            <div class="p-6 border-b border-primary-focus/20">
+                <img src="logo_light.png" alt="Kalydo Logo" class="h-10 w-auto">
             </div>
             
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
                     <li>
-                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="dashboard.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-th-large"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
+                        <a href="analysis.html" class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
                             <i class="fas fa-chart-bar"></i>
                             <span>Analytics</span>
                         </a>
                     </li>
                     <li>
-                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="reports.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-file-alt"></i>
                             <span>Reports</span>
                         </a>
                     </li>
                     <li>
-                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="event-log.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-list-alt"></i>
                             <span>Event Log</span>
                         </a>
                     </li>
                     <li>
-                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="feed.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-video"></i>
                             <span>Feed</span>
                         </a>
                     </li>
                     <li>
-                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="settings.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-cog"></i>
                             <span>Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="config.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-sliders-h"></i>
                             <span>Config</span>
                         </a>
                     </li>
                     <li>
-                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="profile.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="far fa-user"></i>
                             <span>Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
+                        <a href="plans.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
                             <i class="fas fa-credit-card"></i>
                             <span>Plans</span>
                         </a>
@@ -82,7 +162,7 @@
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Bar -->
-            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
                 <div class="flex items-center justify-between">
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
@@ -90,22 +170,22 @@
                             <input
                                 type="text"
                                 placeholder="Search"
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
                             />
-                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
                         </div>
                     </div>
                     
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-gray-600">
+                        <div class="flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
-                            <span class="text-sm" data-time>05:43pm</span>
+                            <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-bell"></i>
                         </button>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-user"></i>
                         </button>
                     </div>
@@ -117,7 +197,7 @@
                 <!-- Breadcrumb -->
                 <nav class="mb-6">
                     <div class="flex items-center space-x-2 text-sm">
-                        <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Operations</a>
+                        <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>
                         <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
                         <span class="text-gray-700">Analysis 1</span>
                     </div>
@@ -125,19 +205,20 @@
 
                 <!-- Page Header -->
                 <div class="mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900">Analysis 1</h1>
+                    <h1 class="text-3xl font-bold font-display text-primary-dark">Analytics Dashboard</h1>
+                    <p class="text-primary-focus mt-2 font-medium">Production analysis and insights</p>
                 </div>
 
                 <!-- Chart Container -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                     <!-- Chart Header -->
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-semibold text-gray-900">Weekly Production Units</h2>
+                        <h2 class="text-xl font-semibold text-primary-dark">Weekly Production Units</h2>
                         
                         <!-- Time Filter -->
                         <div class="flex items-center space-x-2">
-                            <i class="far fa-clock text-blue-600"></i>
-                            <select class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <i class="far fa-clock text-primary-accent"></i>
+                            <select class="input-focus border-2 border-neutral-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white">
                                 <option value="week">Week</option>
                                 <option value="month">Month</option>
                                 <option value="year">Year</option>
