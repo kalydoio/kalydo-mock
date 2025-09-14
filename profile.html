@@ -1,77 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutomatUp - Profile</title>
+    <title>Kalydo - Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#13291b',
+                        'primary-accent': '#63c88c',
+                        'primary-light': '#dbf5e9',
+                        'primary-hover': '#4fb377',
+                        'primary-focus': '#2f6b42',
+                        'neutral-50': '#f8fafc',
+                        'neutral-100': '#f1f5f9',
+                        'neutral-200': '#e2e8f0',
+                        'neutral-300': '#cbd5e1',
+                        'neutral-400': '#94a3b8',
+                        'neutral-500': '#64748b',
+                        'neutral-600': '#475569',
+                        'neutral-700': '#334155',
+                        'neutral-800': '#1e293b',
+                        'neutral-900': '#0f172a'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins'],
+                        'display': ['Poppins']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
+
 <body class="bg-gray-50">
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside id="sidebar" class="sidebar-gradient text-white flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 border-b border-gray-700">
-                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            <div class="p-6 border-b border-primary-focus/20 relative">
+                <div class="relative h-10">
+                    <img src="logo_light.png" alt="Kalydo Logo" class="h-10 w-auto logo-full">
+                    <img src="logo_abbr.png" alt="K" class="h-10 w-auto logo-abbr">
+                </div>
+                <!-- Toggle Button -->
+                <button
+                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
             </div>
-            
+
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
-                    <li>
-                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-th-large"></i>
-                            <span>Dashboard</span>
+                    <li class="relative">
+                        <a href="dashboard.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-th-large flex-shrink-0"></i>
+                            <span class="nav-text">Dashboard</span>
+                            <div class="tooltip">Dashboard</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Analytics</span>
+                    <li class="relative">
+                        <a href="analysis.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-chart-bar flex-shrink-0"></i>
+                            <span class="nav-text">Analytics</span>
+                            <div class="tooltip">Analytics</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Reports</span>
+                    <li class="relative">
+                        <a href="reports.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-file-alt flex-shrink-0"></i>
+                            <span class="nav-text">Reports</span>
+                            <div class="tooltip">Reports</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-list-alt"></i>
-                            <span>Event Log</span>
+                    <li class="relative">
+                        <a href="event-log.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-list-alt flex-shrink-0"></i>
+                            <span class="nav-text">Event Log</span>
+                            <div class="tooltip">Event Log</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-video"></i>
-                            <span>Feed</span>
+                    <li class="relative">
+                        <a href="feed.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-video flex-shrink-0"></i>
+                            <span class="nav-text">Feed</span>
+                            <div class="tooltip">Feed</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-cog"></i>
-                            <span>Settings</span>
+                    <li class="relative">
+                        <a href="settings.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-cog flex-shrink-0"></i>
+                            <span class="nav-text">Settings</span>
+                            <div class="tooltip">Settings</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-sliders-h"></i>
-                            <span>Config</span>
+                    <li class="relative">
+                        <a href="config.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+
+                            <i class="fas fa-sliders-h flex-shrink-0"></i>
+                            <span class="nav-text">Config</span>
+                            <div class="tooltip">Config</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
-                            <i class="far fa-user"></i>
-                            <span>Profile</span>
+                    <li class="relative">
+                        <a href="profile.html"
+                            class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
+
+                            <i class="far fa-user flex-shrink-0"></i>
+                            <span class="nav-text">Profile</span>
+                            <div class="tooltip">Profile</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-credit-card"></i>
-                            <span>Plans</span>
+                    <li class="relative">
+                        <a href="plans.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-credit-card flex-shrink-0"></i>
+                            <span class="nav-text">Plans</span>
+                            <div class="tooltip">Plans</div>
                         </a>
                     </li>
                 </ul>
@@ -81,30 +136,28 @@
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Bar -->
-            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
                 <div class="flex items-center justify-between">
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
                         <div class="relative">
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
-                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="Search"
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                            <i
+                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-gray-600">
+                        <div class="flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
-                            <span class="text-sm" data-time>05:43pm</span>
+                            <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-bell"></i>
                         </button>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-user"></i>
                         </button>
                     </div>
@@ -123,117 +176,153 @@
                 </nav>
 
                 <!-- Page Header -->
-                <div class="mb-8">
-                    <h1 class="text-3xl font-bold text-gray-900">Profile Settings</h1>
-                    <p class="text-gray-600 mt-2">Manage your account and business information</p>
+                <div class="flex items-center justify-between mb-8">
+                    <div>
+                        <h1 class="text-3xl font-bold font-display text-primary-dark">Profile Settings</h1>
+                        <p class="text-gray-500 mt-2 font-medium">Manage your account and business information</p>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <!-- Main Content -->
                     <div class="lg:col-span-2 space-y-6">
                         <!-- General Business Details -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                             <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-xl font-semibold text-gray-900">Business Information</h2>
-                                <button class="text-blue-600 hover:text-blue-700 text-sm font-medium" onclick="toggleEdit('business')">
+                                <h2 class="text-xl font-semibold text-primary-dark">Business Information</h2>
+                                <button
+                                    class="text-primary-accent hover:text-primary-focus text-sm font-medium transition-colors"
+                                    onclick="toggleEdit('business')">
                                     <i class="fas fa-edit mr-1"></i>Edit
                                 </button>
                             </div>
-                            
+
                             <form id="businessForm" class="space-y-4">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
-                                        <input type="text" name="companyName" class="form-input" readonly>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Company
+                                            Name</label>
+                                        <input type="text" name="companyName"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Industry</label>
-                                        <input type="text" name="industry" class="form-input" readonly>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Industry</label>
+                                        <input type="text" name="industry"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly>
                                     </div>
                                     <div class="md:col-span-2">
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                                        <textarea name="address" rows="2" class="form-input" readonly></textarea>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Address</label>
+                                        <textarea name="address" rows="2"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly></textarea>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                        <input type="tel" name="phone" class="form-input" readonly>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Phone
+                                            Number</label>
+                                        <input type="tel" name="phone"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="hidden" id="businessActions">
-                                    <div class="flex space-x-3 pt-4 border-t">
-                                        <button type="button" onclick="saveSection('business')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
-                                        <button type="button" onclick="cancelEdit('business')" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Cancel</button>
+                                    <div class="flex space-x-3 pt-4 border-t border-neutral-200">
+                                        <button type="button" onclick="saveSection('business')"
+                                            class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">Save</button>
+                                        <button type="button" onclick="cancelEdit('business')"
+                                            class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors">Cancel</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
                         <!-- User Details -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                             <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-xl font-semibold text-gray-900">User Details</h2>
-                                <button class="text-blue-600 hover:text-blue-700 text-sm font-medium" onclick="toggleEdit('user')">
+                                <h2 class="text-xl font-semibold text-primary-dark">User Details</h2>
+                                <button
+                                    class="text-primary-accent hover:text-primary-focus text-sm font-medium transition-colors"
+                                    onclick="toggleEdit('user')">
                                     <i class="fas fa-edit mr-1"></i>Edit
                                 </button>
                             </div>
-                            
+
                             <form id="userForm" class="space-y-4">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                                        <input type="text" name="name" class="form-input" readonly>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Full
+                                            Name</label>
+                                        <input type="text" name="name"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                                        <input type="email" name="email" class="form-input" readonly>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Email</label>
+                                        <input type="email" name="email"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Role</label>
-                                        <select name="role" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" disabled>
+                                        <select name="role"
+                                            class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            disabled>
                                             <option value="admin">Administrator</option>
                                             <option value="manager">Manager</option>
                                             <option value="operator">Operator</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Status</label>
                                         <div class="flex items-center space-x-2">
-                                            <span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800" id="userStatus">Active</span>
+                                            <span
+                                                class="px-2 py-1 text-xs font-medium rounded-full bg-primary-light text-primary-accent"
+                                                id="userStatus">Active</span>
                                         </div>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                        <input type="tel" name="phone" class="form-input" readonly>
+                                        <label class="block text-sm font-medium text-primary-dark mb-2">Phone
+                                            Number</label>
+                                        <input type="tel" name="phone"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="hidden" id="userActions">
-                                    <div class="flex space-x-3 pt-4 border-t">
-                                        <button type="button" onclick="saveSection('user')" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Save</button>
-                                        <button type="button" onclick="cancelEdit('user')" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Cancel</button>
+                                    <div class="flex space-x-3 pt-4 border-t border-neutral-200">
+                                        <button type="button" onclick="saveSection('user')"
+                                            class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">Save</button>
+                                        <button type="button" onclick="cancelEdit('user')"
+                                            class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors">Cancel</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
 
                         <!-- About Section -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                            <h2 class="text-xl font-semibold text-gray-900 mb-4">About</h2>
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            <h2 class="text-xl font-semibold text-primary-dark mb-4">About</h2>
                             <div class="space-y-4">
-                                <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                    <span class="text-gray-600">Version</span>
-                                    <span class="font-medium">v2.1.0</span>
+                                <div class="flex justify-between items-center py-2 border-b border-neutral-100">
+                                    <span class="text-neutral-600">Version</span>
+                                    <span class="font-medium text-primary-dark">v2.1.0</span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                    <span class="text-gray-600">Company</span>
-                                    <span class="font-medium">AutomatUp Technologies</span>
+                                <div class="flex justify-between items-center py-2 border-b border-neutral-100">
+                                    <span class="text-neutral-600">Company</span>
+                                    <span class="font-medium text-primary-dark">AutomatUp Technologies</span>
                                 </div>
-                                <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                    <span class="text-gray-600">Support</span>
-                                    <a href="mailto:support@automatup.com" class="text-blue-600 hover:text-blue-700 font-medium">support@automatup.com</a>
+                                <div class="flex justify-between items-center py-2 border-b border-neutral-100">
+                                    <span class="text-neutral-600">Support</span>
+                                    <a href="mailto:support@automatup.com"
+                                        class="text-primary-accent hover:text-primary-focus font-medium transition-colors">support@automatup.com</a>
                                 </div>
                                 <div class="flex justify-between items-center py-2">
-                                    <span class="text-gray-600">License</span>
-                                    <span class="font-medium">Enterprise</span>
+                                    <span class="text-neutral-600">License</span>
+                                    <span class="font-medium text-primary-dark">Enterprise</span>
                                 </div>
                             </div>
                         </div>
@@ -242,73 +331,85 @@
                     <!-- Right Sidebar -->
                     <div class="space-y-6">
                         <!-- Current Plan -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Current Plan</h3>
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            <h3 class="text-lg font-semibold text-primary-dark mb-4">Current Plan</h3>
                             <div class="text-center">
-                                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-3">
-                                    <i class="fas fa-crown text-blue-600 text-xl"></i>
+                                <div
+                                    class="inline-flex items-center justify-center w-16 h-16 bg-primary-light rounded-full mb-3">
+                                    <i class="fas fa-crown text-primary-accent text-xl"></i>
                                 </div>
-                                <h4 class="text-xl font-bold text-gray-900" id="currentPlan">Pro Plan</h4>
-                                <p class="text-gray-600 text-sm mb-4">Advanced automation features</p>
+                                <h4 class="text-xl font-bold text-primary-dark" id="currentPlan">Pro Plan</h4>
+                                <p class="text-primary-focus text-sm mb-4">Advanced automation features</p>
                                 <div class="space-y-2 text-sm">
-                                    <div class="flex items-center text-gray-600">
-                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <div class="flex items-center text-neutral-600">
+                                        <i class="fas fa-check text-primary-accent mr-2"></i>
                                         Unlimited cameras
                                     </div>
-                                    <div class="flex items-center text-gray-600">
-                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <div class="flex items-center text-neutral-600">
+                                        <i class="fas fa-check text-primary-accent mr-2"></i>
                                         Advanced analytics
                                     </div>
-                                    <div class="flex items-center text-gray-600">
-                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                    <div class="flex items-center text-neutral-600">
+                                        <i class="fas fa-check text-primary-accent mr-2"></i>
                                         24/7 support
                                     </div>
                                 </div>
-                                <button class="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200" onclick="showPlanModal()">
+                                <button
+                                    class="btn-primary w-full mt-4 px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors"
+                                    onclick="showPlanModal()">
                                     Change Plan
                                 </button>
                             </div>
                         </div>
 
                         <!-- Billing -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Billing</h3>
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            <h3 class="text-lg font-semibold text-primary-dark mb-4">Billing</h3>
                             <div class="space-y-3">
                                 <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Payment Method</span>
-                                    <span class="font-medium" id="paymentMethod">•••• 1234</span>
+                                    <span class="text-neutral-600">Payment Method</span>
+                                    <span class="font-medium text-primary-dark" id="paymentMethod">•••• 1234</span>
                                 </div>
                                 <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Next Billing</span>
-                                    <span class="font-medium" id="nextBilling">Sep 20, 2025</span>
+                                    <span class="text-neutral-600">Next Billing</span>
+                                    <span class="font-medium text-primary-dark" id="nextBilling">Sep 20, 2025</span>
                                 </div>
                                 <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Cycle</span>
-                                    <span class="font-medium" id="billingCycle">Monthly</span>
+                                    <span class="text-neutral-600">Cycle</span>
+                                    <span class="font-medium text-primary-dark" id="billingCycle">Monthly</span>
                                 </div>
-                                <button class="w-full mt-4 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition duration-200" onclick="showBillingHistory()">
+                                <button
+                                    class="w-full mt-4 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors"
+                                    onclick="showBillingHistory()">
                                     View History
                                 </button>
                             </div>
                         </div>
 
                         <!-- Quick Actions -->
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                        <div
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            <h3 class="text-lg font-semibold text-primary-dark mb-4">Quick Actions</h3>
                             <div class="space-y-2">
-                                <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 rounded-lg transition duration-200">
-                                    <i class="fas fa-download mr-2 text-gray-400"></i>
+                                <button
+                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors">
+                                    <i class="fas fa-download mr-2 text-neutral-400"></i>
                                     Download Data
                                 </button>
-                                <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 rounded-lg transition duration-200">
-                                    <i class="fas fa-key mr-2 text-gray-400"></i>
+                                <button
+                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors">
+                                    <i class="fas fa-key mr-2 text-neutral-400"></i>
                                     Change Password
                                 </button>
-                                <button class="w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 rounded-lg transition duration-200">
-                                    <i class="fas fa-bell mr-2 text-gray-400"></i>
+                                <button
+                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors">
+                                    <i class="fas fa-bell mr-2 text-neutral-400"></i>
                                     Notification Settings
                                 </button>
-                                <button onclick="logout()" class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 rounded-lg transition duration-200">
+                                <button onclick="logout()"
+                                    class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 rounded-xl transition-colors">
                                     <i class="fas fa-sign-out-alt mr-2"></i>
                                     Logout
                                 </button>
@@ -322,38 +423,45 @@
 
     <!-- Plan Change Modal -->
     <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-        <div class="bg-white rounded-lg p-6 w-full max-w-2xl mx-4">
+        <div
+            class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 w-full max-w-2xl mx-4 border border-neutral-200 shadow-2xl">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-lg font-semibold">Change Plan</h3>
-                <button onclick="hidePlanModal()" class="text-gray-400 hover:text-gray-600">
+                <h3 class="text-lg font-semibold text-primary-dark">Change Plan</h3>
+                <button onclick="hidePlanModal()" class="text-neutral-400 hover:text-neutral-600">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500" onclick="selectPlan('Basic')">
-                    <h4 class="font-semibold text-gray-900">Basic</h4>
-                    <p class="text-2xl font-bold text-gray-900 my-2">$99<span class="text-sm font-normal text-gray-600">/month</span></p>
+                <div class="border border-neutral-200 rounded-2xl p-4 cursor-pointer hover:border-primary-accent transition-colors"
+                    onclick="selectPlan('Basic')">
+                    <h4 class="font-semibold text-primary-dark">Basic</h4>
+                    <p class="text-2xl font-bold text-primary-dark my-2">$99<span
+                            class="text-sm font-normal text-neutral-600">/month</span></p>
                     <ul class="text-sm text-gray-600 space-y-1">
                         <li>• Up to 5 cameras</li>
                         <li>• Basic analytics</li>
                         <li>• Email support</li>
                     </ul>
                 </div>
-                
-                <div class="border-2 border-blue-500 rounded-lg p-4 cursor-pointer" onclick="selectPlan('Advance')">
+
+                <div class="border-2 border-primary-accent rounded-lg p-4 cursor-pointer"
+                    onclick="selectPlan('Advance')">
                     <h4 class="font-semibold text-gray-900">Advance</h4>
-                    <p class="text-2xl font-bold text-gray-900 my-2">$199<span class="text-sm font-normal text-gray-600">/month</span></p>
+                    <p class="text-2xl font-bold text-gray-900 my-2">$199<span
+                            class="text-sm font-normal text-gray-600">/month</span></p>
                     <ul class="text-sm text-gray-600 space-y-1">
                         <li>• Up to 20 cameras</li>
                         <li>• Advanced analytics</li>
                         <li>• Priority support</li>
                     </ul>
                 </div>
-                
-                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-blue-500" onclick="selectPlan('Pro')">
+
+                <div class="border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary-accent"
+                    onclick="selectPlan('Pro')">
                     <h4 class="font-semibold text-gray-900">Pro</h4>
-                    <p class="text-2xl font-bold text-gray-900 my-2">$399<span class="text-sm font-normal text-gray-600">/month</span></p>
+                    <p class="text-2xl font-bold text-gray-900 my-2">$399<span
+                            class="text-sm font-normal text-gray-600">/month</span></p>
                     <ul class="text-sm text-gray-600 space-y-1">
                         <li>• Unlimited cameras</li>
                         <li>• All features</li>
@@ -361,10 +469,13 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="flex justify-end space-x-3 mt-6">
-                <button onclick="hidePlanModal()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Cancel</button>
-                <button onclick="confirmPlanChange()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Confirm Change</button>
+                <button onclick="hidePlanModal()"
+                    class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Cancel</button>
+                <button onclick="confirmPlanChange()"
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 btn-primary bg-primary-accent">Confirm
+                    Change</button>
             </div>
         </div>
     </div>
@@ -387,27 +498,27 @@
             loadProfile() {
                 const profile = window.appState.getProfile();
                 const config = window.appState.getConfig();
-                
+
                 // Load business info
                 const businessForm = document.getElementById('businessForm');
                 businessForm.companyName.value = profile.business.companyName;
                 businessForm.industry.value = profile.business.industry;
                 businessForm.address.value = profile.business.address;
                 businessForm.phone.value = profile.business.phone;
-                
+
                 // Load user info
                 const userForm = document.getElementById('userForm');
                 userForm.name.value = profile.user.name;
                 userForm.email.value = profile.user.email;
                 userForm.role.value = profile.user.role;
                 userForm.phone.value = profile.user.phone;
-                
+
                 // Update status display
                 document.getElementById('userStatus').textContent = profile.user.status.charAt(0).toUpperCase() + profile.user.status.slice(1);
-                
+
                 // Load current plan
                 document.getElementById('currentPlan').textContent = config.plan + ' Plan';
-                
+
                 // Load billing info
                 document.getElementById('paymentMethod').textContent = profile.billing.paymentMethod;
                 document.getElementById('nextBilling').textContent = window.utils.formatDate(profile.billing.nextBilling);
@@ -446,7 +557,7 @@
             const form = document.getElementById(section + 'Form');
             const actions = document.getElementById(section + 'Actions');
             const inputs = form.querySelectorAll('input, textarea, select');
-            
+
             // Store original data
             window.profilePage.originalData[section] = {};
             inputs.forEach(input => {
@@ -454,7 +565,7 @@
                 input.readOnly = false;
                 input.disabled = false;
             });
-            
+
             actions.classList.remove('hidden');
         }
 
@@ -462,14 +573,14 @@
             const form = document.getElementById(section + 'Form');
             const actions = document.getElementById(section + 'Actions');
             const inputs = form.querySelectorAll('input, textarea, select');
-            
+
             // Restore original data
             inputs.forEach(input => {
                 input.value = window.profilePage.originalData[section][input.name];
                 input.readOnly = true;
                 input.disabled = true;
             });
-            
+
             actions.classList.add('hidden');
         }
 
@@ -478,7 +589,7 @@
             const actions = document.getElementById(section + 'Actions');
             const inputs = form.querySelectorAll('input, textarea, select');
             const formData = new FormData(form);
-            
+
             // Validate form
             let isValid = true;
             inputs.forEach(input => {
@@ -489,12 +600,12 @@
                     input.classList.remove('border-red-500');
                 }
             });
-            
+
             if (!isValid) {
                 window.utils.showToast('Please fill in all required fields', 'error');
                 return;
             }
-            
+
             // Update profile
             const profile = window.appState.getProfile();
             if (section === 'business') {
@@ -513,15 +624,15 @@
                     phone: formData.get('phone')
                 };
             }
-            
+
             window.appState.updateProfile(profile);
-            
+
             // Set inputs back to readonly
             inputs.forEach(input => {
                 input.readOnly = true;
                 input.disabled = true;
             });
-            
+
             actions.classList.add('hidden');
             window.utils.showToast('Profile updated successfully!', 'success');
         }
@@ -537,16 +648,16 @@
 
         function selectPlan(plan) {
             window.profilePage.selectedPlan = plan;
-            
+
             // Update visual selection
             const cards = document.querySelectorAll('#planModal .border');
             cards.forEach(card => {
-                card.classList.remove('border-blue-500', 'border-2');
+                card.classList.remove('border-primary-accent', 'border-2');
                 card.classList.add('border-gray-200');
             });
-            
+
             event.currentTarget.classList.remove('border-gray-200');
-            event.currentTarget.classList.add('border-blue-500', 'border-2');
+            event.currentTarget.classList.add('border-primary-accent', 'border-2');
         }
 
         function confirmPlanChange() {
@@ -554,7 +665,7 @@
                 window.utils.showToast('Please select a plan', 'error');
                 return;
             }
-            
+
             window.appState.updateConfig({ plan: window.profilePage.selectedPlan });
             document.getElementById('currentPlan').textContent = window.profilePage.selectedPlan + ' Plan';
             hidePlanModal();
@@ -579,5 +690,7 @@
             window.profilePage = new ProfilePage();
         });
     </script>
+    <script src="js/sidebar.js"></script>
 </body>
+
 </html>

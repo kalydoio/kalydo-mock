@@ -225,7 +225,7 @@ class MockAPI {
                 datasets: [{
                     label: 'Sack Count',
                     data: [245, 312, 189, 298],
-                    backgroundColor: '#3b82f6'
+                    backgroundColor: '#63c88c'
                 }]
             };
         } else if (sql.includes('vehicle')) {
@@ -234,7 +234,7 @@ class MockAPI {
                 datasets: [{
                     label: 'Vehicle Count',
                     data: [15, 23, 18, 27, 31, 12, 8],
-                    backgroundColor: '#10b981'
+                    backgroundColor: '#4fb377'
                 }]
             };
         } else if (sql.includes('dock_area')) {
@@ -243,7 +243,7 @@ class MockAPI {
                 datasets: [{
                     label: 'Loading Count',
                     data: [120, 95, 87],
-                    backgroundColor: ['#3b82f6', '#8b5cf6', '#f59e0b']
+                    backgroundColor: ['#63c88c', '#4fb377', '#2f6b42']
                 }]
             };
         } else {
@@ -252,7 +252,7 @@ class MockAPI {
                 datasets: [{
                     label: 'Daily Events',
                     data: [12, 19, 15, 25, 22, 18],
-                    backgroundColor: '#6366f1'
+                    backgroundColor: '#63c88c'
                 }]
             };
         }
@@ -303,10 +303,10 @@ class Utils {
 
     static showToast(message, type = 'success') {
         const toast = document.createElement('div');
-        toast.className = `fixed top-4 right-4 px-6 py-3 rounded-lg text-white z-50 transition-all duration-300 ${
-            type === 'success' ? 'bg-green-500' : 
-            type === 'error' ? 'bg-red-500' : 
-            'bg-blue-500'
+        toast.className = `fixed top-4 right-4 px-6 py-3 rounded-xl text-white z-50 transition-all duration-300 font-medium ${
+            type === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 
+            type === 'error' ? 'bg-gradient-to-r from-red-500 to-rose-500' : 
+            'bg-gradient-to-r from-blue-500 to-indigo-500'
         }`;
         toast.textContent = message;
         document.body.appendChild(toast);
@@ -327,7 +327,7 @@ class ChartHelper {
         return new Chart(ctx.getContext('2d'), config);
     }
 
-    static createSparkline(canvasId, data, color = '#3b82f6') {
+    static createSparkline(canvasId, data, color = '#63c88c') {
         const canvas = document.getElementById(canvasId);
         if (!canvas) return;
         
@@ -365,7 +365,7 @@ window.chartHelper = ChartHelper;
 const enhancedSelectStyles = `
     .enhanced-select {
         appearance: none;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2313291b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
         background-position: right 0.5rem center;
         background-repeat: no-repeat;
         background-size: 1.5em 1.5em;
@@ -374,12 +374,12 @@ const enhancedSelectStyles = `
     }
     
     .enhanced-select:focus {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%232563eb' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2363c88c' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     }
     
     .enhanced-select option {
         padding: 0.5rem;
-        color: #374151;
+        color: #13291b;
     }
 `;
 

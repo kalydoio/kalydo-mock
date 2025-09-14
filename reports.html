@@ -1,77 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutomatUp - Reports</title>
+    <title>Kalydo - Reports</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#13291b',
+                        'primary-accent': '#63c88c',
+                        'primary-light': '#dbf5e9',
+                        'primary-hover': '#4fb377',
+                        'primary-focus': '#2f6b42',
+                        'neutral-50': '#f8fafc',
+                        'neutral-100': '#f1f5f9',
+                        'neutral-200': '#e2e8f0',
+                        'neutral-300': '#cbd5e1',
+                        'neutral-400': '#94a3b8',
+                        'neutral-500': '#64748b',
+                        'neutral-600': '#475569',
+                        'neutral-700': '#334155',
+                        'neutral-800': '#1e293b',
+                        'neutral-900': '#0f172a'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins'],
+                        'display': ['Poppins']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
+
 <body class="bg-gray-50">
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-900 text-white flex-shrink-0">
+        <aside id="sidebar" class="sidebar-gradient text-white flex-shrink-0">
             <!-- Logo -->
-            <div class="p-6 border-b border-gray-700">
-                <img src="logo.png" alt="AutomatUp Logo" class="h-10 w-auto">
+            <div class="p-6 border-b border-primary-focus/20 relative">
+                <div class="relative h-10">
+                    <img src="logo_light.png" alt="Kalydo Logo" class="h-10 w-auto logo-full">
+                    <img src="logo_abbr.png" alt="K" class="h-10 w-auto logo-abbr">
+                </div>
+                <!-- Toggle Button -->
+                <button
+                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
             </div>
-            
+
             <!-- Navigation Menu -->
             <nav class="mt-6">
                 <ul class="space-y-2 px-4">
-                    <li>
-                        <a href="dashboard.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-th-large"></i>
-                            <span>Dashboard</span>
+                    <li class="relative">
+                        <a href="dashboard.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-th-large flex-shrink-0"></i>
+                            <span class="nav-text">Dashboard</span>
+                            <div class="tooltip">Dashboard</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="analysis.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-chart-bar"></i>
-                            <span>Analytics</span>
+                    <li class="relative">
+                        <a href="analysis.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-chart-bar flex-shrink-0"></i>
+                            <span class="nav-text">Analytics</span>
+                            <div class="tooltip">Analytics</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="reports.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg bg-blue-600 text-white">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Reports</span>
+                    <li class="relative">
+                        <a href="reports.html"
+                            class="nav-active flex items-center space-x-3 py-3 px-4 rounded-lg text-white font-medium">
+                            <i class="fas fa-file-alt flex-shrink-0"></i>
+                            <span class="nav-text">Reports</span>
+                            <div class="tooltip">Reports</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="event-log.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-list-alt"></i>
-                            <span>Event Log</span>
+                    <li class="relative">
+                        <a href="event-log.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-list-alt flex-shrink-0"></i>
+                            <span class="nav-text">Event Log</span>
+                            <div class="tooltip">Event Log</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="feed.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-video"></i>
-                            <span>Feed</span>
+                    <li class="relative">
+                        <a href="feed.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-video flex-shrink-0"></i>
+                            <span class="nav-text">Feed</span>
+                            <div class="tooltip">Feed</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="settings.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-cog"></i>
-                            <span>Settings</span>
+                    <li class="relative">
+                        <a href="settings.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-cog flex-shrink-0"></i>
+                            <span class="nav-text">Settings</span>
+                            <div class="tooltip">Settings</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="config.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-sliders-h"></i>
-                            <span>Config</span>
+                    <li class="relative">
+                        <a href="config.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-sliders-h flex-shrink-0"></i>
+                            <span class="nav-text">Config</span>
+                            <div class="tooltip">Config</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="profile.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="far fa-user"></i>
-                            <span>Profile</span>
+                    <li class="relative">
+                        <a href="profile.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="far fa-user flex-shrink-0"></i>
+                            <span class="nav-text">Profile</span>
+                            <div class="tooltip">Profile</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="plans.html" class="flex items-center space-x-3 py-3 px-4 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition duration-200">
-                            <i class="fas fa-credit-card"></i>
-                            <span>Plans</span>
+                    <li class="relative">
+                        <a href="plans.html" class="nav-inactive flex items-center space-x-3 py-3 px-4 rounded-lg">
+                            <i class="fas fa-credit-card flex-shrink-0"></i>
+                            <span class="nav-text">Plans</span>
+                            <div class="tooltip">Plans</div>
                         </a>
                     </li>
                 </ul>
@@ -81,30 +134,28 @@
         <!-- Main Content -->
         <main class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Bar -->
-            <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
                 <div class="flex items-center justify-between">
                     <!-- Search Bar -->
                     <div class="flex-1 max-w-md">
                         <div class="relative">
-                            <input
-                                type="text"
-                                placeholder="Search reports..."
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
-                            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" placeholder="Search reports..."
+                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                            <i
+                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
                         </div>
                     </div>
-                    
+
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-gray-600">
+                        <div class="flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
-                            <span class="text-sm" data-time>05:43pm</span>
+                            <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-bell"></i>
                         </button>
-                        <button class="text-gray-600 hover:text-gray-800">
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
                             <i class="far fa-user"></i>
                         </button>
                     </div>
@@ -125,11 +176,10 @@
                 <!-- Page Header -->
                 <div class="flex items-center justify-between mb-8">
                     <div>
-                        <h1 class="text-3xl font-bold text-gray-900">Reports</h1>
-                        <p class="text-gray-600 mt-2">Generate and download detailed operational reports</p>
+                        <h1 class="text-3xl font-bold font-display text-primary-dark">Reports</h1>
+                        <p class="text-gray-500 mt-2 font-medium">Generate and download detailed operational reports</p>
                     </div>
-                    
-                    <button onclick="generateCustomReport()" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
+                    <button onclick="generateCustomReport()" class="btn-primary px-6 py-3 rounded-xl">
                         <i class="fas fa-plus mr-2"></i>
                         New Report
                     </button>
@@ -138,60 +188,66 @@
                 <!-- Report Categories -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     <!-- Operations Report -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-cogs text-blue-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
+                                <i class="fas fa-cogs text-primary-accent text-xl"></i>
                             </div>
-                            <button class="text-gray-400 hover:text-gray-600">
+                            <button class="text-neutral-400 hover:text-neutral-600">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Operations Report</h3>
-                        <p class="text-gray-600 text-sm mb-4">Daily operational metrics and KPIs</p>
+                        <h3 class="text-lg font-semibold text-primary-dark mb-2">Operations Report</h3>
+                        <p class="text-neutral-600 text-sm mb-4">Daily operational metrics and KPIs</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">Last generated: Today</span>
-                            <button onclick="downloadReport('operations')" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            <span class="text-sm text-neutral-500">Last generated: Today</span>
+                            <button onclick="downloadReport('operations')"
+                                class="text-primary-accent hover:text-primary-hover text-sm font-medium">
                                 Download
                             </button>
                         </div>
                     </div>
 
                     <!-- Vehicle Analysis -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-truck text-green-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
+                                <i class="fas fa-truck text-primary-accent text-xl"></i>
                             </div>
-                            <button class="text-gray-400 hover:text-gray-600">
+                            <button class="text-neutral-400 hover:text-neutral-600">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Vehicle Analysis</h3>
-                        <p class="text-gray-600 text-sm mb-4">Vehicle tracking and dwell time analysis</p>
+                        <h3 class="text-lg font-semibold text-primary-dark mb-2">Vehicle Analysis</h3>
+                        <p class="text-neutral-600 text-sm mb-4">Vehicle tracking and dwell time analysis</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">Last generated: Yesterday</span>
-                            <button onclick="downloadReport('vehicle')" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            <span class="text-sm text-neutral-500">Last generated: Yesterday</span>
+                            <button onclick="downloadReport('vehicle')"
+                                class="text-primary-accent hover:text-primary-hover text-sm font-medium">
                                 Download
                             </button>
                         </div>
                     </div>
 
                     <!-- Safety Report -->
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
                         <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-shield-alt text-red-600 text-xl"></i>
+                            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-primary-accent text-xl"></i>
                             </div>
-                            <button class="text-gray-400 hover:text-gray-600">
+                            <button class="text-neutral-400 hover:text-neutral-600">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Safety Report</h3>
-                        <p class="text-gray-600 text-sm mb-4">Violations and compliance tracking</p>
+                        <h3 class="text-lg font-semibold text-primary-dark mb-2">Safety Report</h3>
+                        <p class="text-neutral-600 text-sm mb-4">Violations and compliance tracking</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">Last generated: 2 days ago</span>
-                            <button onclick="downloadReport('safety')" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            <span class="text-sm text-neutral-500">Last generated: 2 days ago</span>
+                            <button onclick="downloadReport('safety')"
+                                class="text-primary-accent hover:text-primary-hover text-sm font-medium">
                                 Download
                             </button>
                         </div>
@@ -199,64 +255,80 @@
                 </div>
 
                 <!-- Recent Reports -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <h2 class="text-xl font-semibold text-gray-900 mb-6">Recent Reports</h2>
-                    
+                <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                    <h2 class="text-xl font-semibold text-primary-dark mb-6">Recent Reports</h2>
+
                     <div class="overflow-x-auto">
                         <table class="w-full">
-                            <thead class="bg-gray-50">
+                            <thead class="bg-primary-light/50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Report Name</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Generated</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Size</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                        Report Name</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                        Type</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                        Generated</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                        Size</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                        Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody class="bg-white divide-y divide-neutral-200">
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <i class="fas fa-file-pdf text-red-500 mr-3"></i>
-                                            <span class="text-sm font-medium text-gray-900">Daily Operations - Aug 20</span>
+                                            <span class="text-sm font-medium text-primary-dark">Daily Operations - Aug
+                                                20</span>
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Operations</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2 hours ago</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2.4 MB</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">Operations</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">2 hours ago</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">2.4 MB</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <button class="text-blue-600 hover:text-blue-700 mr-3">Download</button>
-                                        <button class="text-gray-400 hover:text-gray-600">Delete</button>
+                                        <button
+                                            class="text-primary-accent hover:text-primary-hover mr-3">Download</button>
+                                        <button class="text-neutral-400 hover:text-neutral-600">Delete</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
-                                            <i class="fas fa-file-excel text-green-500 mr-3"></i>
-                                            <span class="text-sm font-medium text-gray-900">Vehicle Analysis - Weekly</span>
+                                            <i class="fas fa-file-excel text-primary-accent mr-3"></i>
+                                            <span class="text-sm font-medium text-primary-dark">Vehicle Analysis -
+                                                Weekly</span>
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Vehicle</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1 day ago</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1.8 MB</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">Vehicle</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">1 day ago</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">1.8 MB</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <button class="text-blue-600 hover:text-blue-700 mr-3">Download</button>
-                                        <button class="text-gray-400 hover:text-gray-600">Delete</button>
+                                        <button
+                                            class="text-primary-accent hover:text-primary-hover mr-3">Download</button>
+                                        <button class="text-neutral-400 hover:text-neutral-600">Delete</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <i class="fas fa-file-pdf text-red-500 mr-3"></i>
-                                            <span class="text-sm font-medium text-gray-900">Safety Compliance Report</span>
+                                            <span class="text-sm font-medium text-primary-dark">Safety Compliance
+                                                Report</span>
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Safety</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3 days ago</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3.1 MB</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">Safety</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">3 days ago</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">3.1 MB</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <button class="text-blue-600 hover:text-blue-700 mr-3">Download</button>
-                                        <button class="text-gray-400 hover:text-gray-600">Delete</button>
+                                        <button
+                                            class="text-primary-accent hover:text-primary-hover mr-3">Download</button>
+                                        <button class="text-neutral-400 hover:text-neutral-600">Delete</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -272,7 +344,7 @@
         // Reports Page Logic
         function downloadReport(type) {
             window.utils.showToast(`Downloading ${type} report...`, 'info');
-            
+
             // Simulate download delay
             setTimeout(() => {
                 window.utils.showToast('Report downloaded successfully!', 'success');
@@ -288,5 +360,6 @@
             // Page is ready
         });
     </script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

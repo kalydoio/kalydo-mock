@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutomatUp - Login</title>
+    <title>Kalydo - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#13291b',
+                        'primary-accent': '#63c88c', 
+                        'primary-light': '#dbf5e9',
+                        'primary-hover': '#4fb377',
+                        'primary-focus': '#2f6b42'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins'],
+                        'display': ['Poppins']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,6 +35,7 @@
         body, html {
             height: 100%;
             overflow: hidden;
+            font-family: 'Inter', system-ui, sans-serif;
         }
 
         #curved-corner-topleft {
@@ -58,13 +79,13 @@
         #curved-corner-topleft:before {
             top: 0;
             left: 0;
-            box-shadow: -30vw -30vh 0 0 #287DB6, -60vw -60vh 0 0 #1F628E;
+            box-shadow: -30vw -30vh 0 0 #63c88c, -60vw -60vh 0 0 #13291b;
         }
 
         #curved-corner-bottomright:before {
             bottom: 0;
             right: 0;
-            box-shadow: 30vw 30vh 0 0 #000000;
+            box-shadow: 30vw 30vh 0 0 #13291b;
         }
 
         /* Login content positioning */
@@ -73,9 +94,42 @@
             z-index: 20;
             min-height: 100vh;
         }
+
+        /* Custom button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #63c88c 0%, #4fb377 100%);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(99, 200, 140, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4fb377 0%, #2f6b42 100%);
+            box-shadow: 0 4px 12px rgba(99, 200, 140, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:focus {
+            --tw-ring-color: rgb(99 200 140 / 0.5);
+            --tw-ring-opacity: 0.5;
+        }
+
+        /* Input focus styles */
+        .input-focus:focus {
+            border-color: #63c88c;
+            box-shadow: 0 0 0 3px rgba(99, 200, 140, 0.1);
+        }
+
+        /* Link styles */
+        .link-primary {
+            color: #2f6b42;
+        }
+
+        .link-primary:hover {
+            color: #13291b;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gray-100">
+<body class="min-h-screen bg-gray-50">
     <!-- Curved Corner Elements -->
     <div id="curved-corner-topleft"></div>
     <div id="curved-corner-bottomright"></div>
@@ -85,14 +139,13 @@
         <div class="w-full max-w-md space-y-8 p-8">
             <!-- Logo and Welcome Text -->
             <div class="text-center">
-                <!-- AutomatUp Logo -->
+                <!-- Kalydo Logo -->
                 <div class="flex items-center justify-center mb-8">
-                    <img src="logo.png" alt="AutomatUp Logo" class="h-16 w-auto">
+                    <img src="logo_dark.png" alt="Kalydo Logo" class="h-16 w-auto">
                 </div>
                 
                 <!-- Welcome Message -->
-                <h2 class="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
-                <p class="text-gray-600 text-lg">
+                <p class="text-primary-focus text-lg font-medium">
                     Vision That Thinks.
                 </p>
             </div>
@@ -102,7 +155,7 @@
                 <div class="space-y-4">
                     <!-- ID Field -->
                     <div>
-                        <label for="id" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="id" class="block text-sm font-medium text-primary-dark mb-2">
                             ID
                         </label>
                         <input
@@ -110,14 +163,14 @@
                             name="id"
                             type="text"
                             required
-                            class="w-full px-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            class="input-focus w-full px-4 py-3 border-2 border-gray-200 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent text-sm bg-white backdrop-blur-sm transition-all duration-200"
                             placeholder="Enter Your ID"
                         />
                     </div>
                     
                     <!-- Password Field -->
                     <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                        <label for="password" class="block text-sm font-medium text-primary-dark mb-2">
                             Password*
                         </label>
                         <input
@@ -125,7 +178,7 @@
                             name="password"
                             type="password"
                             required
-                            class="w-full px-3 py-3 border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+                            class="input-focus w-full px-4 py-3 border-2 border-gray-200 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent text-sm bg-white backdrop-blur-sm transition-all duration-200"
                             placeholder="Enter Password"
                         />
                     </div>
@@ -133,7 +186,7 @@
 
                 <!-- Forgot Password Link -->
                 <div class="text-right">
-                    <a href="#" class="text-sm text-blue-600 hover:text-blue-500">
+                    <a href="#" class="link-primary text-sm font-medium hover:underline transition-colors duration-200">
                         Forgot Password
                     </a>
                 </div>
@@ -142,7 +195,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200"
+                        class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-accent transition duration-200"
                     >
                         Login
                     </button>
