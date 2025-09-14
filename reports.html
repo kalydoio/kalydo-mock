@@ -43,6 +43,9 @@
 </head>
 
 <body class="bg-gray-50">
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
@@ -55,7 +58,7 @@
                 </div>
                 <!-- Toggle Button -->
                 <button
-                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                    class="hidden md:block sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
                     <i class="fas fa-chevron-left text-sm"></i>
                 </button>
             </div>
@@ -132,40 +135,45 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col overflow-hidden">
+        <main class="flex-1 flex flex-col overflow-hidden w-full">
             <!-- Top Bar -->
-            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-4 sm:px-6 py-3 sm:py-4">
                 <div class="flex items-center justify-between">
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn lg:hidden" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
                     <!-- Search Bar -->
-                    <div class="flex-1 max-w-md">
+                    <div class="flex-1 max-w-md ml-4 lg:ml-0">
                         <div class="relative">
                             <input type="text" placeholder="Search reports..."
-                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                                class="input-focus w-full pl-8 sm:pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm" />
                             <i
-                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+                                class="fas fa-search absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 text-sm"></i>
                         </div>
                     </div>
 
                     <!-- Right Side Icons -->
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-primary-dark">
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <div class="hidden sm:flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
                             <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
-                            <i class="far fa-bell"></i>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200 p-2">
+                            <i class="far fa-bell text-lg"></i>
                         </button>
-                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
-                            <i class="far fa-user"></i>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200 p-2">
+                            <i class="far fa-user text-lg"></i>
                         </button>
                     </div>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <div class="flex-1 overflow-auto p-6">
+            <div class="flex-1 overflow-auto p-4 sm:p-6">
                 <!-- Breadcrumb -->
-                <nav class="mb-6">
+                <nav class="mb-4 sm:mb-6">
                     <div class="flex items-center space-x-2 text-sm">
                         <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>
                         <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
@@ -174,36 +182,36 @@
                 </nav>
 
                 <!-- Page Header -->
-                <div class="flex items-center justify-between mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8 space-y-3 sm:space-y-0">
                     <div>
-                        <h1 class="text-3xl font-bold font-display text-primary-dark">Reports</h1>
-                        <p class="text-gray-500 mt-2 font-medium">Generate and download detailed operational reports</p>
+                        <h1 class="text-2xl sm:text-3xl font-bold font-display text-primary-dark">Reports</h1>
+                        <p class="text-gray-500 mt-2 font-medium text-sm sm:text-base">Generate and download detailed operational reports</p>
                     </div>
-                    <button onclick="generateCustomReport()" class="btn-primary px-6 py-3 rounded-xl">
+                    <button onclick="generateCustomReport()" class="btn-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base self-start">
                         <i class="fas fa-plus mr-2"></i>
                         New Report
                     </button>
                 </div>
 
                 <!-- Report Categories -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                     <!-- Operations Report -->
                     <div
-                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
-                                <i class="fas fa-cogs text-primary-accent text-xl"></i>
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
+                        <div class="flex items-center justify-between mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-light rounded-xl flex items-center justify-center">
+                                <i class="fas fa-cogs text-primary-accent text-lg sm:text-xl"></i>
                             </div>
-                            <button class="text-neutral-400 hover:text-neutral-600">
+                            <button class="text-neutral-400 hover:text-neutral-600 p-1">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
-                        <h3 class="text-lg font-semibold text-primary-dark mb-2">Operations Report</h3>
-                        <p class="text-neutral-600 text-sm mb-4">Daily operational metrics and KPIs</p>
+                        <h3 class="text-base sm:text-lg font-semibold text-primary-dark mb-2">Operations Report</h3>
+                        <p class="text-neutral-600 text-xs sm:text-sm mb-3 sm:mb-4">Daily operational metrics and KPIs</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-neutral-500">Last generated: Today</span>
+                            <span class="text-xs sm:text-sm text-neutral-500">Last generated: Today</span>
                             <button onclick="downloadReport('operations')"
-                                class="text-primary-accent hover:text-primary-hover text-sm font-medium">
+                                class="text-primary-accent hover:text-primary-hover text-xs sm:text-sm font-medium">
                                 Download
                             </button>
                         </div>
@@ -211,21 +219,21 @@
 
                     <!-- Vehicle Analysis -->
                     <div
-                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
-                                <i class="fas fa-truck text-primary-accent text-xl"></i>
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
+                        <div class="flex items-center justify-between mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-light rounded-xl flex items-center justify-center">
+                                <i class="fas fa-truck text-primary-accent text-lg sm:text-xl"></i>
                             </div>
-                            <button class="text-neutral-400 hover:text-neutral-600">
+                            <button class="text-neutral-400 hover:text-neutral-600 p-1">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
-                        <h3 class="text-lg font-semibold text-primary-dark mb-2">Vehicle Analysis</h3>
-                        <p class="text-neutral-600 text-sm mb-4">Vehicle tracking and dwell time analysis</p>
+                        <h3 class="text-base sm:text-lg font-semibold text-primary-dark mb-2">Vehicle Analysis</h3>
+                        <p class="text-neutral-600 text-xs sm:text-sm mb-3 sm:mb-4">Vehicle tracking and dwell time analysis</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-neutral-500">Last generated: Yesterday</span>
+                            <span class="text-xs sm:text-sm text-neutral-500">Last generated: Yesterday</span>
                             <button onclick="downloadReport('vehicle')"
-                                class="text-primary-accent hover:text-primary-hover text-sm font-medium">
+                                class="text-primary-accent hover:text-primary-hover text-xs sm:text-sm font-medium">
                                 Download
                             </button>
                         </div>
@@ -233,21 +241,21 @@
 
                     <!-- Safety Report -->
                     <div
-                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center">
-                                <i class="fas fa-shield-alt text-primary-accent text-xl"></i>
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
+                        <div class="flex items-center justify-between mb-3 sm:mb-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-light rounded-xl flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-primary-accent text-lg sm:text-xl"></i>
                             </div>
-                            <button class="text-neutral-400 hover:text-neutral-600">
+                            <button class="text-neutral-400 hover:text-neutral-600 p-1">
                                 <i class="fas fa-ellipsis-v"></i>
                             </button>
                         </div>
-                        <h3 class="text-lg font-semibold text-primary-dark mb-2">Safety Report</h3>
-                        <p class="text-neutral-600 text-sm mb-4">Violations and compliance tracking</p>
+                        <h3 class="text-base sm:text-lg font-semibold text-primary-dark mb-2">Safety Report</h3>
+                        <p class="text-neutral-600 text-xs sm:text-sm mb-3 sm:mb-4">Violations and compliance tracking</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-sm text-neutral-500">Last generated: 2 days ago</span>
+                            <span class="text-xs sm:text-sm text-neutral-500">Last generated: 2 days ago</span>
                             <button onclick="downloadReport('safety')"
-                                class="text-primary-accent hover:text-primary-hover text-sm font-medium">
+                                class="text-primary-accent hover:text-primary-hover text-xs sm:text-sm font-medium">
                                 Download
                             </button>
                         </div>
@@ -255,84 +263,92 @@
                 </div>
 
                 <!-- Recent Reports -->
-                <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                    <h2 class="text-xl font-semibold text-primary-dark mb-6">Recent Reports</h2>
+                <div class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
+                    <h2 class="text-lg sm:text-xl font-semibold text-primary-dark mb-4 sm:mb-6">Recent Reports</h2>
 
-                    <div class="overflow-x-auto">
-                        <table class="w-full">
-                            <thead class="bg-primary-light/50">
-                                <tr>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
-                                        Report Name</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
-                                        Type</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
-                                        Generated</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
-                                        Size</th>
-                                    <th
-                                        class="px-6 py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
-                                        Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-neutral-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-file-pdf text-red-500 mr-3"></i>
-                                            <span class="text-sm font-medium text-primary-dark">Daily Operations - Aug
-                                                20</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">Operations</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">2 hours ago</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">2.4 MB</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <button
-                                            class="text-primary-accent hover:text-primary-hover mr-3">Download</button>
-                                        <button class="text-neutral-400 hover:text-neutral-600">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-file-excel text-primary-accent mr-3"></i>
-                                            <span class="text-sm font-medium text-primary-dark">Vehicle Analysis -
-                                                Weekly</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">Vehicle</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">1 day ago</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">1.8 MB</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <button
-                                            class="text-primary-accent hover:text-primary-hover mr-3">Download</button>
-                                        <button class="text-neutral-400 hover:text-neutral-600">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-file-pdf text-red-500 mr-3"></i>
-                                            <span class="text-sm font-medium text-primary-dark">Safety Compliance
-                                                Report</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">Safety</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">3 days ago</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">3.1 MB</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                        <button
-                                            class="text-primary-accent hover:text-primary-hover mr-3">Download</button>
-                                        <button class="text-neutral-400 hover:text-neutral-600">Delete</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="overflow-x-auto -mx-4 sm:mx-0">
+                        <div class="inline-block min-w-full align-middle">
+                            <table class="min-w-full">
+                                <thead class="bg-primary-light/50">
+                                    <tr>
+                                        <th
+                                            class="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                            Report Name</th>
+                                        <th
+                                            class="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider hidden sm:table-cell">
+                                            Type</th>
+                                        <th
+                                            class="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider hidden lg:table-cell">
+                                            Generated</th>
+                                        <th
+                                            class="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider hidden lg:table-cell">
+                                            Size</th>
+                                        <th
+                                            class="px-3 sm:px-6 py-2 sm:py-3 text-left text-xs font-medium text-primary-focus uppercase tracking-wider">
+                                            Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-neutral-200">
+                                    <tr>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-file-pdf text-red-500 mr-2 sm:mr-3 text-sm"></i>
+                                                <span class="text-xs sm:text-sm font-medium text-primary-dark">Daily Operations - Aug 20</span>
+                                            </div>
+                                            <div class="sm:hidden text-xs text-neutral-500 mt-1">
+                                                Operations • 2 hours ago • 2.4 MB
+                                            </div>
+                                        </td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden sm:table-cell">Operations</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden lg:table-cell">2 hours ago</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden lg:table-cell">2.4 MB</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm">
+                                            <button
+                                                class="text-primary-accent hover:text-primary-hover mr-2 sm:mr-3">Download</button>
+                                            <button class="text-neutral-400 hover:text-neutral-600 hidden sm:inline">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-file-excel text-primary-accent mr-2 sm:mr-3 text-sm"></i>
+                                                <span class="text-xs sm:text-sm font-medium text-primary-dark">Vehicle Analysis - Weekly</span>
+                                            </div>
+                                            <div class="sm:hidden text-xs text-neutral-500 mt-1">
+                                                Vehicle • 1 day ago • 1.8 MB
+                                            </div>
+                                        </td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden sm:table-cell">Vehicle</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden lg:table-cell">1 day ago</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden lg:table-cell">1.8 MB</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm">
+                                            <button
+                                                class="text-primary-accent hover:text-primary-hover mr-2 sm:mr-3">Download</button>
+                                            <button class="text-neutral-400 hover:text-neutral-600 hidden sm:inline">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-file-pdf text-red-500 mr-2 sm:mr-3 text-sm"></i>
+                                                <span class="text-xs sm:text-sm font-medium text-primary-dark">Safety Compliance Report</span>
+                                            </div>
+                                            <div class="sm:hidden text-xs text-neutral-500 mt-1">
+                                                Safety • 3 days ago • 3.1 MB
+                                            </div>
+                                        </td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden sm:table-cell">Safety</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden lg:table-cell">3 days ago</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm text-neutral-500 hidden lg:table-cell">3.1 MB</td>
+                                        <td class="px-3 sm:px-6 py-3 sm:py-4 whitespace-nowrap text-xs sm:text-sm">
+                                            <button
+                                                class="text-primary-accent hover:text-primary-hover mr-2 sm:mr-3">Download</button>
+                                            <button class="text-neutral-400 hover:text-neutral-600 hidden sm:inline">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
