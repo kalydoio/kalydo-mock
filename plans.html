@@ -44,6 +44,9 @@
 </head>
 
 <body class="bg-gray-50">
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
@@ -56,7 +59,7 @@
                 </div>
                 <!-- Toggle Button -->
                 <button
-                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                    class="hidden md:block sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
                     <i class="fas fa-chevron-left text-sm"></i>
                 </button>
             </div>
@@ -135,40 +138,45 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col overflow-hidden">
+        <main class="flex-1 flex flex-col overflow-hidden w-full">
             <!-- Top Bar -->
-            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-4 sm:px-6 py-3 sm:py-4">
                 <div class="flex items-center justify-between">
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn lg:hidden" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
                     <!-- Search Bar -->
-                    <div class="flex-1 max-w-md">
+                    <div class="flex-1 max-w-md ml-4 lg:ml-0">
                         <div class="relative">
                             <input type="text" placeholder="Search"
-                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                                class="input-focus w-full pl-8 sm:pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm" />
                             <i
-                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+                                class="fas fa-search absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 text-sm"></i>
                         </div>
                     </div>
 
                     <!-- Right Side Icons -->
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-primary-dark">
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <div class="hidden sm:flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
                             <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
-                            <i class="far fa-bell"></i>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200 p-2">
+                            <i class="far fa-bell text-lg"></i>
                         </button>
-                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
-                            <i class="far fa-user"></i>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200 p-2">
+                            <i class="far fa-user text-lg"></i>
                         </button>
                     </div>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <div class="flex-1 overflow-auto p-6">
+            <div class="flex-1 overflow-auto p-4 sm:p-6">
                 <!-- Breadcrumb -->
-                <nav class="mb-6">
+                <nav class="mb-4 sm:mb-6">
                     <div class="flex items-center space-x-2 text-sm">
                         <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>
                         <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
@@ -177,12 +185,12 @@
                 </nav>
 
                 <!-- Page Header -->
-                <div class="text-center mb-12">
-                    <h1 class="text-4xl font-bold font-display text-primary-dark mb-4">Choose Your Plan</h1>
-                    <p class="text-xl text-primary-focus mb-8">Select the perfect plan for your automation needs</p>
+                <div class="text-center mb-8 sm:mb-12">
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-display text-primary-dark mb-3 sm:mb-4">Choose Your Plan</h1>
+                    <p class="text-base sm:text-lg lg:text-xl text-primary-focus mb-6 sm:mb-8">Select the perfect plan for your automation needs</p>
 
                     <!-- Billing Toggle -->
-                    <div class="flex items-center justify-center space-x-4">
+                    <div class="flex items-center justify-center space-x-3 sm:space-x-4">
                         <span class="text-sm font-medium text-primary-dark">Monthly</span>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" id="billingToggle" class="sr-only peer">
@@ -198,157 +206,157 @@
                 </div>
 
                 <!-- Pricing Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
                     <!-- Basic Plan -->
                     <div
-                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-8 relative">
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6 lg:p-8 relative">
                         <div class="text-center">
-                            <h3 class="text-2xl font-bold text-primary-dark mb-2">Basic</h3>
-                            <p class="text-primary-focus mb-4">Perfect for small operations</p>
-                            <div class="mb-6">
-                                <span class="text-4xl font-bold text-primary-dark" id="basicPrice">$99</span>
-                                <span class="text-primary-focus" id="basicPeriod">/month</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-primary-dark mb-2">Basic</h3>
+                            <p class="text-primary-focus mb-4 text-sm sm:text-base">Perfect for small operations</p>
+                            <div class="mb-4 sm:mb-6">
+                                <span class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-dark" id="basicPrice">$99</span>
+                                <span class="text-primary-focus text-sm sm:text-base" id="basicPeriod">/month</span>
                             </div>
                         </div>
 
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Up to 5 cameras</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Up to 5 cameras</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Basic counting features</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Basic counting features</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Standard analytics</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Standard analytics</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Email support</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Email support</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">7-day data retention</span>
+                                <span class="text-primary-focus text-sm sm:text-base">7-day data retention</span>
                             </li>
                             <li class="flex items-center text-neutral-400">
                                 <i class="fas fa-times mr-3"></i>
-                                <span>Advanced AI features</span>
+                                <span class="text-sm sm:text-base">Advanced AI features</span>
                             </li>
                             <li class="flex items-center text-neutral-400">
                                 <i class="fas fa-times mr-3"></i>
-                                <span>Priority support</span>
+                                <span class="text-sm sm:text-base">Priority support</span>
                             </li>
                         </ul>
 
                         <button onclick="selectPlan('Basic')"
-                            class="w-full py-3 px-4 bg-primary-dark text-white rounded-xl hover:bg-primary-focus transition-colors">
+                            class="w-full py-2 sm:py-3 px-4 bg-primary-dark text-white rounded-xl hover:bg-primary-focus transition-colors text-sm sm:text-base">
                             Start Trial
                         </button>
                     </div>
 
                     <!-- Advance Plan (Most Popular) -->
                     <div
-                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border-2 border-primary-accent p-8 relative">
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border-2 border-primary-accent p-4 sm:p-6 lg:p-8 relative">
                         <!-- Popular Badge -->
-                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                            <span class="bg-primary-accent text-white px-6 py-2 rounded-full text-sm font-medium">
+                        <div class="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-primary-accent text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
                                 Most Popular
                             </span>
                         </div>
 
                         <div class="text-center">
-                            <h3 class="text-2xl font-bold text-primary-dark mb-2">Advance</h3>
-                            <p class="text-primary-focus mb-4">Ideal for growing businesses</p>
-                            <div class="mb-6">
-                                <span class="text-4xl font-bold text-primary-dark" id="advancePrice">$199</span>
-                                <span class="text-primary-focus" id="advancePeriod">/month</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-primary-dark mb-2">Advance</h3>
+                            <p class="text-primary-focus mb-4 text-sm sm:text-base">Ideal for growing businesses</p>
+                            <div class="mb-4 sm:mb-6">
+                                <span class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-dark" id="advancePrice">$199</span>
+                                <span class="text-primary-focus text-sm sm:text-base" id="advancePeriod">/month</span>
                             </div>
                         </div>
 
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Up to 20 cameras</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Up to 20 cameras</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Advanced counting & tracking</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Advanced counting & tracking</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Violation detection</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Violation detection</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Real-time analytics</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Real-time analytics</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Priority support</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Priority support</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">30-day data retention</span>
+                                <span class="text-primary-focus text-sm sm:text-base">30-day data retention</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Basic ERP integration</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Basic ERP integration</span>
                             </li>
                         </ul>
 
                         <button onclick="selectPlan('Advance')"
-                            class="btn-primary w-full py-3 px-4 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">
+                            class="btn-primary w-full py-2 sm:py-3 px-4 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors text-sm sm:text-base">
                             Choose Plan
                         </button>
                     </div>
 
                     <!-- Pro Plan -->
                     <div
-                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-8 relative">
+                        class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6 lg:p-8 relative">
                         <div class="text-center">
-                            <h3 class="text-2xl font-bold text-primary-dark mb-2">Pro</h3>
-                            <p class="text-primary-focus mb-4">For enterprise-scale operations</p>
-                            <div class="mb-6">
-                                <span class="text-4xl font-bold text-primary-dark" id="proPrice">$399</span>
-                                <span class="text-primary-focus" id="proPeriod">/month</span>
+                            <h3 class="text-xl sm:text-2xl font-bold text-primary-dark mb-2">Pro</h3>
+                            <p class="text-primary-focus mb-4 text-sm sm:text-base">For enterprise-scale operations</p>
+                            <div class="mb-4 sm:mb-6">
+                                <span class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-dark" id="proPrice">$399</span>
+                                <span class="text-primary-focus text-sm sm:text-base" id="proPeriod">/month</span>
                             </div>
                         </div>
 
-                        <ul class="space-y-3 mb-8">
+                        <ul class="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Unlimited cameras</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Unlimited cameras</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">All AI features</span>
+                                <span class="text-primary-focus text-sm sm:text-base">All AI features</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Custom analytics</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Custom analytics</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">24/7 support</span>
+                                <span class="text-primary-focus text-sm sm:text-base">24/7 support</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Unlimited data retention</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Unlimited data retention</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Full ERP integration</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Full ERP integration</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-check text-primary-accent mr-3"></i>
-                                <span class="text-primary-focus">Dedicated account manager</span>
+                                <span class="text-primary-focus text-sm sm:text-base">Dedicated account manager</span>
                             </li>
                         </ul>
 
                         <button onclick="selectPlan('Pro')"
-                            class="w-full py-3 px-4 bg-primary-dark text-white rounded-xl hover:bg-primary-focus transition-colors">
+                            class="w-full py-2 sm:py-3 px-4 bg-primary-dark text-white rounded-xl hover:bg-primary-focus transition-colors text-sm sm:text-base">
                             Choose Plan
                         </button>
                     </div>
@@ -356,68 +364,68 @@
 
                 <!-- Add Modules Section -->
                 <div
-                    class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-8 mb-8">
-                    <h2 class="text-2xl font-bold text-primary-dark mb-6 text-center">Add-on Modules</h2>
-                    <p class="text-primary-focus text-center mb-8">Enhance your plan with specialized modules</p>
+                    class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6 lg:p-8 mb-6 sm:mb-8">
+                    <h2 class="text-xl sm:text-2xl font-bold text-primary-dark mb-4 sm:mb-6 text-center">Add-on Modules</h2>
+                    <p class="text-primary-focus text-center mb-6 sm:mb-8 text-sm sm:text-base">Enhance your plan with specialized modules</p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="border border-neutral-200 rounded-2xl p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                        <div class="border border-neutral-200 rounded-2xl p-4 sm:p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
                             onclick="showModuleDetails('Advanced Analytics')">
                             <div
-                                class="w-12 h-12 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-chart-line text-primary-accent text-xl"></i>
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                                <i class="fas fa-chart-line text-primary-accent text-lg sm:text-xl"></i>
                             </div>
-                            <h3 class="font-semibold text-primary-dark mb-2">Advanced Analytics</h3>
-                            <p class="text-sm text-primary-focus mb-3">AI-powered insights and predictions</p>
-                            <p class="text-lg font-bold text-primary-dark">$49/mo</p>
+                            <h3 class="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Advanced Analytics</h3>
+                            <p class="text-xs sm:text-sm text-primary-focus mb-2 sm:mb-3">AI-powered insights and predictions</p>
+                            <p class="text-base sm:text-lg font-bold text-primary-dark">$49/mo</p>
                         </div>
 
-                        <div class="border border-neutral-200 rounded-2xl p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
+                        <div class="border border-neutral-200 rounded-2xl p-4 sm:p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
                             onclick="showModuleDetails('Safety Monitoring')">
-                            <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-shield-alt text-red-600 text-xl"></i>
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                                <i class="fas fa-shield-alt text-red-600 text-lg sm:text-xl"></i>
                             </div>
-                            <h3 class="font-semibold text-primary-dark mb-2">Safety Monitoring</h3>
-                            <p class="text-sm text-primary-focus mb-3">PPE detection and safety compliance</p>
-                            <p class="text-lg font-bold text-primary-dark">$79/mo</p>
+                            <h3 class="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Safety Monitoring</h3>
+                            <p class="text-xs sm:text-sm text-primary-focus mb-2 sm:mb-3">PPE detection and safety compliance</p>
+                            <p class="text-base sm:text-lg font-bold text-primary-dark">$79/mo</p>
                         </div>
 
-                        <div class="border border-neutral-200 rounded-2xl p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
+                        <div class="border border-neutral-200 rounded-2xl p-4 sm:p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
                             onclick="showModuleDetails('Quality Control')">
                             <div
-                                class="w-12 h-12 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-check-circle text-primary-accent text-xl"></i>
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-light rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                                <i class="fas fa-check-circle text-primary-accent text-lg sm:text-xl"></i>
                             </div>
-                            <h3 class="font-semibold text-primary-dark mb-2">Quality Control</h3>
-                            <p class="text-sm text-primary-focus mb-3">Product defect detection</p>
-                            <p class="text-lg font-bold text-primary-dark">$69/mo</p>
+                            <h3 class="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Quality Control</h3>
+                            <p class="text-xs sm:text-sm text-primary-focus mb-2 sm:mb-3">Product defect detection</p>
+                            <p class="text-base sm:text-lg font-bold text-primary-dark">$69/mo</p>
                         </div>
 
-                        <div class="border border-neutral-200 rounded-2xl p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
+                        <div class="border border-neutral-200 rounded-2xl p-4 sm:p-6 text-center hover:border-primary-accent transition-colors cursor-pointer card-hover"
                             onclick="showModuleDetails('Custom Integration')">
                             <div
-                                class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <i class="fas fa-puzzle-piece text-purple-600 text-xl"></i>
+                                class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                                <i class="fas fa-puzzle-piece text-purple-600 text-lg sm:text-xl"></i>
                             </div>
-                            <h3 class="font-semibold text-primary-dark mb-2">Custom Integration</h3>
-                            <p class="text-sm text-primary-focus mb-3">Tailored API integrations</p>
-                            <p class="text-lg font-bold text-primary-dark">Custom</p>
+                            <h3 class="font-semibold text-primary-dark mb-2 text-sm sm:text-base">Custom Integration</h3>
+                            <p class="text-xs sm:text-sm text-primary-focus mb-2 sm:mb-3">Tailored API integrations</p>
+                            <p class="text-base sm:text-lg font-bold text-primary-dark">Custom</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Current Plan Summary -->
-                <div class="bg-blue-50 rounded-xl border border-blue-200 p-6">
-                    <div class="flex items-center justify-between">
+                <div class="bg-blue-50 rounded-xl border border-blue-200 p-4 sm:p-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Current Plan</h3>
-                            <p class="text-gray-600">You are currently on the <span class="font-medium"
+                            <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Current Plan</h3>
+                            <p class="text-gray-600 text-sm sm:text-base">You are currently on the <span class="font-medium"
                                     id="currentPlanName">Pro Plan</span></p>
-                            <p class="text-sm text-gray-500 mt-1">Next billing date: <span
+                            <p class="text-xs sm:text-sm text-gray-500 mt-1">Next billing date: <span
                                     id="nextBillingDate">September 20, 2025</span></p>
                         </div>
                         <button onclick="showBillingSummary()"
-                            class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
+                            class="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200 text-sm sm:text-base w-full sm:w-auto">
                             View Billing
                         </button>
                     </div>
@@ -427,38 +435,38 @@
     </div>
 
     <!-- Plan Confirmation Modal -->
-    <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-        <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+    <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-4 sm:p-6 w-full max-w-md mx-4">
             <div class="text-center">
-                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-crown text-blue-600 text-2xl"></i>
+                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <i class="fas fa-crown text-blue-600 text-xl sm:text-2xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">Confirm Plan Selection</h3>
-                <p class="text-gray-600 mb-6">You've selected the <span id="selectedPlanName"
+                <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Confirm Plan Selection</h3>
+                <p class="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">You've selected the <span id="selectedPlanName"
                         class="font-medium"></span></p>
 
-                <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                <div class="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-gray-600">Plan Cost:</span>
+                        <span class="text-gray-600 text-sm sm:text-base">Plan Cost:</span>
                         <span class="font-medium" id="selectedPlanCost">$199/month</span>
                     </div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-gray-600">Modules:</span>
-                        <span class="font-medium" id="selectedModulesCost">$0/month</span>
+                        <span class="text-gray-600 text-sm sm:text-base">Modules:</span>
+                        <span class="font-medium text-sm sm:text-base" id="selectedModulesCost">$0/month</span>
                     </div>
                     <div class="border-t pt-2 flex justify-between items-center">
-                        <span class="font-medium text-gray-900">Total:</span>
-                        <span class="font-bold text-gray-900" id="totalCost">$199/month</span>
+                        <span class="font-medium text-gray-900 text-sm sm:text-base">Total:</span>
+                        <span class="font-bold text-gray-900 text-sm sm:text-base" id="totalCost">$199/month</span>
                     </div>
                 </div>
 
-                <div class="flex space-x-3">
+                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                     <button onclick="hidePlanModal()"
-                        class="flex-1 py-2 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                        class="flex-1 py-2 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 text-sm sm:text-base">
                         Cancel
                     </button>
                     <button onclick="confirmPlan()"
-                        class="flex-1 py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        class="flex-1 py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm sm:text-base">
                         Confirm
                     </button>
                 </div>

@@ -43,6 +43,9 @@
 </head>
 
 <body class="bg-gray-50">
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
     <!-- Main Container -->
     <div class="flex h-screen">
         <!-- Sidebar -->
@@ -55,7 +58,7 @@
                 </div>
                 <!-- Toggle Button -->
                 <button
-                    class="sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
+                    class="hidden md:block sidebar-toggle absolute -right-4 top-1/2 transform -translate-y-1/2 bg-primary-accent hover:bg-primary-hover text-white rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-colors z-10">
                     <i class="fas fa-chevron-left text-sm"></i>
                 </button>
             </div>
@@ -134,40 +137,45 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 flex flex-col overflow-hidden">
+        <main class="flex-1 flex flex-col overflow-hidden w-full">
             <!-- Top Bar -->
-            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-6 py-4">
+            <header class="bg-white backdrop-blur-sm shadow-sm border-b border-neutral-200 px-4 sm:px-6 py-3 sm:py-4">
                 <div class="flex items-center justify-between">
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn lg:hidden" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
                     <!-- Search Bar -->
-                    <div class="flex-1 max-w-md">
+                    <div class="flex-1 max-w-md ml-4 lg:ml-0">
                         <div class="relative">
                             <input type="text" placeholder="Search"
-                                class="input-focus w-full pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white" />
+                                class="input-focus w-full pl-8 sm:pl-10 pr-4 py-2 border-2 border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm" />
                             <i
-                                class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400"></i>
+                                class="fas fa-search absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 text-sm"></i>
                         </div>
                     </div>
 
                     <!-- Right Side Icons -->
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2 text-primary-dark">
+                    <div class="flex items-center space-x-2 sm:space-x-4">
+                        <div class="hidden sm:flex items-center space-x-2 text-primary-dark">
                             <i class="far fa-clock"></i>
                             <span class="text-sm font-medium" data-time>05:43pm</span>
                         </div>
-                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
-                            <i class="far fa-bell"></i>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200 p-2">
+                            <i class="far fa-bell text-base sm:text-lg"></i>
                         </button>
-                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200">
-                            <i class="far fa-user"></i>
+                        <button class="text-neutral-600 hover:text-primary-accent transition-colors duration-200 p-2">
+                            <i class="far fa-user text-base sm:text-lg"></i>
                         </button>
                     </div>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <div class="flex-1 overflow-auto p-6">
+            <div class="flex-1 overflow-auto p-4 sm:p-6">
                 <!-- Breadcrumb -->
-                <nav class="mb-6">
+                <nav class="mb-4 sm:mb-6">
                     <div class="flex items-center space-x-2 text-sm">
                         <a href="dashboard.html" class="text-gray-500 hover:text-gray-700">Dashboard</a>
                         <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
@@ -176,63 +184,63 @@
                 </nav>
 
                 <!-- Page Header -->
-                <div class="flex items-center justify-between mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 sm:mb-8 space-y-4 sm:space-y-0">
                     <div>
-                        <h1 class="text-3xl font-bold font-display text-primary-dark">Profile Settings</h1>
-                        <p class="text-gray-500 mt-2 font-medium">Manage your account and business information</p>
+                        <h1 class="text-2xl sm:text-3xl font-bold font-display text-primary-dark">Profile Settings</h1>
+                        <p class="text-gray-500 mt-2 font-medium text-sm sm:text-base">Manage your account and business information</p>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
                     <!-- Main Content -->
-                    <div class="lg:col-span-2 space-y-6">
+                    <div class="lg:col-span-2 space-y-4 sm:space-y-6">
                         <!-- General Business Details -->
                         <div
-                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-xl font-semibold text-primary-dark">Business Information</h2>
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
+                                <h2 class="text-lg sm:text-xl font-semibold text-primary-dark">Business Information</h2>
                                 <button
-                                    class="text-primary-accent hover:text-primary-focus text-sm font-medium transition-colors"
+                                    class="text-primary-accent hover:text-primary-focus text-sm font-medium transition-colors self-start sm:self-auto"
                                     onclick="toggleEdit('business')">
                                     <i class="fas fa-edit mr-1"></i>Edit
                                 </button>
                             </div>
 
                             <form id="businessForm" class="space-y-4">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Company
                                             Name</label>
                                         <input type="text" name="companyName"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Industry</label>
                                         <input type="text" name="industry"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly>
                                     </div>
-                                    <div class="md:col-span-2">
+                                    <div class="sm:col-span-2">
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Address</label>
                                         <textarea name="address" rows="2"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly></textarea>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Phone
                                             Number</label>
                                         <input type="tel" name="phone"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly>
                                     </div>
                                 </div>
                                 <div class="hidden" id="businessActions">
-                                    <div class="flex space-x-3 pt-4 border-t border-neutral-200">
+                                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 pt-4 border-t border-neutral-200">
                                         <button type="button" onclick="saveSection('business')"
-                                            class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">Save</button>
+                                            class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors text-sm sm:text-base">Save</button>
                                         <button type="button" onclick="cancelEdit('business')"
-                                            class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors">Cancel</button>
+                                            class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors text-sm sm:text-base">Cancel</button>
                                     </div>
                                 </div>
                             </form>
@@ -240,35 +248,35 @@
 
                         <!-- User Details -->
                         <div
-                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h2 class="text-xl font-semibold text-primary-dark">User Details</h2>
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
+                                <h2 class="text-lg sm:text-xl font-semibold text-primary-dark">User Details</h2>
                                 <button
-                                    class="text-primary-accent hover:text-primary-focus text-sm font-medium transition-colors"
+                                    class="text-primary-accent hover:text-primary-focus text-sm font-medium transition-colors self-start sm:self-auto"
                                     onclick="toggleEdit('user')">
                                     <i class="fas fa-edit mr-1"></i>Edit
                                 </button>
                             </div>
 
                             <form id="userForm" class="space-y-4">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Full
                                             Name</label>
                                         <input type="text" name="name"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Email</label>
                                         <input type="email" name="email"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-2">Role</label>
                                         <select name="role"
-                                            class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                            class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
                                             disabled>
                                             <option value="admin">Administrator</option>
                                             <option value="manager">Manager</option>
@@ -287,16 +295,16 @@
                                         <label class="block text-sm font-medium text-primary-dark mb-2">Phone
                                             Number</label>
                                         <input type="tel" name="phone"
-                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white"
+                                            class="input-focus w-full border-2 border-neutral-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-accent bg-white text-sm sm:text-base"
                                             readonly>
                                     </div>
                                 </div>
                                 <div class="hidden" id="userActions">
-                                    <div class="flex space-x-3 pt-4 border-t border-neutral-200">
+                                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 pt-4 border-t border-neutral-200">
                                         <button type="button" onclick="saveSection('user')"
-                                            class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors">Save</button>
+                                            class="btn-primary px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors text-sm sm:text-base">Save</button>
                                         <button type="button" onclick="cancelEdit('user')"
-                                            class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors">Cancel</button>
+                                            class="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors text-sm sm:text-base">Cancel</button>
                                     </div>
                                 </div>
                             </form>
@@ -304,59 +312,59 @@
 
                         <!-- About Section -->
                         <div
-                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
-                            <h2 class="text-xl font-semibold text-primary-dark mb-4">About</h2>
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
+                            <h2 class="text-lg sm:text-xl font-semibold text-primary-dark mb-4">About</h2>
                             <div class="space-y-4">
                                 <div class="flex justify-between items-center py-2 border-b border-neutral-100">
-                                    <span class="text-neutral-600">Version</span>
-                                    <span class="font-medium text-primary-dark">v2.1.0</span>
+                                    <span class="text-neutral-600 text-sm sm:text-base">Version</span>
+                                    <span class="font-medium text-primary-dark text-sm sm:text-base">v2.1.0</span>
                                 </div>
                                 <div class="flex justify-between items-center py-2 border-b border-neutral-100">
-                                    <span class="text-neutral-600">Company</span>
-                                    <span class="font-medium text-primary-dark">AutomatUp Technologies</span>
+                                    <span class="text-neutral-600 text-sm sm:text-base">Company</span>
+                                    <span class="font-medium text-primary-dark text-sm sm:text-base">AutomatUp Technologies</span>
                                 </div>
                                 <div class="flex justify-between items-center py-2 border-b border-neutral-100">
-                                    <span class="text-neutral-600">Support</span>
+                                    <span class="text-neutral-600 text-sm sm:text-base">Support</span>
                                     <a href="mailto:support@automatup.com"
-                                        class="text-primary-accent hover:text-primary-focus font-medium transition-colors">support@automatup.com</a>
+                                        class="text-primary-accent hover:text-primary-focus font-medium transition-colors text-sm sm:text-base break-all">support@automatup.com</a>
                                 </div>
                                 <div class="flex justify-between items-center py-2">
-                                    <span class="text-neutral-600">License</span>
-                                    <span class="font-medium text-primary-dark">Enterprise</span>
+                                    <span class="text-neutral-600 text-sm sm:text-base">License</span>
+                                    <span class="font-medium text-primary-dark text-sm sm:text-base">Enterprise</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Right Sidebar -->
-                    <div class="space-y-6">
+                    <div class="space-y-4 sm:space-y-6">
                         <!-- Current Plan -->
                         <div
-                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
                             <h3 class="text-lg font-semibold text-primary-dark mb-4">Current Plan</h3>
                             <div class="text-center">
                                 <div
-                                    class="inline-flex items-center justify-center w-16 h-16 bg-primary-light rounded-full mb-3">
-                                    <i class="fas fa-crown text-primary-accent text-xl"></i>
+                                    class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-primary-light rounded-full mb-3">
+                                    <i class="fas fa-crown text-primary-accent text-lg sm:text-xl"></i>
                                 </div>
-                                <h4 class="text-xl font-bold text-primary-dark" id="currentPlan">Pro Plan</h4>
-                                <p class="text-primary-focus text-sm mb-4">Advanced automation features</p>
-                                <div class="space-y-2 text-sm">
+                                <h4 class="text-lg sm:text-xl font-bold text-primary-dark" id="currentPlan">Pro Plan</h4>
+                                <p class="text-primary-focus text-xs sm:text-sm mb-4">Advanced automation features</p>
+                                <div class="space-y-2 text-xs sm:text-sm">
                                     <div class="flex items-center text-neutral-600">
-                                        <i class="fas fa-check text-primary-accent mr-2"></i>
+                                        <i class="fas fa-check text-primary-accent mr-2 text-xs sm:text-sm"></i>
                                         Unlimited cameras
                                     </div>
                                     <div class="flex items-center text-neutral-600">
-                                        <i class="fas fa-check text-primary-accent mr-2"></i>
+                                        <i class="fas fa-check text-primary-accent mr-2 text-xs sm:text-sm"></i>
                                         Advanced analytics
                                     </div>
                                     <div class="flex items-center text-neutral-600">
-                                        <i class="fas fa-check text-primary-accent mr-2"></i>
+                                        <i class="fas fa-check text-primary-accent mr-2 text-xs sm:text-sm"></i>
                                         24/7 support
                                     </div>
                                 </div>
                                 <button
-                                    class="btn-primary w-full mt-4 px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors"
+                                    class="btn-primary w-full mt-4 px-4 py-2 bg-primary-accent text-white rounded-xl hover:bg-primary-focus transition-colors text-sm sm:text-base"
                                     onclick="showPlanModal()">
                                     Change Plan
                                 </button>
@@ -365,23 +373,23 @@
 
                         <!-- Billing -->
                         <div
-                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
                             <h3 class="text-lg font-semibold text-primary-dark mb-4">Billing</h3>
                             <div class="space-y-3">
-                                <div class="flex justify-between text-sm">
+                                <div class="flex justify-between text-xs sm:text-sm">
                                     <span class="text-neutral-600">Payment Method</span>
                                     <span class="font-medium text-primary-dark" id="paymentMethod">•••• 1234</span>
                                 </div>
-                                <div class="flex justify-between text-sm">
+                                <div class="flex justify-between text-xs sm:text-sm">
                                     <span class="text-neutral-600">Next Billing</span>
                                     <span class="font-medium text-primary-dark" id="nextBilling">Sep 20, 2025</span>
                                 </div>
-                                <div class="flex justify-between text-sm">
+                                <div class="flex justify-between text-xs sm:text-sm">
                                     <span class="text-neutral-600">Cycle</span>
                                     <span class="font-medium text-primary-dark" id="billingCycle">Monthly</span>
                                 </div>
                                 <button
-                                    class="w-full mt-4 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors"
+                                    class="w-full mt-4 px-4 py-2 border border-neutral-300 text-neutral-700 rounded-xl hover:bg-neutral-50 transition-colors text-sm sm:text-base"
                                     onclick="showBillingHistory()">
                                     View History
                                 </button>
@@ -390,26 +398,26 @@
 
                         <!-- Quick Actions -->
                         <div
-                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-6">
+                            class="card-hover bg-white backdrop-blur-sm rounded-2xl shadow-lg border border-neutral-200 p-4 sm:p-6">
                             <h3 class="text-lg font-semibold text-primary-dark mb-4">Quick Actions</h3>
                             <div class="space-y-2">
                                 <button
-                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors">
+                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors text-sm sm:text-base">
                                     <i class="fas fa-download mr-2 text-neutral-400"></i>
                                     Download Data
                                 </button>
                                 <button
-                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors">
+                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors text-sm sm:text-base">
                                     <i class="fas fa-key mr-2 text-neutral-400"></i>
                                     Change Password
                                 </button>
                                 <button
-                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors">
+                                    class="w-full px-4 py-2 text-left text-neutral-700 hover:bg-neutral-50 rounded-xl transition-colors text-sm sm:text-base">
                                     <i class="fas fa-bell mr-2 text-neutral-400"></i>
                                     Notification Settings
                                 </button>
                                 <button onclick="logout()"
-                                    class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 rounded-xl transition-colors">
+                                    class="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 rounded-xl transition-colors text-sm sm:text-base">
                                     <i class="fas fa-sign-out-alt mr-2"></i>
                                     Logout
                                 </button>
@@ -422,23 +430,23 @@
     </div>
 
     <!-- Plan Change Modal -->
-    <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+    <div id="planModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
         <div
-            class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 w-full max-w-2xl mx-4 border border-neutral-200 shadow-2xl">
+            class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 w-full max-w-2xl mx-4 border border-neutral-200 shadow-2xl">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-semibold text-primary-dark">Change Plan</h3>
-                <button onclick="hidePlanModal()" class="text-neutral-400 hover:text-neutral-600">
-                    <i class="fas fa-times"></i>
+                <button onclick="hidePlanModal()" class="text-neutral-400 hover:text-neutral-600 p-2">
+                    <i class="fas fa-times text-base sm:text-lg"></i>
                 </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="border border-neutral-200 rounded-2xl p-4 cursor-pointer hover:border-primary-accent transition-colors"
                     onclick="selectPlan('Basic')">
-                    <h4 class="font-semibold text-primary-dark">Basic</h4>
-                    <p class="text-2xl font-bold text-primary-dark my-2">$99<span
-                            class="text-sm font-normal text-neutral-600">/month</span></p>
-                    <ul class="text-sm text-gray-600 space-y-1">
+                    <h4 class="font-semibold text-primary-dark text-sm sm:text-base">Basic</h4>
+                    <p class="text-xl sm:text-2xl font-bold text-primary-dark my-2">$99<span
+                            class="text-xs sm:text-sm font-normal text-neutral-600">/month</span></p>
+                    <ul class="text-xs sm:text-sm text-gray-600 space-y-1">
                         <li>• Up to 5 cameras</li>
                         <li>• Basic analytics</li>
                         <li>• Email support</li>
@@ -447,10 +455,10 @@
 
                 <div class="border-2 border-primary-accent rounded-lg p-4 cursor-pointer"
                     onclick="selectPlan('Advance')">
-                    <h4 class="font-semibold text-gray-900">Advance</h4>
-                    <p class="text-2xl font-bold text-gray-900 my-2">$199<span
-                            class="text-sm font-normal text-gray-600">/month</span></p>
-                    <ul class="text-sm text-gray-600 space-y-1">
+                    <h4 class="font-semibold text-gray-900 text-sm sm:text-base">Advance</h4>
+                    <p class="text-xl sm:text-2xl font-bold text-gray-900 my-2">$199<span
+                            class="text-xs sm:text-sm font-normal text-gray-600">/month</span></p>
+                    <ul class="text-xs sm:text-sm text-gray-600 space-y-1">
                         <li>• Up to 20 cameras</li>
                         <li>• Advanced analytics</li>
                         <li>• Priority support</li>
@@ -459,10 +467,10 @@
 
                 <div class="border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-primary-accent"
                     onclick="selectPlan('Pro')">
-                    <h4 class="font-semibold text-gray-900">Pro</h4>
-                    <p class="text-2xl font-bold text-gray-900 my-2">$399<span
-                            class="text-sm font-normal text-gray-600">/month</span></p>
-                    <ul class="text-sm text-gray-600 space-y-1">
+                    <h4 class="font-semibold text-gray-900 text-sm sm:text-base">Pro</h4>
+                    <p class="text-xl sm:text-2xl font-bold text-gray-900 my-2">$399<span
+                            class="text-xs sm:text-sm font-normal text-gray-600">/month</span></p>
+                    <ul class="text-xs sm:text-sm text-gray-600 space-y-1">
                         <li>• Unlimited cameras</li>
                         <li>• All features</li>
                         <li>• 24/7 support</li>
@@ -470,11 +478,11 @@
                 </div>
             </div>
 
-            <div class="flex justify-end space-x-3 mt-6">
+            <div class="flex flex-col sm:flex-row sm:justify-end space-y-2 sm:space-y-0 sm:space-x-3 mt-6">
                 <button onclick="hidePlanModal()"
-                    class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Cancel</button>
+                    class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 text-sm sm:text-base">Cancel</button>
                 <button onclick="confirmPlanChange()"
-                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 btn-primary bg-primary-accent">Confirm
+                    class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 btn-primary bg-primary-accent text-sm sm:text-base">Confirm
                     Change</button>
             </div>
         </div>

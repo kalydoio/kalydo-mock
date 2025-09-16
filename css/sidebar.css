@@ -16,6 +16,85 @@ body {
   width: 80px;
 }
 
+/* Mobile Responsive Sidebar */
+@media (max-width: 768px) {
+  #sidebar {
+    position: fixed;
+    left: -256px;
+    top: 0;
+    height: 100vh;
+    z-index: 50;
+    width: 256px;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  #sidebar.sidebar-open {
+    left: 0;
+  }
+  
+  #sidebar.sidebar-collapsed {
+    width: 256px; /* Don't collapse on mobile */
+    left: -256px;
+  }
+  
+  #sidebar.sidebar-collapsed.sidebar-open {
+    left: 0;
+  }
+
+  /* Mobile overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hamburger Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #63c88c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-menu-btn:hover {
+    background: #4fb377;
+    transform: scale(1.05);
+  }
+  
+  .mobile-menu-btn i {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
 .sidebar-collapsed .nav-text {
   opacity: 0;
   visibility: hidden;
@@ -137,4 +216,78 @@ body {
 .input-focus:focus {
   border-color: #63c88c !important;
   --tw-ring-color: rgb(99 200 140 / 0.1) !important;
+}
+
+/* Responsive Grid Classes */
+@media (max-width: 1024px) {
+  .grid-cols-1.lg\\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .lg\\:col-span-2 {
+    grid-column: span 1 / span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-1.md\\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  /* Make cards stack better on mobile */
+  .card-hover {
+    margin-bottom: 1rem;
+  }
+  
+  /* Reduce font sizes for mobile */
+  h1 {
+    font-size: 1.875rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important;
+  }
+  
+  /* Better spacing on mobile */
+  .p-6 {
+    padding: 1rem !important;
+  }
+  
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .py-4 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.125rem !important;
+  }
+  
+  .p-6, .p-4 {
+    padding: 0.75rem !important;
+  }
+  
+  .px-6, .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem !important;
+  }
 }

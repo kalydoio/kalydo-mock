@@ -58,6 +58,49 @@
             z-index: 10;
         }
 
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            #curved-corner-topleft {
+                width: 80vw;
+                height: 50vh;
+            }
+
+            #curved-corner-bottomright {
+                width: 80vw;
+                height: 50vh;
+                bottom: -50px;
+            }
+
+            #curved-corner-topleft:before {
+                box-shadow: -20vw -20vh 0 0 #63c88c, -40vw -40vh 0 0 #13291b;
+            }
+
+            #curved-corner-bottomright:before {
+                box-shadow: 20vw 20vh 0 0 #13291b;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #curved-corner-topleft {
+                width: 90vw;
+                height: 40vh;
+            }
+
+            #curved-corner-bottomright {
+                width: 90vw;
+                height: 40vh;
+                bottom: -30px;
+            }
+
+            #curved-corner-topleft:before {
+                box-shadow: -15vw -15vh 0 0 #63c88c, -30vw -30vh 0 0 #13291b;
+            }
+
+            #curved-corner-bottomright:before {
+                box-shadow: 15vw 15vh 0 0 #13291b;
+            }
+        }
+
         #curved-corner-topleft:before {
             content: "";
             display: block;
@@ -93,6 +136,23 @@
             position: relative;
             z-index: 20;
             min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* Mobile responsive login content */
+        @media (max-width: 768px) {
+            .login-content {
+                padding: 2rem 1rem;
+                justify-content: flex-start;
+                padding-top: 4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-content {
+                padding: 1.5rem 0.75rem;
+                padding-top: 3rem;
+            }
         }
 
         /* Custom button styles */
@@ -127,6 +187,52 @@
         .link-primary:hover {
             color: #13291b;
         }
+
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .login-content .w-full.max-w-md {
+                max-width: 100%;
+                padding: 1.5rem;
+            }
+            
+            .login-content h1 {
+                font-size: 1.75rem;
+            }
+            
+            .login-content p {
+                font-size: 1rem;
+            }
+            
+            .input-focus {
+                padding: 0.875rem;
+                font-size: 1rem;
+            }
+            
+            .btn-primary {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-content .w-full.max-w-md {
+                padding: 1rem;
+            }
+            
+            .login-content .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+                --tw-space-y-reverse: 0;
+                margin-top: 1.5rem;
+                margin-bottom: 0px;
+            }
+            
+            .logo img {
+                height: 3rem;
+            }
+            
+            .input-focus {
+                padding: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
@@ -135,24 +241,24 @@
     <div id="curved-corner-bottomright"></div>
     
     <!-- Login Content -->
-    <div class="login-content flex items-center justify-center px-6 py-12 lg:px-8">
-        <div class="w-full max-w-md space-y-8 p-8">
+    <div class="login-content flex items-center justify-center px-4 sm:px-6 py-8 sm:py-12 lg:px-8">
+        <div class="w-full max-w-md space-y-6 sm:space-y-8 p-4 sm:p-8">
             <!-- Logo and Welcome Text -->
             <div class="text-center">
                 <!-- Kalydo Logo -->
-                <div class="flex items-center justify-center mb-8">
-                    <img src="logo_dark.png" alt="Kalydo Logo" class="h-16 w-auto">
+                <div class="flex items-center justify-center mb-6 sm:mb-8">
+                    <img src="logo_dark.png" alt="Kalydo Logo" class="h-12 sm:h-16 w-auto">
                 </div>
                 
                 <!-- Welcome Message -->
-                <p class="text-primary-focus text-lg font-medium">
+                <p class="text-primary-focus text-base sm:text-lg font-medium">
                     Vision That Thinks.
                 </p>
             </div>
 
             <!-- Login Form -->
-            <form class="mt-8 space-y-6" action="dashboard.html" method="GET">
-                <div class="space-y-4">
+            <form class="mt-6 sm:mt-8 space-y-4 sm:space-y-6" action="dashboard.html" method="GET">
+                <div class="space-y-3 sm:space-y-4">
                     <!-- ID Field -->
                     <div>
                         <label for="id" class="block text-sm font-medium text-primary-dark mb-2">
@@ -163,7 +269,7 @@
                             name="id"
                             type="text"
                             required
-                            class="input-focus w-full px-4 py-3 border-2 border-gray-200 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent text-sm bg-white backdrop-blur-sm transition-all duration-200"
+                            class="input-focus w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent text-sm bg-white backdrop-blur-sm transition-all duration-200"
                             placeholder="Enter Your ID"
                         />
                     </div>
@@ -178,7 +284,7 @@
                             name="password"
                             type="password"
                             required
-                            class="input-focus w-full px-4 py-3 border-2 border-gray-200 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent text-sm bg-white backdrop-blur-sm transition-all duration-200"
+                            class="input-focus w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-accent focus:border-primary-accent text-sm bg-white backdrop-blur-sm transition-all duration-200"
                             placeholder="Enter Password"
                         />
                     </div>
@@ -195,7 +301,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="btn-primary w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-accent transition duration-200"
+                        class="btn-primary w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-accent transition duration-200"
                     >
                         Login
                     </button>
